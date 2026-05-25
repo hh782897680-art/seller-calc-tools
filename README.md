@@ -54,6 +54,20 @@ npm run typecheck
 npm run build
 ```
 
+## Testing
+
+Calculator formulas are covered by Vitest unit tests in `lib/calc.test.ts`.
+
+1. After modifying or adding a calculator, run `npm run test`.
+2. When adding a calculator, add corresponding test cases in `lib/calc.test.ts`.
+3. Submit code only after both `npm run test` and `npm run build` pass.
+4. A new calculator without new tests is considered incomplete.
+
+```bash
+npm run test
+npm run build
+```
+
 ## Project Structure
 
 ```text
