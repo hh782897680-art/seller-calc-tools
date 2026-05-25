@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { calculators } from "@/data/calculators";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://sellercalctools.com";
+  const baseUrl = "https://ecomprofittools.com";
   const staticPages = ["", "/blog", "/about", "/privacy-policy", "/terms"];
   const calculatorPages = calculators.map(
     (calculator) => `/${calculator.slug}`,

@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Planned guides about ecommerce profit, fees, margins, ROAS, Shopify, Etsy, and Amazon FBA selling.",
   alternates: {
-    canonical: "https://sellercalctools.com/blog",
+    canonical: "https://ecomprofittools.com/blog",
   },
   openGraph: {
     title: "Ecommerce Calculator Guides | SellerCalcTools Blog",
     description:
       "Planned guides about ecommerce profit, seller fees, pricing, and advertising returns.",
-    url: "https://sellercalctools.com/blog",
+    url: "https://ecomprofittools.com/blog",
     type: "website",
   },
 };

@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | SellerCalcTools",
   description: "Privacy policy for SellerCalcTools.",
   alternates: {
-    canonical: "https://sellercalctools.com/privacy-policy",
+    canonical: "https://ecomprofittools.com/privacy-policy",
   },
 };
 

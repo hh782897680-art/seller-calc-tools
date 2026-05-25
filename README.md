@@ -88,7 +88,7 @@ public/                  Static brand assets
 3. Keep the default Next.js framework detection and build command
    (`npm run build`).
 4. Deploy, then connect the intended domain.
-5. Update `https://sellercalctools.com` in metadata, `app/sitemap.ts`, and
+5. Update `https://ecomprofittools.com` in metadata, `app/sitemap.ts`, and
    `app/robots.ts` if the production domain differs.
 
 No environment variables are required for this initial version.

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getCalculator, type CalculatorSlug } from "@/data/calculators";
 
-const siteUrl = "https://sellercalctools.com";
+const siteUrl = "https://ecomprofittools.com";
 
 export function calculatorMetadata(slug: CalculatorSlug): Metadata {
   const calculator = getCalculator(slug);

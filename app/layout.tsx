@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sellercalctools.com"),
+  metadataBase: new URL("https://ecomprofittools.com"),
   title: "SellerCalcTools",
   description:
     "Free ecommerce and business calculators for sellers, marketers, and small business owners.",

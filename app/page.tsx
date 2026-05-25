@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description:
     "Free calculators for Shopify sellers, Etsy sellers, Amazon FBA sellers, marketers, and small business owners. Calculate profit, margin, ROI, ROAS, break-even point, fees, and more.",
   alternates: {
-    canonical: "https://sellercalctools.com/",
+    canonical: "https://ecomprofittools.com/",
   },
   openGraph: {
     title: "Free Ecommerce & Business Calculators | SellerCalcTools",
     description:
       "Free calculators for Shopify sellers, Etsy sellers, Amazon FBA sellers, marketers, and small business owners.",
-    url: "https://sellercalctools.com/",
+    url: "https://ecomprofittools.com/",
     type: "website",
     siteName: "SellerCalcTools",
   },
