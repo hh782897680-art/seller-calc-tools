@@ -18,6 +18,7 @@ export default function Header() {
           <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-600 text-lg text-white">
             $
           </span>
+          <span className="inline sm:hidden">Ecom Tools</span>
           <span className="hidden sm:inline">Ecom Profit Tools</span>
         </Link>
         <nav aria-label="Main navigation">
