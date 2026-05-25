@@ -81,10 +81,13 @@ export default function CalculatorPage({
 
         <section>
           <h2 className="section-heading">How to use this calculator</h2>
-          <ol className="mt-5 space-y-3 text-base leading-8 text-slate-600">
+          <ol className="mt-5 list-none space-y-3 text-base leading-8 text-slate-600">
             {calculator.howToUse.map((step, index) => (
               <li className="flex gap-3" key={step}>
-                <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm font-bold text-brand-600">
+                <span
+                  aria-hidden="true"
+                  className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm font-bold text-brand-600"
+                >
                   {index + 1}
                 </span>
                 <span>{step}</span>
