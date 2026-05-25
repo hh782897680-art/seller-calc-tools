@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { calculators } from "@/data/calculators";
+import { blogPosts } from "@/data/blog-posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://ecomprofittools.com";
@@ -7,10 +8,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const calculatorPages = calculators.map(
     (calculator) => `/${calculator.slug}`,
   );
+  const articlePages = blogPosts.map((post) => `/blog/${post.slug}`);
 
-  return [...staticPages, ...calculatorPages].map((path) => ({
+  return [...staticPages, ...calculatorPages, ...articlePages].map((path) => ({
     url: `${baseUrl}${path}`,
     changeFrequency: path === "" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : path.includes("calculator") ? 0.8 : 0.5,
+    priority:
+      path === ""
+        ? 1
+        : path.includes("calculator")
+          ? 0.8
+          : path.startsWith("/blog/")
+            ? 0.6
+            : 0.5,
   }));
 }

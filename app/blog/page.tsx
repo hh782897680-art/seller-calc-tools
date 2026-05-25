@@ -1,60 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { blogPosts } from "@/data/blog-posts";
 
 export const metadata: Metadata = {
   title: "Ecommerce Calculator Guides | Ecom Profit Tools Blog",
   description:
-    "Planned guides about ecommerce profit, fees, margins, ROAS, Shopify, Etsy, and Amazon FBA selling.",
+    "Practical guides about ecommerce profit, fees, margins, ROAS, payment processing, and marketplace selling.",
   alternates: {
     canonical: "https://ecomprofittools.com/blog",
   },
   openGraph: {
     title: "Ecommerce Calculator Guides | Ecom Profit Tools Blog",
     description:
-      "Planned guides about ecommerce profit, seller fees, pricing, and advertising returns.",
+      "Practical guides about ecommerce profit, seller fees, pricing, payments, and advertising returns.",
     url: "https://ecomprofittools.com/blog",
     type: "website",
+    siteName: "Ecom Profit Tools",
   },
 };
-
-const posts = [
-  {
-    title: "How to calculate ecommerce profit",
-    category: "Profit",
-    description:
-      "A practical outline for tracking sales, product costs, shipping, advertising, and transaction fees.",
-  },
-  {
-    title: "Profit margin vs markup",
-    category: "Pricing",
-    description:
-      "Understand the two percentages sellers often confuse when setting a product price.",
-  },
-  {
-    title: "What is a good ROAS for ecommerce?",
-    category: "Advertising",
-    description:
-      "Learn why a sustainable advertising target depends on margin and customer value.",
-  },
-  {
-    title: "Shopify fees explained",
-    category: "Shopify",
-    description:
-      "Plan for payment fees, transaction costs, apps, shipping, and customer acquisition.",
-  },
-  {
-    title: "Etsy seller fees explained",
-    category: "Etsy",
-    description:
-      "A future guide to listing fees, processing charges, transactions, and offsite ads.",
-  },
-  {
-    title: "Amazon FBA profit explained",
-    category: "Amazon FBA",
-    description:
-      "A future guide to referral, fulfillment, storage, inbound shipping, and ad expense.",
-  },
-];
 
 export default function BlogPage() {
   return (
@@ -67,12 +30,12 @@ export default function BlogPage() {
           Ecommerce selling guides
         </h1>
         <p className="mt-5 text-lg leading-8 text-slate-600">
-          Practical educational content is coming soon. These planned articles
-          will help sellers use calculators with better cost and pricing inputs.
+          Understand the costs and metrics behind a profitable online store.
+          These guides help sellers use calculator inputs with confidence.
         </p>
       </div>
       <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => (
+        {blogPosts.map((post) => (
           <article className="surface-card flex flex-col p-6" key={post.title}>
             <p className="text-xs font-semibold uppercase tracking-widest text-brand-600">
               {post.category}
@@ -81,8 +44,12 @@ export default function BlogPage() {
             <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">
               {post.description}
             </p>
-            <Link className="mt-6 text-sm font-semibold text-brand-600" href="#">
-              Coming soon <span aria-hidden="true">&rarr;</span>
+            <p className="mt-5 text-xs font-medium text-slate-500">{post.readTime}</p>
+            <Link
+              className="mt-4 text-sm font-semibold text-brand-600"
+              href={`/blog/${post.slug}`}
+            >
+              Read guide <span aria-hidden="true">&rarr;</span>
             </Link>
           </article>
         ))}
