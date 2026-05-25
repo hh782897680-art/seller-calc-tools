@@ -1,6 +1,6 @@
-# SellerCalcTools
+# Ecom Profit Tools
 
-SellerCalcTools is an English-language calculator website for ecommerce sellers,
+Ecom Profit Tools is an English-language calculator website for ecommerce sellers,
 marketers, and small business owners. The first release includes eight free
 tools for Shopify, Etsy, Amazon FBA, profit margin, markup, ROI, ROAS, and
 break-even planning.
@@ -104,7 +104,7 @@ No environment variables are required for this initial version.
 
 ## Disclaimer
 
-SellerCalcTools supplies general calculation and educational information only.
+Ecom Profit Tools supplies general calculation and educational information only.
 Results are estimates and are not financial, tax, accounting, or legal advice.
 Users should verify fee schedules, assumptions, and results before making
 business decisions.

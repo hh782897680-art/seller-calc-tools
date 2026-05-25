@@ -16,7 +16,7 @@ export function calculatorMetadata(slug: CalculatorSlug): Metadata {
     openGraph: {
       type: "website",
       url,
-      siteName: "SellerCalcTools",
+      siteName: "Ecom Profit Tools",
       title: calculator.seoTitle,
       description: calculator.seoDescription,
     },

@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className="mt-20 border-t border-slate-200 bg-white">
       <div className="page-container grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <p className="text-lg font-bold text-ink">SellerCalcTools</p>
+          <p className="text-lg font-bold text-ink">Ecom Profit Tools</p>
           <p className="mt-3 max-w-sm text-sm leading-6 text-slate-600">
             Free ecommerce and business calculators for sellers, marketers, and
             small business owners.
@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-slate-100 py-5 text-center text-sm text-slate-500">
-        &copy; {new Date().getFullYear()} SellerCalcTools. All rights reserved.
+        &copy; {new Date().getFullYear()} Ecom Profit Tools. All rights reserved.
       </div>
     </footer>
   );

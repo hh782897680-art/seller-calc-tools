@@ -6,19 +6,19 @@ import FAQ from "@/components/FAQ";
 import { calculators, homeFaqs } from "@/data/calculators";
 
 export const metadata: Metadata = {
-  title: "Free Ecommerce & Business Calculators | SellerCalcTools",
+  title: "Free Ecommerce & Business Calculators | Ecom Profit Tools",
   description:
     "Free calculators for Shopify sellers, Etsy sellers, Amazon FBA sellers, marketers, and small business owners. Calculate profit, margin, ROI, ROAS, break-even point, fees, and more.",
   alternates: {
     canonical: "https://ecomprofittools.com/",
   },
   openGraph: {
-    title: "Free Ecommerce & Business Calculators | SellerCalcTools",
+    title: "Free Ecommerce & Business Calculators | Ecom Profit Tools",
     description:
       "Free calculators for Shopify sellers, Etsy sellers, Amazon FBA sellers, marketers, and small business owners.",
     url: "https://ecomprofittools.com/",
     type: "website",
-    siteName: "SellerCalcTools",
+    siteName: "Ecom Profit Tools",
   },
 };
 
@@ -115,7 +115,7 @@ export default function HomePage() {
       <section className="bg-white py-16">
         <div className="page-container">
           <div className="max-w-2xl">
-            <h2 className="section-heading">Why use SellerCalcTools?</h2>
+            <h2 className="section-heading">Why use Ecom Profit Tools?</h2>
             <p className="mt-4 leading-7 text-slate-600">
               A sale is only useful when it supports a healthy business. Use
               straightforward estimates to make better informed selling choices.

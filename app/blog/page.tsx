@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Ecommerce Calculator Guides | SellerCalcTools Blog",
+  title: "Ecommerce Calculator Guides | Ecom Profit Tools Blog",
   description:
     "Planned guides about ecommerce profit, fees, margins, ROAS, Shopify, Etsy, and Amazon FBA selling.",
   alternates: {
     canonical: "https://ecomprofittools.com/blog",
   },
   openGraph: {
-    title: "Ecommerce Calculator Guides | SellerCalcTools Blog",
+    title: "Ecommerce Calculator Guides | Ecom Profit Tools Blog",
     description:
       "Planned guides about ecommerce profit, seller fees, pricing, and advertising returns.",
     url: "https://ecomprofittools.com/blog",

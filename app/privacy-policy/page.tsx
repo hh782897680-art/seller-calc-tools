@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | SellerCalcTools",
-  description: "Privacy policy for SellerCalcTools.",
+  title: "Privacy Policy | Ecom Profit Tools",
+  description: "Privacy policy for Ecom Profit Tools.",
   alternates: {
     canonical: "https://ecomprofittools.com/privacy-policy",
   },
@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
         <section>
           <h2 className="text-2xl font-semibold text-ink">Overview</h2>
           <p className="mt-3">
-            SellerCalcTools provides browser-based calculators and educational
+            Ecom Profit Tools provides browser-based calculators and educational
             information. This policy describes the basic way information may be
             handled when you visit this website.
           </p>
@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
           <p className="mt-3">
             Calculator entries are processed in your browser. The current
             version does not require accounts or transmit calculator inputs to a
-            SellerCalcTools database.
+            Ecom Profit Tools database.
           </p>
         </section>
         <section>

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Use | SellerCalcTools",
-  description: "Basic terms of use for SellerCalcTools calculators and content.",
+  title: "Terms of Use | Ecom Profit Tools",
+  description: "Basic terms of use for Ecom Profit Tools calculators and content.",
   alternates: {
     canonical: "https://ecomprofittools.com/terms",
   },
@@ -17,7 +17,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-2xl font-semibold text-ink">Use of the website</h2>
           <p className="mt-3">
-            SellerCalcTools offers free calculators and educational content for
+            Ecom Profit Tools offers free calculators and educational content for
             business planning. You may use the website for lawful personal or
             business information purposes.
           </p>
@@ -43,7 +43,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-2xl font-semibold text-ink">Limitation</h2>
           <p className="mt-3">
-            To the extent permitted by law, SellerCalcTools is not responsible
+            To the extent permitted by law, Ecom Profit Tools is not responsible
             for losses or decisions made in reliance on calculations or website
             content. Users remain responsible for checking all results.
           </p>

@@ -38,7 +38,7 @@ export const calculators: CalculatorData[] = [
     category: "Ecommerce Profit",
     shortDescription:
       "Estimate Shopify store revenue, fees, advertising cost, net profit, margin, ROI, and break-even ROAS.",
-    seoTitle: "Shopify Profit Calculator - Free Store Profit Tool | SellerCalcTools",
+    seoTitle: "Shopify Profit Calculator - Free Store Profit Tool | Ecom Profit Tools",
     seoDescription:
       "Calculate Shopify profit, margin, ROI, fees, and break-even ROAS from product, shipping, ad, and payment costs with this free seller tool.",
     formula: [
@@ -101,7 +101,7 @@ export const calculators: CalculatorData[] = [
     category: "Marketplace Fees",
     shortDescription:
       "Estimate Etsy transaction, payment processing, listing, and optional offsite ad fees alongside your net profit.",
-    seoTitle: "Etsy Fee Calculator - Estimate Seller Profit | SellerCalcTools",
+    seoTitle: "Etsy Fee Calculator - Estimate Seller Profit | Ecom Profit Tools",
     seoDescription:
       "Estimate Etsy listing, transaction, payment processing, and offsite ads fees, then calculate net profit and margin for an Etsy sale.",
     formula: [
@@ -164,7 +164,7 @@ export const calculators: CalculatorData[] = [
     category: "Marketplace Profit",
     shortDescription:
       "Model Amazon FBA revenue, referral and fulfillment fees, inventory costs, advertising, margin, and ROI.",
-    seoTitle: "Amazon FBA Profit Calculator - Free Seller Tool | SellerCalcTools",
+    seoTitle: "Amazon FBA Profit Calculator - Free Seller Tool | Ecom Profit Tools",
     seoDescription:
       "Calculate estimated Amazon FBA profit, referral fees, fulfillment costs, margin, ROI, and profit per unit for your product.",
     formula: [
@@ -228,7 +228,7 @@ export const calculators: CalculatorData[] = [
     category: "Business Fundamentals",
     shortDescription:
       "Turn revenue and cost into gross profit, profit margin, and markup for fast pricing analysis.",
-    seoTitle: "Profit Margin Calculator for Sellers | SellerCalcTools",
+    seoTitle: "Profit Margin Calculator for Sellers | Ecom Profit Tools",
     seoDescription:
       "Calculate gross profit, profit margin, and markup from revenue and cost with a free tool for ecommerce sellers and small businesses.",
     formula: [
@@ -287,7 +287,7 @@ export const calculators: CalculatorData[] = [
     category: "Pricing",
     shortDescription:
       "Set a markup above cost and see the resulting selling price, dollar profit, and profit margin.",
-    seoTitle: "Markup Calculator - Price Products from Cost | SellerCalcTools",
+    seoTitle: "Markup Calculator - Price Products from Cost | Ecom Profit Tools",
     seoDescription:
       "Calculate a selling price, profit, and margin from product cost and markup percentage for ecommerce and small business pricing.",
     formula: [
@@ -346,7 +346,7 @@ export const calculators: CalculatorData[] = [
     category: "Performance",
     shortDescription:
       "Measure net return and return on investment for inventory, software, promotions, or business projects.",
-    seoTitle: "ROI Calculator - Return on Investment Tool | SellerCalcTools",
+    seoTitle: "ROI Calculator - Return on Investment Tool | Ecom Profit Tools",
     seoDescription:
       "Calculate net return and ROI percentage from investment cost and return amount for ecommerce and small business decisions.",
     formula: [
@@ -404,7 +404,7 @@ export const calculators: CalculatorData[] = [
     category: "Advertising",
     shortDescription:
       "Calculate return on ad spend and revenue after advertising cost for ecommerce campaign review.",
-    seoTitle: "ROAS Calculator for Ecommerce Ads | SellerCalcTools",
+    seoTitle: "ROAS Calculator for Ecommerce Ads | Ecom Profit Tools",
     seoDescription:
       "Calculate ROAS from advertising spend and attributed revenue, with a clear view of revenue less ad spend for ecommerce campaigns.",
     formula: [
@@ -462,7 +462,7 @@ export const calculators: CalculatorData[] = [
     category: "Planning",
     shortDescription:
       "Find contribution margin, units needed to recover fixed costs, and the revenue required to break even.",
-    seoTitle: "Break Even Calculator for Small Business | SellerCalcTools",
+    seoTitle: "Break Even Calculator for Small Business | Ecom Profit Tools",
     seoDescription:
       "Calculate break-even units and revenue from fixed costs, price per unit, and variable unit cost for ecommerce planning.",
     formula: [
@@ -519,7 +519,7 @@ export const calculators: CalculatorData[] = [
 
 export const homeFaqs: FAQItem[] = [
   {
-    question: "Are SellerCalcTools calculators free to use?",
+    question: "Are Ecom Profit Tools calculators free to use?",
     answer:
       "Yes. The calculators are free, work in your browser, and do not require an account.",
   },

@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About SellerCalcTools | Free Seller Calculators",
+  title: "About Ecom Profit Tools | Free Seller Calculators",
   description:
-    "SellerCalcTools provides free browser-based calculators that help ecommerce sellers and small businesses estimate profit, fees, ROI, and ad returns.",
+    "Ecom Profit Tools provides free browser-based calculators that help ecommerce sellers and small businesses estimate profit, fees, ROI, and ad returns.",
   alternates: {
     canonical: "https://ecomprofittools.com/about",
   },
   openGraph: {
-    title: "About SellerCalcTools | Free Seller Calculators",
+    title: "About Ecom Profit Tools | Free Seller Calculators",
     description:
       "Free calculators built to help ecommerce sellers and small business owners plan with clear estimates.",
     url: "https://ecomprofittools.com/about",
@@ -28,7 +28,7 @@ export default function AboutPage() {
       </h1>
       <div className="mt-8 space-y-5 text-lg leading-8 text-slate-600">
         <p>
-          SellerCalcTools is a free tool website for Shopify, Etsy, Amazon FBA,
+          Ecom Profit Tools is a free tool website for Shopify, Etsy, Amazon FBA,
           independent store sellers, marketers, and small business owners. It is
           designed to make common business calculations quick to run and easy to
           understand.
