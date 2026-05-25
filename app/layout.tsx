@@ -7,6 +7,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ecomprofittools.com"),
+  verification: {
+    google: "XeuV7TT5f4SAPYLKoCRzEIPcLEG0r8F25pIlf4AbNaY",
+  },
   title: "Ecom Profit Tools",
   description:
     "Free ecommerce and business calculators for sellers, marketers, and small business owners.",
