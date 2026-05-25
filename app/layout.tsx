@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import type { ReactNode } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="min-h-screen">
         <Header />
+        <GoogleAnalytics />
         {children}
         <Footer />
       </body>
