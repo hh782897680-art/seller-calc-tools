@@ -1,0 +1,71 @@
+name: Weekly content plan
+
+on:
+  schedule:
+    - cron: "0 1 * * 1"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  create-content-plan-issue:
+    name: Create weekly content planning issue
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create issue when no matching open plan exists
+        uses: actions/github-script@v9
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const title = "Weekly content plan - Ecom Profit Tools";
+            const body = `## 本周建议新增计算器：
+
+            1. /discount-calculator
+            2. /sales-tax-calculator
+            3. /cac-calculator
+            4. /lifetime-value-calculator
+            5. /cost-per-click-calculator
+
+            ## 本周建议新增博客：
+
+            1. /blog/how-to-calculate-discounts
+            2. /blog/sales-tax-for-online-sellers
+            3. /blog/customer-acquisition-cost-for-ecommerce
+
+            ## 开发要求：
+
+            - 每个新增计算器必须加入 data/calculators.ts
+            - 每个新增计算器必须加入 lib/calc.ts
+            - 每个新增计算器必须有独立页面
+            - 每个新增计算器必须加入 lib/calc.test.ts
+            - 每个新增页面必须进入 sitemap
+            - 每个页面必须有 metadata、canonical、Open Graph
+            - 每个页面必须有相关内链
+            - 完成后必须运行 npm run test
+            - 完成后必须运行 npm run build
+            - 两个都通过才能提交`;
+
+            const listOpenIssues = github.rest.issues.listForRepo.endpoint.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              per_page: 100,
+            });
+            const openIssues = await github.paginate(listOpenIssues);
+            const existingIssue = openIssues.find(
+              (issue) => !issue.pull_request && issue.title === title,
+            );
+
+            if (existingIssue) {
+              core.info(`Open weekly plan issue already exists: #${existingIssue.number}`);
+              return;
+            }
+
+            const createdIssue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+            });
+            core.info(`Created weekly plan issue: #${createdIssue.data.number}`);
