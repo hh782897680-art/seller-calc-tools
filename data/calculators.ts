@@ -6,7 +6,12 @@ export type CalculatorSlug =
   | "markup-calculator"
   | "roi-calculator"
   | "roas-calculator"
-  | "break-even-calculator";
+  | "break-even-calculator"
+  | "paypal-fee-calculator"
+  | "stripe-fee-calculator"
+  | "ebay-fee-calculator"
+  | "tiktok-shop-profit-calculator"
+  | "woocommerce-profit-calculator";
 
 export interface FAQItem {
   question: string;
@@ -511,6 +516,312 @@ export const calculators: CalculatorData[] = [
       "Enter selling price per unit and variable expense incurred for each unit sold.",
       "Review contribution margin and break-even units; round required units up for a real sales target.",
       "Model price or cost changes to see what improves the required sales volume.",
+    ],
+    affiliateMessage:
+      "Need better tools for your business? Explore recommended seller tools.",
+  },
+  {
+    slug: "paypal-fee-calculator",
+    name: "PayPal Fee Calculator",
+    category: "Payment Fees",
+    shortDescription:
+      "Estimate a PayPal transaction fee, the amount you keep, and the effective fee rate from a payment received.",
+    seoTitle: "PayPal Fee Calculator - Estimate Payment Fees | Ecom Profit Tools",
+    seoDescription:
+      "Estimate PayPal payment fees and net amount received using an editable percentage and fixed fee for ecommerce payment planning.",
+    formula: [
+      "PayPal fee = Amount received x Fee percentage / 100 + Fixed fee",
+      "Net amount = Amount received - PayPal fee",
+      "Fee rate = PayPal fee / Amount received x 100",
+    ],
+    example:
+      "If you receive $100 and enter a 3.49% percentage fee plus a $0.49 fixed fee, the estimated PayPal fee is $3.98. The net amount remaining is $96.02, and the effective fee rate is 3.98% because the fixed charge increases the percentage paid on this particular transaction.",
+    faqs: [
+      {
+        question: "Are the default PayPal fee fields guaranteed to match my account?",
+        answer:
+          "No. The defaults are editable planning inputs. Rates can vary by product, country, currency, transaction type, and account agreement, so confirm the rate that applies to your payment.",
+      },
+      {
+        question: "Why is the effective fee rate higher than the percentage field?",
+        answer:
+          "The effective fee rate includes the fixed fee as well as the percentage fee. Fixed charges have a larger impact on lower-value payments.",
+      },
+      {
+        question: "Does this include currency conversion, disputes, or refunds?",
+        answer:
+          "No. This is a simple transaction-fee estimate. Include additional charges separately when they are relevant to your sales.",
+      },
+    ],
+    relatedSlugs: [
+      "stripe-fee-calculator",
+      "woocommerce-profit-calculator",
+      "profit-margin-calculator",
+    ],
+    whatIs: [
+      "A PayPal fee calculator estimates how much of an incoming payment is deducted as a processing charge and how much remains available to the seller. For an online merchant, payment fees are easy to overlook when reviewing gross sales, especially when products have low prices or narrow margins. A fixed amount on every payment can materially affect small orders.",
+      "This tool is intended for planning a single received payment. You can change both the percentage and fixed fee rather than relying on one universal rate. That matters because payment arrangements can differ by market, currency, checkout product, seller location, nonprofit or micropayment program, and other account terms.",
+    ],
+    howToCalculate: [
+      "Enter the gross amount received from the customer. Multiply it by the fee percentage divided by 100, then add the fixed fee. Subtract that estimated charge from the gross payment to see the net amount. The tool also shows an effective fee rate by dividing the full estimated fee by the amount received.",
+      "The effective rate makes transaction size easier to compare. A fixed fee contributes a smaller portion of a large order and a larger portion of a small one. When the received amount is zero, an effective percentage cannot be calculated, so the output is shown as N/A rather than a misleading value.",
+    ],
+    whyItMatters: [
+      "Ecommerce sellers need payment cost included in pricing, promotion, and channel comparisons. If a low-priced product looks profitable before processing charges, several small payments may produce less margin than a bundle or higher minimum order. Checking net receipts supports more realistic profitability estimates.",
+      "Use this result alongside product, shipping, advertising, marketplace, tax, and refund assumptions rather than calling the net payment full profit. Review actual transaction statements before making major pricing changes. This calculator provides an editable educational estimate and does not determine the fees charged by PayPal.",
+    ],
+    howToUse: [
+      "Enter the payment amount you expect to receive from a customer.",
+      "Confirm or edit the percentage and fixed fee assumptions for your transaction type.",
+      "Review the fee, net amount, and effective rate, then copy results for a pricing note.",
+      "Compare order sizes or payment options using consistent rate assumptions.",
+    ],
+    affiliateMessage:
+      "Need better tools for your business? Explore recommended seller tools.",
+  },
+  {
+    slug: "stripe-fee-calculator",
+    name: "Stripe Fee Calculator",
+    category: "Payment Fees",
+    shortDescription:
+      "Estimate a Stripe transaction fee and net payout amount using editable processing fee assumptions.",
+    seoTitle: "Stripe Fee Calculator - Estimate Net Payment | Ecom Profit Tools",
+    seoDescription:
+      "Estimate Stripe processing fees, net payment amount, and effective fee rate with an editable fee calculator for online sellers.",
+    formula: [
+      "Stripe fee = Amount received x Fee percentage / 100 + Fixed fee",
+      "Net amount = Amount received - Stripe fee",
+      "Fee rate = Stripe fee / Amount received x 100",
+    ],
+    example:
+      "For a $100 payment using a 2.9% percentage fee and a $0.30 fixed fee, the estimated Stripe fee is $3.20. The remaining net amount is $96.80. Because the fixed fee is included, the effective fee rate for this order is 3.20%, rather than simply the entered percentage.",
+    faqs: [
+      {
+        question: "Does Stripe charge the same rate for every payment?",
+        answer:
+          "Not necessarily. The editable defaults are an estimate. Pricing can vary by country, payment method, currency conversion, international card use, billing product, or custom agreement.",
+      },
+      {
+        question: "Should I enter sales tax or shipping in amount received?",
+        answer:
+          "Enter the payment total that the fee is calculated on for your scenario. Check your processing reports and applicable checkout setup to confirm the correct base amount.",
+      },
+      {
+        question: "Is net amount the same as product profit?",
+        answer:
+          "No. Net amount here means the payment after the modeled Stripe fee; product, fulfillment, advertising, tax, refund, and overhead costs may still apply.",
+      },
+    ],
+    relatedSlugs: [
+      "paypal-fee-calculator",
+      "woocommerce-profit-calculator",
+      "shopify-profit-calculator",
+    ],
+    whatIs: [
+      "A Stripe fee calculator helps an online seller estimate processing cost before evaluating a direct-to-consumer payment. Stores that use a hosted ecommerce checkout, custom website, subscription flow, invoice, or payment link may collect revenue through Stripe while still needing to account for the portion removed before funds are available.",
+      "This calculator accepts a gross amount, percentage charge, and fixed charge. Those fee inputs remain editable because payment method and account pricing are not identical for every merchant or transaction. It is useful as a quick estimate during product pricing, checkout planning, or comparison between direct-store and marketplace sales.",
+    ],
+    howToCalculate: [
+      "Multiply the amount received by the entered percentage fee divided by 100. Add the fixed processing charge to produce an estimated Stripe fee. Subtract the fee from the payment amount to obtain net amount. Dividing fee by payment amount produces the effective rate shown in the results.",
+      "An effective rate is helpful when fixed charges matter. For example, breaking a purchase into several small payments may cost more than processing a single equivalent order. A zero-dollar payment has no meaningful effective rate, so the calculator safely presents N/A in that case.",
+    ],
+    whyItMatters: [
+      "Direct store owners may avoid some marketplace charges but they do not avoid payment processing. A fee estimate helps merchants price add-ons, choose minimum order thresholds, judge discount offers, and incorporate processing expense into a fuller profit model. It also prevents reporting gross checkout totals as money retained.",
+      "The result should be combined with cost of goods, delivery, paid acquisition, apps, hosting, fraud, disputes, and returns where applicable. Use editable inputs drawn from your own account terms and actual statements. The calculation is for general planning and is not a statement of current Stripe pricing or financial advice.",
+    ],
+    howToUse: [
+      "Enter the gross checkout payment or invoice amount being evaluated.",
+      "Use the editable default percentage and fixed fee or replace them with your applicable terms.",
+      "Review estimated Stripe fee, amount retained, and effective cost percentage.",
+      "Copy the result or test different order values before setting prices or discounts.",
+    ],
+    affiliateMessage:
+      "Need better tools for your business? Explore recommended seller tools.",
+  },
+  {
+    slug: "ebay-fee-calculator",
+    name: "eBay Fee Calculator",
+    category: "Marketplace Fees",
+    shortDescription:
+      "Estimate eBay final value and optional promoted listing fees, then calculate order profit and margin.",
+    seoTitle: "eBay Fee Calculator - Estimate Seller Profit | Ecom Profit Tools",
+    seoDescription:
+      "Estimate eBay final value fees, promoted listing charges, total cost, net profit, and margin for a seller order.",
+    formula: [
+      "Total revenue = Sale price + Shipping charged",
+      "eBay fee = Total revenue x Final value fee percentage / 100 + Fixed order fee",
+      "Promoted listing fee = Total revenue x Promoted listing ad rate / 100",
+      "Total cost = Item cost + Shipping cost + eBay fee + Promoted listing fee",
+      "Net profit = Total revenue - Total cost",
+      "Profit margin = Net profit / Total revenue x 100",
+    ],
+    example:
+      "A $60 sale that charges $8 shipping produces $68 total revenue. With $24 item cost, $7 shipping cost, a 13.25% final value fee plus $0.30 order fee, and a 5% promoted listing rate, estimated eBay fee is $9.31 and promoted fee is $3.40. Total cost is $43.71, leaving $24.29 profit and a 35.72% margin.",
+    faqs: [
+      {
+        question: "Is the default final value fee right for every eBay category?",
+        answer:
+          "No. Fees can differ by category, store plan, seller status, country, order value, and policy. Replace the default with the rate relevant to your listing.",
+      },
+      {
+        question: "When should promoted listing ad rate be zero?",
+        answer:
+          "Leave it at zero if you are modeling an order without a promoted listing charge. Enter your assumed ad rate when you want to test an attributed promoted sale.",
+      },
+      {
+        question: "Does this include every possible eBay charge?",
+        answer:
+          "No. Taxes, regulatory charges, international fees, optional upgrades, returns, discounts, and other account-specific costs may need separate consideration.",
+      },
+    ],
+    relatedSlugs: [
+      "etsy-fee-calculator",
+      "amazon-fba-profit-calculator",
+      "profit-margin-calculator",
+    ],
+    whatIs: [
+      "An eBay fee calculator estimates the money remaining from a marketplace order after the seller pays item cost, delivery cost, final value fees, and an optional promoted listing charge. Buyers may pay shipping in addition to item price, while seller fees may be calculated using the collected order amount, so both revenue fields are included.",
+      "The calculator focuses on a representative order rather than trying to infer a seller account or category automatically. Fee schedules and advertising participation vary, so its rate and fixed-order fields are deliberately editable. This makes it useful for preparing a listing, evaluating a promotion, or reviewing whether an item still works at a discounted price.",
+    ],
+    howToCalculate: [
+      "Add sale price and shipping collected to determine modeled revenue. Multiply that revenue by the entered final value fee percentage, then add the fixed order charge. When modeling promoted listings, apply the advertising percentage to revenue as a separate fee. Add both fees to the item and shipping costs you pay.",
+      "Subtract total cost from total revenue for net profit. Divide that profit by revenue for margin. A negative result indicates that the listed cost and fee assumptions exceed the amount collected. The formula does not infer taxes, return losses, optional listing upgrades, or seller-specific fee adjustments.",
+    ],
+    whyItMatters: [
+      "Marketplace sellers often compare items by sale price while overlooking how shipping collections, advertising, and category fees influence the final margin. Modeling the order first can prevent promoting a listing whose additional visibility produces revenue but insufficient profit. It can also help decide whether to bundle items or revise shipping strategy.",
+      "Use actual category fees and order reports whenever available, especially before increasing inventory or advertising. Results are educational estimates rather than a fee quote from eBay or professional accounting advice. Profit decisions should incorporate refunds, taxes, labor, packaging, overhead, and other relevant business costs.",
+    ],
+    howToUse: [
+      "Enter the sale amount, shipping collected, item cost, and shipping expense for one modeled order.",
+      "Replace the final value percentage and fixed fee with assumptions applicable to your listing.",
+      "Enter a promoted listing rate only if the scenario should include that charge.",
+      "Review profit and margin, then test price or promotion changes before publishing.",
+    ],
+    affiliateMessage:
+      "Need better tools for your business? Explore recommended seller tools.",
+  },
+  {
+    slug: "tiktok-shop-profit-calculator",
+    name: "TikTok Shop Profit Calculator",
+    category: "Social Commerce",
+    shortDescription:
+      "Model TikTok Shop revenue, seller fees, campaign costs, per-unit profit, margin, and ROI.",
+    seoTitle: "TikTok Shop Profit Calculator for Sellers | Ecom Profit Tools",
+    seoDescription:
+      "Calculate estimated TikTok Shop profit, seller fees, cost, profit per unit, margin, and ROI from your sales assumptions.",
+    formula: [
+      "Revenue = Selling price x Units sold",
+      "TikTok fees = Revenue x TikTok fee percentage / 100",
+      "Total cost = (Product cost x Units sold) + (Shipping cost x Units sold) + TikTok fees + Ad cost + Other cost",
+      "Net profit = Revenue - Total cost",
+      "Profit per unit = Net profit / Units sold",
+      "Profit margin = Net profit / Revenue x 100",
+      "ROI = Net profit / Total cost x 100",
+    ],
+    example:
+      "If 10 units sell for $32 each, revenue is $320. With $10 product cost and $4 shipping cost per unit, a 6% fee, $35 total ad cost, and $5 total other cost, TikTok fees are $19.20 and total cost is $199.20. Net profit is $120.80, or $12.08 per unit, with a 37.75% margin and 60.64% ROI.",
+    faqs: [
+      {
+        question: "Is the default TikTok Shop fee percentage always applicable?",
+        answer:
+          "No. Use it as an editable estimate only. Seller fees can depend on market, category, promotion, program terms, and policy changes.",
+      },
+      {
+        question: "Are ad cost and other cost entered per unit?",
+        answer:
+          "In this calculator, product and shipping costs are per unit. Ad cost and other cost are entered as totals for the units sold in the modeled period.",
+      },
+      {
+        question: "Does this include creator commissions or returns?",
+        answer:
+          "Only if you include them in Other cost. Add commissions, samples, refunds, packaging, discounts, or other expenses that apply to your analysis.",
+      },
+    ],
+    relatedSlugs: [
+      "shopify-profit-calculator",
+      "roas-calculator",
+      "profit-margin-calculator",
+    ],
+    whatIs: [
+      "A TikTok Shop profit calculator estimates whether social-commerce orders remain profitable after products are fulfilled and platform-related expenses are considered. Video-driven discovery can produce rapid order volume, but revenue can be reduced by seller fees, paid promotion, shipping subsidies, creator arrangements, samples, and other operating costs.",
+      "This tool models multiple units in one scenario. Selling price, product cost, and shipping cost are applied per unit. Advertising and other cost fields are period totals, making it practical to enter a campaign spend or combined allowance associated with the units sold. The results show total and per-unit performance.",
+    ],
+    howToCalculate: [
+      "Multiply selling price by units sold to find revenue. Apply the entered TikTok fee percentage to that revenue. Multiply per-unit product and shipping expense by units, then add fee expense, total ad cost, and total other cost. Revenue minus this sum is net profit.",
+      "Profit per unit supports comparisons between products or creator offers. Margin expresses profit relative to sales, while ROI expresses profit relative to entered cost. If no units or revenue are entered, percentage outputs that require division show N/A to avoid presenting undefined performance.",
+    ],
+    whyItMatters: [
+      "A social commerce campaign can appear successful from sales counts and views while losing money after promotion and fulfillment. Estimating profit before raising spend helps sellers decide on price, free shipping, affiliate commission allowances, sample budgets, and the amount they can afford to pay to generate orders.",
+      "The model is only as accurate as its assumptions. Replace general fee inputs with current terms applicable to your market, and compare estimates with actual order and campaign reports. Returns, taxes, creator commissions, discounts, and overhead should be included where relevant. Results are planning information, not financial advice.",
+    ],
+    howToUse: [
+      "Enter sale price, per-unit product expense, per-unit shipping expense, and units sold.",
+      "Set an estimated TikTok seller fee percentage for the relevant market or program.",
+      "Enter total advertising and other costs allocated to those sales.",
+      "Review profit, unit economics, margin, and ROI before changing your campaign plan.",
+    ],
+    affiliateMessage:
+      "Need better tools for your business? Explore recommended seller tools.",
+  },
+  {
+    slug: "woocommerce-profit-calculator",
+    name: "WooCommerce Profit Calculator",
+    category: "Independent Store",
+    shortDescription:
+      "Estimate WooCommerce order profit after inventory, shipping, payment processing, hosting, plugins, and advertising.",
+    seoTitle: "WooCommerce Profit Calculator - Store Profit Tool | Ecom Profit Tools",
+    seoDescription:
+      "Calculate WooCommerce store profit, payment fees, profit per unit, margin, and ROI with hosting, plugins, and ad costs included.",
+    formula: [
+      "Revenue = Selling price x Units sold",
+      "Payment fees = Revenue x Payment fee percentage / 100 + Fixed transaction fee x Units sold",
+      "Total cost = (Product cost x Units sold) + (Shipping cost x Units sold) + Payment fees + Plugin or hosting cost + Ad cost",
+      "Net profit = Revenue - Total cost",
+      "Profit per unit = Net profit / Units sold",
+      "Profit margin = Net profit / Revenue x 100",
+      "ROI = Net profit / Total cost x 100",
+    ],
+    example:
+      "A WooCommerce store selling 10 units at $50 creates $500 revenue. With $18 product cost and $5 shipping cost per unit, 2.9% plus $0.30 payment fees, $20 allocated plugin or hosting cost, and $60 advertising spend, payment fees are $17.50. Total cost is $327.50, leaving $172.50 net profit, $17.25 per unit, 34.50% margin, and 52.67% ROI.",
+    faqs: [
+      {
+        question: "Does WooCommerce itself determine the payment fee?",
+        answer:
+          "Payment processing depends on the gateway and account terms you use with the store. Edit the percentage and fixed transaction fee to reflect the scenario you want to model.",
+      },
+      {
+        question: "How should I enter plugin or hosting costs?",
+        answer:
+          "Allocate the portion of recurring or one-time store costs relevant to the units or period being measured. Keep that allocation consistent when comparing scenarios.",
+      },
+      {
+        question: "What other costs might need inclusion?",
+        answer:
+          "Consider taxes, returns, packaging, labor, subscriptions, gateway add-ons, chargebacks, discounts, and any advertising or affiliate costs relevant to your store.",
+      },
+    ],
+    relatedSlugs: [
+      "stripe-fee-calculator",
+      "paypal-fee-calculator",
+      "shopify-profit-calculator",
+    ],
+    whatIs: [
+      "A WooCommerce profit calculator estimates earnings for an independent online store built on WordPress and WooCommerce. Owning the storefront can provide control over checkout and customer relationships, but it does not remove product, fulfillment, payment gateway, marketing, hosting, and plugin expenses.",
+      "This tool measures a set of units sold. Selling price, product cost, shipping cost, and fixed transaction fee scale with unit count. Payment percentage applies to revenue, while allocated plugin or hosting cost and advertising spend are entered as totals for the scenario. This gives sellers a convenient period or campaign estimate.",
+    ],
+    howToCalculate: [
+      "Multiply price by units for revenue. Payment fees consist of a percentage of revenue plus the fixed transaction charge for each sale. Multiply inventory and shipping expenses by unit count, then add payment fees, allocated plugin or hosting expense, and advertising cost. Subtract total cost from revenue for profit.",
+      "The result also provides profit per unit, margin, and ROI. These measures answer different questions: retained dollars per item, profit as a percentage of sales, and profit compared with modeled costs. Division-dependent values show N/A when there is no meaningful denominator.",
+    ],
+    whyItMatters: [
+      "Independent-store sellers sometimes compare WooCommerce with hosted or marketplace platforms using only headline fees. A realistic comparison also needs hosting, premium plugins, payment processing, acquisition cost, shipping, support, and ongoing maintenance. Modeling these expenses helps reveal whether a product price supports the channel.",
+      "Use this calculator before promotions, paid traffic increases, subscription purchases, or pricing decisions, then replace estimates with real gateway, advertising, and expense reports. Not every store has the same plugins or processing arrangement, so all fee assumptions should be verified. Outputs are educational estimates rather than accounting, legal, or tax guidance.",
+    ],
+    howToUse: [
+      "Enter your per-unit selling price, product cost, shipping cost, and number of units.",
+      "Set payment processing assumptions using the applicable percentage and fixed charge.",
+      "Allocate plugin or hosting expense and advertising cost for the modeled sales period.",
+      "Evaluate net profit, per-unit profit, margin, and ROI before changing pricing or spend.",
     ],
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",

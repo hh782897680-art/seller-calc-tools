@@ -242,3 +242,127 @@ export function calculateBreakEven(input: BreakEvenInput) {
     breakEvenRevenue,
   };
 }
+
+export interface PaymentFeeInput {
+  amountReceived: number;
+  feePercentage: number;
+  fixedFee: number;
+}
+
+function calculatePaymentFee(input: PaymentFeeInput) {
+  const fee =
+    input.amountReceived * (input.feePercentage / 100) + input.fixedFee;
+  const netAmount = input.amountReceived - fee;
+
+  return {
+    fee,
+    netAmount,
+    feeRate: divideOrNull(fee * 100, input.amountReceived),
+  };
+}
+
+export function calculatePayPalFee(input: PaymentFeeInput) {
+  return calculatePaymentFee(input);
+}
+
+export function calculateStripeFee(input: PaymentFeeInput) {
+  return calculatePaymentFee(input);
+}
+
+export interface EbayFeeInput {
+  salePrice: number;
+  shippingCharged: number;
+  itemCost: number;
+  shippingCost: number;
+  finalValueFeePercentage: number;
+  fixedOrderFee: number;
+  promotedListingAdRate: number;
+}
+
+export function calculateEbayFee(input: EbayFeeInput) {
+  const totalRevenue = input.salePrice + input.shippingCharged;
+  const ebayFee =
+    totalRevenue * (input.finalValueFeePercentage / 100) +
+    input.fixedOrderFee;
+  const promotedListingFee =
+    totalRevenue * (input.promotedListingAdRate / 100);
+  const totalCost =
+    input.itemCost + input.shippingCost + ebayFee + promotedListingFee;
+  const netProfit = totalRevenue - totalCost;
+
+  return {
+    totalRevenue,
+    ebayFee,
+    promotedListingFee,
+    totalCost,
+    netProfit,
+    profitMargin: divideOrNull(netProfit * 100, totalRevenue),
+  };
+}
+
+export interface TikTokShopProfitInput {
+  sellingPrice: number;
+  productCost: number;
+  shippingCost: number;
+  tiktokFeePercentage: number;
+  adCost: number;
+  otherCost: number;
+  unitsSold: number;
+}
+
+export function calculateTikTokShopProfit(input: TikTokShopProfitInput) {
+  const revenue = input.sellingPrice * input.unitsSold;
+  const tiktokFees = revenue * (input.tiktokFeePercentage / 100);
+  const totalCost =
+    input.productCost * input.unitsSold +
+    input.shippingCost * input.unitsSold +
+    tiktokFees +
+    input.adCost +
+    input.otherCost;
+  const netProfit = revenue - totalCost;
+
+  return {
+    revenue,
+    tiktokFees,
+    totalCost,
+    netProfit,
+    profitPerUnit: divideOrNull(netProfit, input.unitsSold),
+    profitMargin: divideOrNull(netProfit * 100, revenue),
+    roi: divideOrNull(netProfit * 100, totalCost),
+  };
+}
+
+export interface WooCommerceProfitInput {
+  sellingPrice: number;
+  productCost: number;
+  shippingCost: number;
+  paymentFeePercentage: number;
+  fixedTransactionFee: number;
+  pluginOrHostingCost: number;
+  adCost: number;
+  unitsSold: number;
+}
+
+export function calculateWooCommerceProfit(input: WooCommerceProfitInput) {
+  const revenue = input.sellingPrice * input.unitsSold;
+  const paymentFees =
+    revenue * (input.paymentFeePercentage / 100) +
+    input.fixedTransactionFee * input.unitsSold;
+  const totalCost =
+    input.productCost * input.unitsSold +
+    input.shippingCost * input.unitsSold +
+    paymentFees +
+    input.pluginOrHostingCost +
+    input.adCost;
+  const netProfit = revenue - totalCost;
+
+  return {
+    revenue,
+    paymentFees,
+    totalCost,
+    netProfit,
+    profitPerUnit: divideOrNull(netProfit, input.unitsSold),
+    profitMargin: divideOrNull(netProfit * 100, revenue),
+    roi: divideOrNull(netProfit * 100, totalCost),
+  };
+}
