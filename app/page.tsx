@@ -1,0 +1,154 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import AdPlaceholder from "@/components/AdPlaceholder";
+import CalculatorCard from "@/components/CalculatorCard";
+import FAQ from "@/components/FAQ";
+import { calculators, homeFaqs } from "@/data/calculators";
+
+export const metadata: Metadata = {
+  title: "Free Ecommerce & Business Calculators | SellerCalcTools",
+  description:
+    "Free calculators for Shopify sellers, Etsy sellers, Amazon FBA sellers, marketers, and small business owners. Calculate profit, margin, ROI, ROAS, break-even point, fees, and more.",
+  alternates: {
+    canonical: "https://sellercalctools.com/",
+  },
+  openGraph: {
+    title: "Free Ecommerce & Business Calculators | SellerCalcTools",
+    description:
+      "Free calculators for Shopify sellers, Etsy sellers, Amazon FBA sellers, marketers, and small business owners.",
+    url: "https://sellercalctools.com/",
+    type: "website",
+    siteName: "SellerCalcTools",
+  },
+};
+
+const benefits = [
+  {
+    title: "Clear profit decisions",
+    text: "See the costs behind a sale before adjusting prices, promotions, or advertising budgets.",
+  },
+  {
+    title: "Seller-focused inputs",
+    text: "Model channel fees, fulfillment, paid ads, margins, and return metrics using practical fields.",
+  },
+  {
+    title: "Fast and private",
+    text: "All calculations run in your browser. No signup or stored financial inputs are required.",
+  },
+];
+
+const popularSlugs = [
+  "shopify-profit-calculator",
+  "etsy-fee-calculator",
+  "amazon-fba-profit-calculator",
+  "roas-calculator",
+];
+
+export default function HomePage() {
+  const popularCalculators = calculators.filter((calculator) =>
+    popularSlugs.includes(calculator.slug),
+  );
+
+  return (
+    <main>
+      <section className="overflow-hidden border-b border-slate-200 bg-white">
+        <div className="page-container grid items-center gap-10 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-24">
+          <div>
+            <p className="inline-flex rounded-full border border-brand-100 bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700">
+              Free tools for ecommerce sellers
+            </p>
+            <h1 className="mt-6 max-w-3xl text-4xl font-bold tracking-tight text-ink sm:text-6xl">
+              Calculate profit before you scale your store
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+              Free ecommerce and business calculators for sellers, marketers,
+              and small business owners.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-4">
+              <Link className="primary-button" href="#calculators">
+                Browse calculators
+              </Link>
+              <Link className="secondary-button" href="/shopify-profit-calculator">
+                Calculate Shopify profit
+              </Link>
+            </div>
+          </div>
+          <div className="surface-card p-5 sm:p-7">
+            <div className="rounded-xl bg-ink p-6 text-white">
+              <p className="text-sm text-slate-300">Example net profit</p>
+              <p className="mt-2 text-4xl font-bold">$1,339.50</p>
+              <div className="mt-7 grid grid-cols-2 gap-3">
+                <div className="rounded-lg bg-white/10 p-4">
+                  <p className="text-xs text-slate-300">Margin</p>
+                  <p className="mt-2 text-xl font-semibold">29.77%</p>
+                </div>
+                <div className="rounded-lg bg-white/10 p-4">
+                  <p className="text-xs text-slate-300">ROI</p>
+                  <p className="mt-2 text-xl font-semibold">42.38%</p>
+                </div>
+              </div>
+            </div>
+            <p className="mt-5 text-sm leading-6 text-slate-500">
+              Model Shopify, Etsy, Amazon FBA, advertising, pricing, and
+              break-even scenarios with clear formulas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="page-container py-16" id="calculators">
+        <div className="max-w-2xl">
+          <h2 className="section-heading">Ecommerce and business calculators</h2>
+          <p className="mt-4 leading-7 text-slate-600">
+            Select a free calculator to understand fees, set sustainable prices,
+            review advertising, or plan the sales needed to cover costs.
+          </p>
+        </div>
+        <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {calculators.map((calculator) => (
+            <CalculatorCard calculator={calculator} key={calculator.slug} />
+          ))}
+        </div>
+        <AdPlaceholder className="mt-12" />
+      </section>
+
+      <section className="bg-white py-16">
+        <div className="page-container">
+          <div className="max-w-2xl">
+            <h2 className="section-heading">Why use SellerCalcTools?</h2>
+            <p className="mt-4 leading-7 text-slate-600">
+              A sale is only useful when it supports a healthy business. Use
+              straightforward estimates to make better informed selling choices.
+            </p>
+          </div>
+          <div className="mt-9 grid gap-6 md:grid-cols-3">
+            {benefits.map((benefit) => (
+              <div className="rounded-2xl border border-slate-200 p-6" key={benefit.title}>
+                <h3 className="text-lg font-semibold text-ink">{benefit.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{benefit.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-container py-16">
+        <h2 className="section-heading">Popular ecommerce calculators</h2>
+        <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {popularCalculators.map((calculator) => (
+            <CalculatorCard calculator={calculator} key={calculator.slug} />
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-white py-16">
+        <div className="page-container max-w-4xl">
+          <h2 className="section-heading">Frequently asked questions</h2>
+          <div className="mt-7">
+            <FAQ items={homeFaqs} />
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
