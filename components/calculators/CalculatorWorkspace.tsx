@@ -43,7 +43,8 @@ export default function CalculatorWorkspace({
       >
         <h2 className="text-xl font-semibold text-ink">Enter your numbers</h2>
         <p className="mt-2 text-sm text-slate-500">
-          Empty inputs are treated as zero. Results update instantly.
+          Use the sample numbers or enter your own. Empty inputs are treated as
+          zero, and results update instantly.
         </p>
         <div className="mt-6 grid gap-5 sm:grid-cols-2">{children}</div>
         <div className="mt-7 flex flex-wrap gap-3">
