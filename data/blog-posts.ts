@@ -53,6 +53,51 @@ export const blogPosts: BlogPostSummary[] = [
       "A practical guide to listing, transaction, payment, fulfillment, advertising, subscription, and return fees for marketplace sellers.",
     readTime: "9 min read",
   },
+  {
+    slug: "shopify-fees-explained",
+    title: "Shopify Fees Explained",
+    seoTitle: "Shopify Fees Explained: A Cost Guide for Sellers",
+    category: "Shopify",
+    description:
+      "Understand the Shopify costs that can affect store profit, from subscriptions and payment processing to apps, shipping, marketing, and returns.",
+    readTime: "9 min read",
+  },
+  {
+    slug: "etsy-fees-explained",
+    title: "Etsy Fees Explained",
+    seoTitle: "Etsy Fees Explained: A Practical Seller Cost Guide",
+    category: "Etsy",
+    description:
+      "Learn how to account for Etsy listing, transaction, payment, promotion, shipping, and operating costs when evaluating product profitability.",
+    readTime: "9 min read",
+  },
+  {
+    slug: "amazon-referral-fees-explained",
+    title: "Amazon Referral Fees Explained",
+    seoTitle: "Amazon Referral Fees Explained for Online Sellers",
+    category: "Amazon",
+    description:
+      "Understand how Amazon referral fees fit into a seller profit calculation alongside fulfillment, advertising, returns, and product costs.",
+    readTime: "9 min read",
+  },
+  {
+    slug: "ebay-promoted-listing-fees-explained",
+    title: "eBay Promoted Listing Fees Explained",
+    seoTitle: "eBay Promoted Listing Fees Explained for Sellers",
+    category: "eBay",
+    description:
+      "Learn how promoted listing costs interact with eBay selling fees, margins, attribution, and ROAS when planning profitable advertising.",
+    readTime: "9 min read",
+  },
+  {
+    slug: "tiktok-shop-fees-explained",
+    title: "TikTok Shop Fees Explained",
+    seoTitle: "TikTok Shop Fees Explained: Seller Profit Guide",
+    category: "TikTok Shop",
+    description:
+      "Plan TikTok Shop profitability by considering platform charges, promotions, fulfillment, affiliate or ad costs, returns, and product margin.",
+    readTime: "9 min read",
+  },
 ];
 
 export function getBlogPost(slug: string): BlogPostSummary {
