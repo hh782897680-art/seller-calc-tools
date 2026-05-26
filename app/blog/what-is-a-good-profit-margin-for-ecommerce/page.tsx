@@ -28,6 +28,12 @@ export default function GoodProfitMarginArticle() {
       title={post.title}
       description={post.description}
       readTime={post.readTime}
+      relatedCalculatorSlugs={[
+        "profit-margin-calculator",
+        "markup-calculator",
+        "break-even-calculator",
+        "roi-calculator",
+      ]}
     >
       <ArticleSection title="A good margin is one that sustains the store">
         <p>

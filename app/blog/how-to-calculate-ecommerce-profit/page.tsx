@@ -28,6 +28,11 @@ export default function CalculateEcommerceProfitArticle() {
       title={post.title}
       description={post.description}
       readTime={post.readTime}
+      relatedCalculatorSlugs={[
+        "shopify-profit-calculator",
+        "profit-margin-calculator",
+        "break-even-calculator",
+      ]}
     >
       <ArticleSection title="What ecommerce profit actually means">
         <p>

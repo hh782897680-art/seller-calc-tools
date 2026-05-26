@@ -28,6 +28,11 @@ export default function PaypalVsStripeFeesArticle() {
       title={post.title}
       description={post.description}
       readTime={post.readTime}
+      relatedCalculatorSlugs={[
+        "paypal-fee-calculator",
+        "stripe-fee-calculator",
+        "woocommerce-profit-calculator",
+      ]}
     >
       <ArticleSection title="Compare the payment mix, not just one rate">
         <p>

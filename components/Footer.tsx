@@ -48,6 +48,11 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link className="transition hover:text-brand-600" href="/contact">
+                Contact
+              </Link>
+            </li>
+            <li>
               <Link className="transition hover:text-brand-600" href="/privacy-policy">
                 Privacy Policy
               </Link>

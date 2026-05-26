@@ -28,6 +28,12 @@ export default function MarketplaceSellerFeesArticle() {
       title={post.title}
       description={post.description}
       readTime={post.readTime}
+      relatedCalculatorSlugs={[
+        "etsy-fee-calculator",
+        "amazon-fba-profit-calculator",
+        "ebay-fee-calculator",
+        "tiktok-shop-profit-calculator",
+      ]}
     >
       <ArticleSection title="Why marketplace fees require a full calculation">
         <p>

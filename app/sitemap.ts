@@ -4,7 +4,14 @@ import { blogPosts } from "@/data/blog-posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://ecomprofittools.com";
-  const staticPages = ["", "/blog", "/about", "/privacy-policy", "/terms"];
+  const staticPages = [
+    "",
+    "/blog",
+    "/about",
+    "/contact",
+    "/privacy-policy",
+    "/terms",
+  ];
   const calculatorPages = calculators.map(
     (calculator) => `/${calculator.slug}`,
   );

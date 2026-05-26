@@ -1,11 +1,13 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { getCalculator, type CalculatorSlug } from "@/data/calculators";
 
 interface BlogArticleProps {
   category: string;
   title: string;
   description: string;
   readTime: string;
+  relatedCalculatorSlugs: CalculatorSlug[];
   children: ReactNode;
 }
 
@@ -30,8 +32,13 @@ export default function BlogArticle({
   title,
   description,
   readTime,
+  relatedCalculatorSlugs,
   children,
 }: BlogArticleProps) {
+  const relatedCalculators = relatedCalculatorSlugs.map((slug) =>
+    getCalculator(slug),
+  );
+
   return (
     <main>
       <header className="border-b border-slate-200 bg-white">
@@ -56,21 +63,24 @@ export default function BlogArticle({
         {children}
 
         <section className="surface-card bg-brand-50 p-7">
-          <h2 className="text-xl font-semibold text-ink">
-            Check your numbers before making a decision
-          </h2>
+          <h2 className="text-xl font-semibold text-ink">Try these calculators</h2>
           <p className="mt-3 leading-7 text-slate-600">
             Use Ecom Profit Tools calculators to test sales, costs, fees, margin,
             and advertising scenarios with your own assumptions.
           </p>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <Link className="primary-button" href="/profit-margin-calculator">
-              Profit margin calculator
-            </Link>
-            <Link className="secondary-button" href="/roas-calculator">
-              ROAS calculator
-            </Link>
-          </div>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+            {relatedCalculators.map((calculator) => (
+              <li key={calculator.slug}>
+                <Link
+                  className="flex h-full items-center justify-between rounded-xl border border-brand-100 bg-white px-5 py-4 font-semibold text-ink transition hover:border-brand-300 hover:text-brand-700"
+                  href={`/${calculator.slug}`}
+                >
+                  <span>{calculator.name}</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
       </article>
     </main>

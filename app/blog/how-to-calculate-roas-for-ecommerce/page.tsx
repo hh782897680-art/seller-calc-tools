@@ -28,6 +28,11 @@ export default function CalculateRoasArticle() {
       title={post.title}
       description={post.description}
       readTime={post.readTime}
+      relatedCalculatorSlugs={[
+        "roas-calculator",
+        "roi-calculator",
+        "profit-margin-calculator",
+      ]}
     >
       <ArticleSection title="What ROAS tells an ecommerce seller">
         <p>

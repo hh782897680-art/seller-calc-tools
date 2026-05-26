@@ -3,7 +3,12 @@ import Link from "next/link";
 import AdPlaceholder from "@/components/AdPlaceholder";
 import CalculatorCard from "@/components/CalculatorCard";
 import FAQ from "@/components/FAQ";
-import { calculators, homeFaqs } from "@/data/calculators";
+import {
+  calculators,
+  getCalculator,
+  homeFaqs,
+  type CalculatorSlug,
+} from "@/data/calculators";
 
 export const metadata: Metadata = {
   title: "Free Ecommerce Profit Calculators for Online Sellers | Ecom Profit Tools",
@@ -42,6 +47,34 @@ const popularSlugs = [
   "etsy-fee-calculator",
   "amazon-fba-profit-calculator",
   "roas-calculator",
+];
+
+const calculatorCategories: { title: string; slugs: CalculatorSlug[] }[] = [
+  {
+    title: "Marketplace calculators",
+    slugs: [
+      "etsy-fee-calculator",
+      "amazon-fba-profit-calculator",
+      "ebay-fee-calculator",
+      "tiktok-shop-profit-calculator",
+    ],
+  },
+  {
+    title: "Payment fee calculators",
+    slugs: ["paypal-fee-calculator", "stripe-fee-calculator"],
+  },
+  {
+    title: "Profit and margin calculators",
+    slugs: [
+      "profit-margin-calculator",
+      "markup-calculator",
+      "break-even-calculator",
+    ],
+  },
+  {
+    title: "Advertising calculators",
+    slugs: ["roas-calculator", "roi-calculator"],
+  },
 ];
 
 export default function HomePage() {
@@ -110,6 +143,42 @@ export default function HomePage() {
           ))}
         </div>
         <AdPlaceholder className="mt-12" />
+      </section>
+
+      <section className="border-y border-slate-200 bg-white py-16">
+        <div className="page-container">
+          <div className="max-w-2xl">
+            <h2 className="section-heading">Calculator categories</h2>
+            <p className="mt-4 leading-7 text-slate-600">
+              Choose tools by sales channel, payment fee, profitability, or
+              advertising decision.
+            </p>
+          </div>
+          <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {calculatorCategories.map((category) => (
+              <div className="surface-card p-6" key={category.title}>
+                <h3 className="text-lg font-semibold text-ink">{category.title}</h3>
+                <ul className="mt-5 space-y-3 text-sm">
+                  {category.slugs.map((slug) => {
+                    const calculator = getCalculator(slug);
+
+                    return (
+                      <li key={slug}>
+                        <Link
+                          className="flex items-center justify-between gap-3 rounded-lg bg-slate-50 px-3 py-3 transition hover:bg-brand-50 hover:text-brand-700"
+                          href={`/${slug}`}
+                        >
+                          <span>{calculator.name}</span>
+                          <span aria-hidden="true">&rarr;</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="bg-white py-16">
