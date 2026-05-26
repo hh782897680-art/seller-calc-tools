@@ -6,16 +6,16 @@ import FAQ from "@/components/FAQ";
 import { calculators, homeFaqs } from "@/data/calculators";
 
 export const metadata: Metadata = {
-  title: "Free Ecommerce & Business Calculators | Ecom Profit Tools",
+  title: "Free Ecommerce Profit Calculators for Online Sellers | Ecom Profit Tools",
   description:
-    "Free calculators for Shopify sellers, Etsy sellers, Amazon FBA sellers, marketers, and small business owners. Calculate profit, margin, ROI, ROAS, break-even point, fees, and more.",
+    "Free ecommerce profit and fee calculators for Shopify, Etsy, Amazon FBA, eBay, TikTok Shop, PayPal, Stripe, and WooCommerce sellers.",
   alternates: {
     canonical: "https://ecomprofittools.com/",
   },
   openGraph: {
-    title: "Free Ecommerce & Business Calculators | Ecom Profit Tools",
+    title: "Free Ecommerce Profit Calculators for Online Sellers | Ecom Profit Tools",
     description:
-      "Free calculators for Shopify sellers, Etsy sellers, Amazon FBA sellers, marketers, and small business owners.",
+      "Free ecommerce profit and fee calculators for Shopify, Etsy, Amazon FBA, eBay, TikTok Shop, PayPal, Stripe, and WooCommerce sellers.",
     url: "https://ecomprofittools.com/",
     type: "website",
     siteName: "Ecom Profit Tools",
@@ -58,11 +58,11 @@ export default function HomePage() {
               Free tools for ecommerce sellers
             </p>
             <h1 className="mt-6 max-w-3xl text-4xl font-bold tracking-tight text-ink sm:text-6xl">
-              Calculate profit before you scale your store
+              Free Ecommerce Profit Calculators for Online Sellers
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-              Free ecommerce and business calculators for sellers, marketers,
-              and small business owners.
+              Calculate Shopify, Etsy, Amazon FBA, eBay, TikTok Shop, PayPal,
+              Stripe, and WooCommerce profit, fees, margin, ROI, and ROAS.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
               <Link className="primary-button" href="#calculators">

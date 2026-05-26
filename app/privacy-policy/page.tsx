@@ -12,7 +12,7 @@ export default function PrivacyPolicyPage() {
   return (
     <main className="page-container max-w-4xl py-14 sm:py-20">
       <h1 className="text-4xl font-bold tracking-tight text-ink">Privacy Policy</h1>
-      <p className="mt-3 text-sm text-slate-500">Last updated: May 25, 2026</p>
+      <p className="mt-3 text-sm text-slate-500">Last updated: May 26, 2026</p>
       <div className="mt-9 space-y-9 text-base leading-8 text-slate-600">
         <section>
           <h2 className="text-2xl font-semibold text-ink">Overview</h2>
@@ -25,18 +25,25 @@ export default function PrivacyPolicyPage() {
         <section>
           <h2 className="text-2xl font-semibold text-ink">Calculator inputs</h2>
           <p className="mt-3">
-            Calculator entries are processed in your browser. The current
-            version does not require accounts or transmit calculator inputs to a
-            Ecom Profit Tools database.
+            Calculator entries are processed in your browser. Ecom Profit Tools
+            does not require an account to use its calculators and does not ask
+            you to enter sensitive financial information. Calculator inputs are
+            not transmitted to an Ecom Profit Tools database.
           </p>
         </section>
         <section>
           <h2 className="text-2xl font-semibold text-ink">Analytics and advertising</h2>
           <p className="mt-3">
-            The initial website contains advertising placeholders only. If
-            analytics, advertising, or affiliate services are introduced later,
-            this policy may be updated to explain cookies, third-party processing,
-            and available choices.
+            This website uses Google Analytics to analyze visits and understand
+            how visitors use the site. It uses Google AdSense to display
+            advertisements, and an ads.txt file identifies authorized advertising
+            sellers.
+          </p>
+          <p className="mt-3">
+            Google and other third-party analytics or advertising services may
+            use cookies or similar technologies when you visit this website.
+            You can manage or disable cookies through your browser settings,
+            although doing so may affect some website or advertising features.
           </p>
         </section>
         <section>
