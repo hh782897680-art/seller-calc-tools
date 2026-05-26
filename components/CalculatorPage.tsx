@@ -7,6 +7,22 @@ import RelatedCalculators from "@/components/RelatedCalculators";
 import ShareCalculator from "@/components/ShareCalculator";
 import type { CalculatorData } from "@/data/calculators";
 
+const reviewedFeeCalculatorSlugs = new Set<CalculatorData["slug"]>([
+  "shopify-fee-calculator",
+  "shopify-profit-calculator",
+  "etsy-fee-calculator",
+  "etsy-profit-calculator",
+  "amazon-fba-profit-calculator",
+  "amazon-referral-fee-calculator",
+  "paypal-fee-calculator",
+  "stripe-fee-calculator",
+  "ebay-fee-calculator",
+  "ebay-promoted-listing-fee-calculator",
+  "tiktok-shop-fee-calculator",
+  "tiktok-shop-profit-calculator",
+  "woocommerce-profit-calculator",
+]);
+
 interface CalculatorPageProps {
   calculator: CalculatorData;
   form: ReactNode;
@@ -16,6 +32,8 @@ export default function CalculatorPage({
   calculator,
   form,
 }: CalculatorPageProps) {
+  const showFeeReviewNotice = reviewedFeeCalculatorSlugs.has(calculator.slug);
+
   return (
     <main>
       <section className="border-b border-slate-200 bg-white">
@@ -29,6 +47,15 @@ export default function CalculatorPage({
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             {calculator.shortDescription}
           </p>
+          {showFeeReviewNotice && (
+            <aside className="mt-6 max-w-3xl rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-600">
+              <p className="font-medium text-slate-700">Last reviewed: May 2026</p>
+              <p className="mt-1">
+                Fees may vary by country, currency, account type, category, and
+                platform policy. Always verify the latest official fee schedule.
+              </p>
+            </aside>
+          )}
         </div>
       </section>
 
