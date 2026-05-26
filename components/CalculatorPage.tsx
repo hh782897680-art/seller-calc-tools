@@ -59,13 +59,13 @@ export default function CalculatorPage({
         </div>
       </section>
 
-      <div className="page-container py-8">
-        <AdPlaceholder />
-      </div>
-
       <section className="page-container py-6" aria-label={`${calculator.name} tool`}>
         {form}
       </section>
+
+      <div className="page-container py-8">
+        <AdPlaceholder />
+      </div>
 
       <article className="page-container mt-12 max-w-4xl space-y-12">
         <section>
