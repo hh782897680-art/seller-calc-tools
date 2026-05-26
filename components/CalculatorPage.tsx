@@ -4,6 +4,7 @@ import AffiliateCTA from "@/components/AffiliateCTA";
 import FAQ from "@/components/FAQ";
 import FormulaBox from "@/components/FormulaBox";
 import RelatedCalculators from "@/components/RelatedCalculators";
+import ShareCalculator from "@/components/ShareCalculator";
 import type { CalculatorData } from "@/data/calculators";
 
 interface CalculatorPageProps {
@@ -111,6 +112,10 @@ export default function CalculatorPage({
             <RelatedCalculators slugs={calculator.relatedSlugs} />
           </div>
         </section>
+
+        <ShareCalculator
+          fallbackUrl={`https://ecomprofittools.com/${calculator.slug}`}
+        />
       </article>
     </main>
   );
