@@ -3,16 +3,21 @@ import * as calculators from "./calc";
 
 const testedCalculatorFunctions = [
   "calculateAmazonFbaProfit",
+  "calculateAmazonReferralFee",
   "calculateBreakEven",
   "calculateEbayFee",
+  "calculateEbayPromotedListingFee",
   "calculateEtsyFee",
+  "calculateEtsyProfit",
   "calculateMarkup",
   "calculatePayPalFee",
   "calculateProfitMargin",
   "calculateRoas",
   "calculateRoi",
+  "calculateShopifyFee",
   "calculateShopifyProfit",
   "calculateStripeFee",
+  "calculateTikTokShopFee",
   "calculateTikTokShopProfit",
   "calculateWooCommerceProfit",
 ];
@@ -468,5 +473,209 @@ describe("calculateWooCommerceProfit", () => {
     expect(result.profitPerUnit).toBeNull();
     expect(result.profitMargin).toBeNull();
     expect(result.roi).toBeNull();
+  });
+});
+
+describe("calculateShopifyFee", () => {
+  it("calculates payment and third-party transaction fees", () => {
+    const result = calculators.calculateShopifyFee({
+      totalSales: 1000,
+      numberOfOrders: 20,
+      paymentFeePercentage: 2.9,
+      fixedTransactionFee: 0.3,
+      thirdPartyTransactionFeePercentage: 1,
+    });
+
+    expect(result.paymentProcessingFee).toBeCloseTo(35);
+    expect(result.thirdPartyTransactionFee).toBeCloseTo(10);
+    expect(result.totalFees).toBeCloseTo(45);
+    expect(result.estimatedPayout).toBeCloseTo(955);
+    expect(result.feePerOrder).toBeCloseTo(2.25);
+    expect(result.effectiveFeeRate).toBeCloseTo(4.5);
+  });
+
+  it("returns null rates for zero sales and orders without throwing", () => {
+    const input = {
+      totalSales: 0,
+      numberOfOrders: 0,
+      paymentFeePercentage: 0,
+      fixedTransactionFee: 0,
+      thirdPartyTransactionFeePercentage: 0,
+    };
+
+    expect(() => calculators.calculateShopifyFee(input)).not.toThrow();
+    expect(calculators.calculateShopifyFee(input)).toEqual({
+      totalSales: 0,
+      paymentProcessingFee: 0,
+      thirdPartyTransactionFee: 0,
+      totalFees: 0,
+      estimatedPayout: 0,
+      feePerOrder: null,
+      effectiveFeeRate: null,
+    });
+  });
+});
+
+describe("calculateEtsyProfit", () => {
+  it("calculates profit across multiple Etsy orders", () => {
+    const result = calculators.calculateEtsyProfit({
+      itemPrice: 40,
+      shippingCharged: 5,
+      itemCost: 12,
+      shippingCost: 6,
+      listingFee: 0.2,
+      transactionFeePercentage: 6.5,
+      processingPercentage: 3,
+      processingFixedFee: 0.25,
+      offsiteAdsFeePercentage: 0,
+      orders: 10,
+    });
+
+    expect(result.totalRevenue).toBeCloseTo(450);
+    expect(result.listingFees).toBeCloseTo(2);
+    expect(result.transactionFees).toBeCloseTo(29.25);
+    expect(result.paymentProcessingFees).toBeCloseTo(16);
+    expect(result.totalFees).toBeCloseTo(47.25);
+    expect(result.totalCost).toBeCloseTo(227.25);
+    expect(result.netProfit).toBeCloseTo(222.75);
+    expect(result.profitPerOrder).toBeCloseTo(22.275);
+    expect(result.profitMargin).toBeCloseTo(49.5);
+  });
+
+  it("returns null profit rates for zero orders without throwing", () => {
+    const input = {
+      itemPrice: 0,
+      shippingCharged: 0,
+      itemCost: 0,
+      shippingCost: 0,
+      listingFee: 0,
+      transactionFeePercentage: 0,
+      processingPercentage: 0,
+      processingFixedFee: 0,
+      offsiteAdsFeePercentage: 0,
+      orders: 0,
+    };
+
+    expect(() => calculators.calculateEtsyProfit(input)).not.toThrow();
+    const result = calculators.calculateEtsyProfit(input);
+    expect(result.netProfit).toBeCloseTo(0);
+    expect(result.profitPerOrder).toBeNull();
+    expect(result.profitMargin).toBeNull();
+  });
+});
+
+describe("calculateAmazonReferralFee", () => {
+  it("applies an entered minimum referral fee per unit", () => {
+    const result = calculators.calculateAmazonReferralFee({
+      sellingPrice: 1,
+      unitsSold: 10,
+      referralFeePercentage: 8,
+      minimumReferralFee: 0.3,
+    });
+
+    expect(result.totalRevenue).toBeCloseTo(10);
+    expect(result.percentageFeePerUnit).toBeCloseTo(0.08);
+    expect(result.appliedFeePerUnit).toBeCloseTo(0.3);
+    expect(result.totalReferralFees).toBeCloseTo(3);
+    expect(result.proceedsAfterReferralFees).toBeCloseTo(7);
+    expect(result.effectiveFeeRate).toBeCloseTo(30);
+  });
+
+  it("does not divide by zero for a zero-value sale", () => {
+    const input = {
+      sellingPrice: 0,
+      unitsSold: 0,
+      referralFeePercentage: 0,
+      minimumReferralFee: 0,
+    };
+
+    expect(() => calculators.calculateAmazonReferralFee(input)).not.toThrow();
+    expect(calculators.calculateAmazonReferralFee(input)).toEqual({
+      totalRevenue: 0,
+      percentageFeePerUnit: 0,
+      appliedFeePerUnit: 0,
+      totalReferralFees: 0,
+      proceedsAfterReferralFees: 0,
+      effectiveFeeRate: null,
+    });
+  });
+});
+
+describe("calculateEbayPromotedListingFee", () => {
+  it("calculates promoted listing fees over multiple orders", () => {
+    const result = calculators.calculateEbayPromotedListingFee({
+      salePrice: 60,
+      shippingCharged: 10,
+      orders: 5,
+      promotedListingAdRate: 4,
+    });
+
+    expect(result.totalRevenue).toBeCloseTo(350);
+    expect(result.promotedListingFee).toBeCloseTo(14);
+    expect(result.proceedsAfterPromotedListingFee).toBeCloseTo(336);
+    expect(result.feePerOrder).toBeCloseTo(2.8);
+    expect(result.effectiveFeeRate).toBeCloseTo(4);
+  });
+
+  it("returns null rates for zero orders and sales without throwing", () => {
+    const input = {
+      salePrice: 0,
+      shippingCharged: 0,
+      orders: 0,
+      promotedListingAdRate: 0,
+    };
+
+    expect(() =>
+      calculators.calculateEbayPromotedListingFee(input),
+    ).not.toThrow();
+    expect(calculators.calculateEbayPromotedListingFee(input)).toEqual({
+      totalRevenue: 0,
+      promotedListingFee: 0,
+      proceedsAfterPromotedListingFee: 0,
+      feePerOrder: null,
+      effectiveFeeRate: null,
+    });
+  });
+});
+
+describe("calculateTikTokShopFee", () => {
+  it("calculates platform, affiliate, and per-order fees", () => {
+    const result = calculators.calculateTikTokShopFee({
+      grossSales: 1000,
+      orders: 25,
+      platformFeePercentage: 6,
+      affiliateCommissionPercentage: 10,
+      fixedFeePerOrder: 0.3,
+    });
+
+    expect(result.platformFee).toBeCloseTo(60);
+    expect(result.affiliateCommission).toBeCloseTo(100);
+    expect(result.fixedOrderFees).toBeCloseTo(7.5);
+    expect(result.totalFees).toBeCloseTo(167.5);
+    expect(result.proceedsAfterFees).toBeCloseTo(832.5);
+    expect(result.feePerOrder).toBeCloseTo(6.7);
+    expect(result.effectiveFeeRate).toBeCloseTo(16.75);
+  });
+
+  it("returns null rates for zero sales and orders without throwing", () => {
+    const input = {
+      grossSales: 0,
+      orders: 0,
+      platformFeePercentage: 0,
+      affiliateCommissionPercentage: 0,
+      fixedFeePerOrder: 0,
+    };
+
+    expect(() => calculators.calculateTikTokShopFee(input)).not.toThrow();
+    expect(calculators.calculateTikTokShopFee(input)).toEqual({
+      grossSales: 0,
+      platformFee: 0,
+      affiliateCommission: 0,
+      fixedOrderFees: 0,
+      totalFees: 0,
+      proceedsAfterFees: 0,
+      feePerOrder: null,
+      effectiveFeeRate: null,
+    });
   });
 });

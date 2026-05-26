@@ -54,14 +54,22 @@ const calculatorCategories: { title: string; slugs: CalculatorSlug[] }[] = [
     title: "Marketplace calculators",
     slugs: [
       "etsy-fee-calculator",
+      "etsy-profit-calculator",
       "amazon-fba-profit-calculator",
+      "amazon-referral-fee-calculator",
       "ebay-fee-calculator",
+      "ebay-promoted-listing-fee-calculator",
       "tiktok-shop-profit-calculator",
+      "tiktok-shop-fee-calculator",
     ],
   },
   {
     title: "Payment fee calculators",
-    slugs: ["paypal-fee-calculator", "stripe-fee-calculator"],
+    slugs: [
+      "shopify-fee-calculator",
+      "paypal-fee-calculator",
+      "stripe-fee-calculator",
+    ],
   },
   {
     title: "Profit and margin calculators",

@@ -11,7 +11,12 @@ export type CalculatorSlug =
   | "stripe-fee-calculator"
   | "ebay-fee-calculator"
   | "tiktok-shop-profit-calculator"
-  | "woocommerce-profit-calculator";
+  | "woocommerce-profit-calculator"
+  | "shopify-fee-calculator"
+  | "etsy-profit-calculator"
+  | "amazon-referral-fee-calculator"
+  | "ebay-promoted-listing-fee-calculator"
+  | "tiktok-shop-fee-calculator";
 
 export interface FAQItem {
   question: string;
@@ -825,6 +830,312 @@ export const calculators: CalculatorData[] = [
     ],
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
+  },
+  {
+    slug: "shopify-fee-calculator",
+    name: "Shopify Fee Calculator",
+    category: "Storefront Fees",
+    shortDescription:
+      "Estimate Shopify payment processing and applicable additional transaction fees from sales and order volume.",
+    seoTitle: "Shopify Fee Calculator - Estimate Store Payment Fees | Ecom Profit Tools",
+    seoDescription:
+      "Estimate Shopify payment processing fees, additional transaction charges, payout, and effective fee rate with editable seller assumptions.",
+    formula: [
+      "Payment processing fee = (Total sales x Payment fee percentage) + (Fixed transaction fee x Orders)",
+      "Additional transaction fee = Total sales x Additional transaction fee percentage",
+      "Total estimated fees = Payment processing fee + Additional transaction fee",
+      "Estimated payout = Total sales - Total estimated fees",
+      "Effective fee rate = Total estimated fees / Total sales x 100",
+      "Fee per order = Total estimated fees / Number of orders",
+    ],
+    example:
+      "Suppose a store models $2,500 in sales across 50 orders, using a 2.9% payment charge and $0.30 fixed charge with no additional transaction fee. The payment processing estimate is $87.50, leaving an estimated payout of $2,412.50 before product, shipping, advertising, subscription, refund, or tax costs. The effective payment fee rate is 3.50%, or $1.75 per order.",
+    faqs: [
+      {
+        question: "Does this calculator determine my Shopify fees automatically?",
+        answer:
+          "No. Plans, payment arrangements, markets, currencies, and provider choices can affect charges. Enter the payment percentage, fixed charge, and any applicable additional transaction percentage from your current store terms.",
+      },
+      {
+        question: "Should I enter an additional transaction fee?",
+        answer:
+          "Only when your modeled checkout arrangement applies one. If it does not apply, leave that field at zero rather than treating it as a standard charge.",
+      },
+      {
+        question: "Is the estimated payout the same as store profit?",
+        answer:
+          "No. The payout shown removes only modeled transaction fees. Profit must also account for inventory, fulfillment, ads, apps, returns, taxes, discounts, and other operating expenses.",
+      },
+    ],
+    relatedSlugs: [
+      "shopify-profit-calculator",
+      "stripe-fee-calculator",
+      "profit-margin-calculator",
+    ],
+    whatIs: [
+      "A Shopify fee calculator helps an online seller isolate checkout-related deductions before evaluating wider store profit. When orders are processed, a percentage charge and a fixed per-transaction amount can make the amount retained different from the headline sales total. Some payment arrangements may also involve an additional percentage transaction charge. Because those terms vary, this calculator does not prescribe a plan rate: it lets the seller enter the assumptions relevant to the store being reviewed.",
+      "This tool is useful for pricing a product, comparing payment arrangements, or reviewing how average order value changes payment cost. A fixed charge usually represents a larger share of a small order than of a larger basket, so fee per order and effective percentage can reveal a cost that gross revenue alone hides. The output estimates payment-related deductions only, keeping it separate from the full Shopify profit tool that includes merchandise, fulfillment, and advertising costs.",
+    ],
+    howToCalculate: [
+      "Begin with sales collected during the period and the number of paid orders. Apply the editable processing percentage to sales, then add the fixed charge once per order. If the checkout arrangement being evaluated has a separate transaction percentage, calculate it against sales as a second fee. Add both figures to find total estimated transaction fees and subtract that amount from sales for an estimated payout before non-payment expenses.",
+      "Dividing total fees by order count gives a practical per-order estimate for pricing reviews. Dividing fees by sales produces an effective fee rate, which is helpful when comparing different basket sizes or payment scenarios. A zero-dollar or zero-order scenario has no meaningful rate or per-order cost, so the tool displays N/A rather than an invalid ratio. Verify actual statements and plan terms before decisions.",
+    ],
+    whyItMatters: [
+      "Payment fees are rarely the largest store cost, but they apply whenever modeled sales are collected and can narrow the available contribution on inexpensive products or discounted bundles. Testing sales and order assumptions lets a merchant see whether increasing average order value, reducing unnecessary checkout charges, or allowing more room in price would materially improve retained revenue.",
+    ],
+    howToUse: [
+      "Enter the gross sales and order count for the period or scenario you want to model.",
+      "Add the payment processing percentage and fixed per-transaction charge applicable to that scenario.",
+      "Enter an additional transaction fee percentage only when it applies to your selected payment arrangement.",
+      "Review estimated payout, fee per order, and effective fee rate before analyzing complete store profit.",
+    ],
+    affiliateMessage:
+      "Running a Shopify store? Compare seller tools that support pricing and checkout decisions.",
+  },
+  {
+    slug: "etsy-profit-calculator",
+    name: "Etsy Profit Calculator",
+    category: "Marketplace Profit",
+    shortDescription:
+      "Estimate Etsy profit across multiple modeled orders after product, delivery, listing, payment, transaction, and optional ad fees.",
+    seoTitle: "Etsy Profit Calculator - Estimate Seller Earnings | Ecom Profit Tools",
+    seoDescription:
+      "Calculate estimated Etsy revenue, fees, cost, profit per order, and margin across multiple sales with editable assumptions.",
+    formula: [
+      "Revenue per order = Item price + Shipping charged to buyer",
+      "Total revenue = Revenue per order x Orders",
+      "Transaction fees = Total revenue x Transaction fee percentage",
+      "Payment processing fees = (Total revenue x Processing percentage) + (Fixed processing fee x Orders)",
+      "Total fees = Listing fees + Transaction fees + Processing fees + Optional offsite ads fees",
+      "Net profit = Total revenue - Product and shipping costs - Total fees",
+      "Profit margin = Net profit / Total revenue x 100",
+    ],
+    example:
+      "For 10 modeled orders, suppose each item sells for $40 with $5 shipping collected, $12 product cost, and $6 shipping expense. Using a $0.20 listing amount, 6.5% transaction assumption, and 3% plus $0.25 processing assumption with no offsite ads, total revenue is $450.00, modeled fees are $47.25, total cost is $227.25, and estimated profit is $222.75, or $22.28 per order.",
+    faqs: [
+      {
+        question: "How is this different from an Etsy fee calculator?",
+        answer:
+          "This version scales an average order across a chosen number of orders and emphasizes net profit, profit per order, and margin after entered fulfillment cost as well as fees.",
+      },
+      {
+        question: "Are Etsy fee assumptions the same for every seller?",
+        answer:
+          "No. Location, payment processing terms, advertising attribution, currency, taxes, and current program rules may affect actual charges. Replace the example assumptions with terms that apply to your shop.",
+      },
+      {
+        question: "Do I include offsite ads for every order?",
+        answer:
+          "Only model an offsite ads percentage when the group of orders being reviewed is expected to incur that cost. You can compare zero and non-zero scenarios separately.",
+      },
+    ],
+    relatedSlugs: [
+      "etsy-fee-calculator",
+      "profit-margin-calculator",
+      "ebay-fee-calculator",
+    ],
+    whatIs: [
+      "An Etsy profit calculator turns an average listing sale into a period-level earnings estimate. Etsy sellers often know the price shown to a customer but need a clearer picture after product materials or purchase cost, shipping paid by the seller, listing amounts, marketplace transaction fees, processing charges, and optional advertising deductions are considered. By including order count, this tool can model a small product launch, a seasonal batch, or a representative month without entering every sale individually.",
+    ],
+    howToCalculate: [
+      "Add item price and any shipping amount charged to the buyer to establish revenue per modeled order, then multiply by order count. Multiply product and delivery expense by that same order count. Fees are modeled separately: listing amount occurs once for each modeled order, transaction and optional advertising percentages apply to collected revenue, and payment processing combines a revenue percentage with a fixed amount for each order.",
+      "After adding expenses and fees, subtract total cost from total revenue for net profit. Divide profit by order count to estimate earnings per representative order, and divide profit by revenue for margin. If no orders or revenue are entered, the ratio metrics are not meaningful and appear as N/A. The calculation is suitable for scenario planning; completed-sales reports remain the evidence for actual performance.",
+    ],
+    whyItMatters: [
+      "Marketplaces make it easy to focus on order volume, but profitable volume depends on what remains from each order. Fixed fees and delivery expense can matter sharply for low-priced goods, while optional advertising charges may change the outcome of a promoted sale. A multi-order model makes it easier to ask whether a planned discount, shipping offer, or production batch leaves enough room for time and overhead.",
+    ],
+    howToUse: [
+      "Enter the average item price, customer shipping charge, product cost, shipping expense, and number of orders.",
+      "Enter listing, transaction, and payment processing assumptions appropriate to your modeled shop scenario.",
+      "Add an offsite ads percentage only for orders that you want to model as subject to that charge.",
+      "Review net profit, per-order profit, and margin as you compare prices, fulfillment costs, or promotion choices.",
+    ],
+    affiliateMessage:
+      "Growing an Etsy shop? Explore tools that support listings, fulfillment, and pricing reviews.",
+  },
+  {
+    slug: "amazon-referral-fee-calculator",
+    name: "Amazon Referral Fee Calculator",
+    category: "Marketplace Fees",
+    shortDescription:
+      "Estimate Amazon referral fees using an editable category percentage and optional minimum fee per unit.",
+    seoTitle: "Amazon Referral Fee Calculator - Estimate Selling Fees | Ecom Profit Tools",
+    seoDescription:
+      "Estimate Amazon referral fee per unit, total referral fees, proceeds after fees, and effective rate with editable category assumptions.",
+    formula: [
+      "Percentage referral fee per unit = Selling price x Referral fee percentage",
+      "Applied referral fee per unit = Greater of percentage fee or entered minimum fee",
+      "Total revenue = Selling price x Units sold",
+      "Total referral fees = Applied fee per unit x Units sold",
+      "Proceeds after referral fees = Total revenue - Total referral fees",
+      "Effective fee rate = Total referral fees / Total revenue x 100",
+    ],
+    example:
+      "Suppose 20 units sell for $35 each and the seller models a 15% referral percentage with a $0.30 minimum per unit. The percentage fee is $5.25 per unit, which is greater than the entered minimum. Estimated revenue is $700.00, total referral fees are $105.00, and proceeds after referral fees are $595.00 before fulfillment, storage, advertising, product cost, returns, or other expenses.",
+    faqs: [
+      {
+        question: "Which referral fee percentage should I enter?",
+        answer:
+          "Enter the percentage applicable to the product category and selling program you are evaluating. Categories and policies can change, so confirm the current official terms rather than relying on a generic example.",
+      },
+      {
+        question: "What does the minimum referral fee field do?",
+        answer:
+          "When you enter a minimum, the calculator applies the greater of the percentage result or that minimum for each unit. Enter zero when you do not need to model a minimum.",
+      },
+      {
+        question: "Does this estimate Amazon FBA profit?",
+        answer:
+          "No. It isolates referral fees only. Fulfillment, storage, inbound freight, advertising, returns, subscription charges, tax treatment, and inventory cost require separate analysis.",
+      },
+    ],
+    relatedSlugs: [
+      "amazon-fba-profit-calculator",
+      "profit-margin-calculator",
+      "etsy-fee-calculator",
+    ],
+    whatIs: [
+      "An Amazon referral fee calculator focuses on one marketplace deduction: the sales-based amount a seller models for allowing a product to be sold through a category on Amazon. This narrow calculation is useful during product research because a candidate item's price may look attractive before marketplace deductions are considered. The referral fee is separate from fulfillment and inventory economics, allowing a seller to understand the category charge before building a complete landed-cost model.",
+      "The editable percentage and minimum fee inputs matter because products do not necessarily share the same assumptions. A category may use a different percentage, and the seller may need to account for an applicable per-item minimum under current terms. Rather than asserting a rate, the tool asks for the assumptions the seller has verified. It then applies the greater of the modeled percentage amount and entered minimum per unit.",
+    ],
+    howToCalculate: [
+      "Multiply selling price by the entered referral percentage to find a percentage-based fee for one unit. Compare that amount with the optional minimum fee per unit and apply whichever is larger. Multiplying the applied unit fee by units sold provides total referral fees; multiplying price by units provides modeled sales revenue. Subtract referral fees from revenue for proceeds after this single fee category.",
+      "The effective rate shows total referral fees as a share of modeled revenue, which can rise above the entered percentage when a minimum fee controls low-priced items. When revenue is zero, no meaningful effective percentage can be reported, so the calculator presents N/A. The proceeds result is not profit because no product, fulfillment, advertising, refund, tax, or operating costs have been deducted.",
+    ],
+    whyItMatters: [
+      "Referral fees can affect price research, particularly when comparing products in different categories or evaluating low-price items where a minimum may matter. Testing a unit price, rate, minimum, and expected volume lets a seller see the deduction before investing in inventory or selecting a marketplace price. It can also reveal whether a price increase meaningfully improves retained proceeds after referral fees.",
+    ],
+    howToUse: [
+      "Enter the selling price and expected number of units for the scenario being reviewed.",
+      "Enter the referral fee percentage for the relevant category using current terms.",
+      "Enter a per-unit minimum fee when applicable, or use zero to model percentage-only charges.",
+      "Review applied fee per unit, total referral fee, and effective rate before completing a full profit estimate.",
+    ],
+    affiliateMessage:
+      "Researching Amazon products? Compare seller tools for sourcing and fee planning.",
+  },
+  {
+    slug: "ebay-promoted-listing-fee-calculator",
+    name: "eBay Promoted Listing Fee Calculator",
+    category: "Advertising Fees",
+    shortDescription:
+      "Estimate an eBay promoted listing ad fee across attributed sales using an editable ad rate assumption.",
+    seoTitle: "eBay Promoted Listing Fee Calculator | Ecom Profit Tools",
+    seoDescription:
+      "Estimate eBay promoted listing fees, proceeds after the promoted fee, fee per order, and effective ad fee rate.",
+    formula: [
+      "Sale amount per attributed order = Sale price + Shipping charged",
+      "Total attributed sale amount = Sale amount per order x Attributed orders",
+      "Promoted listing fee = Total attributed sale amount x Promoted listing ad rate",
+      "Proceeds after promoted listing fee = Total attributed sale amount - Promoted listing fee",
+      "Fee per attributed order = Promoted listing fee / Attributed orders",
+      "Effective ad fee rate = Promoted listing fee / Total attributed sale amount x 100",
+    ],
+    example:
+      "Suppose a seller models 10 promoted orders with a $60 sale price, $8 shipping charged to the buyer, and a 5% promoted listing rate. The modeled attributed sale amount is $680.00 and the promoted listing fee is $34.00. That leaves $646.00 after the promoted fee alone, or $3.40 in promoted listing fee per attributed order, before final value fees, item cost, delivery, returns, or other expenses.",
+    faqs: [
+      {
+        question: "Does this calculator include standard eBay selling fees?",
+        answer:
+          "No. It is focused on a modeled promoted listing fee. Use a broader eBay fee or profit calculation to include final value fees, fixed order charges, fulfillment, and product cost.",
+      },
+      {
+        question: "Which promoted listing rate should I use?",
+        answer:
+          "Enter the ad rate and attribution scenario you want to evaluate. Campaign settings and applicable advertising terms may vary, so review the current terms and your campaign reports.",
+      },
+      {
+        question: "Does a promoted listing fee prove the promotion was profitable?",
+        answer:
+          "No. An attributed sale can still be unprofitable after product cost, delivery, marketplace fees, returns, discounts, and other advertising or operating expense are included.",
+      },
+    ],
+    relatedSlugs: [
+      "ebay-fee-calculator",
+      "roas-calculator",
+      "profit-margin-calculator",
+    ],
+    whatIs: [
+      "An eBay promoted listing fee calculator helps a marketplace seller model the advertising charge associated with sales attributed to a promoted campaign. Promotion can increase visibility for a listing, but the relevant decision is not simply whether an item sells. A seller also needs to know how the advertising deduction changes the amount available to cover merchandise, shipping, standard marketplace fees, returns, and eventual profit.",
+      "This calculator deliberately isolates the promoted fee from other eBay charges. Enter a sale price, any shipping charged in the modeled order amount, the count of attributed orders, and an advertising rate assumption. The result shows the total promoted fee and fee per order without claiming that the entered rate or attribution rules apply universally. Current campaign terms and actual reports remain the appropriate source for a completed-sales review.",
+    ],
+    howToCalculate: [
+      "First add the modeled item sale price and shipping charged to the buyer, then multiply by attributed orders to establish the sale amount being reviewed. Multiply that amount by the entered promoted listing percentage to estimate the promoted fee. Subtract the result from attributed sale amount to see proceeds remaining after this advertising charge alone. The rate field is intentionally editable so different campaign assumptions can be compared.",
+      "Fee per attributed order provides a direct way to consider whether advertising cost fits the expected margin on an item. Effective rate repeats the selected ad percentage when the modeled base is consistent, while making the dollar impact visible at volume. If there are no attributed orders or no sale amount, per-order and rate outputs have no meaningful denominator and are shown as N/A.",
+    ],
+    whyItMatters: [
+      "A promoted listing may produce sales while reducing already narrow contribution margin. Before increasing a campaign rate or including more listings, estimate the fee under realistic prices and order volume, then compare it with product-level profit. A seller may discover that promotion is manageable for high-margin goods but leaves little room on items with expensive delivery or heavy discounts.",
+    ],
+    howToUse: [
+      "Enter the item sale price, shipping charged, and number of attributed promoted orders to model.",
+      "Enter the promoted listing ad rate for the campaign scenario you are considering.",
+      "Review total promoted fee and fee per attributed order to understand advertising cost.",
+      "Compare the fee with complete product margin and current reports before adjusting campaign settings.",
+    ],
+    affiliateMessage:
+      "Managing marketplace ads? Explore tools that help sellers review promotion and margin.",
+  },
+  {
+    slug: "tiktok-shop-fee-calculator",
+    name: "TikTok Shop Fee Calculator",
+    category: "Social Commerce Fees",
+    shortDescription:
+      "Estimate TikTok Shop platform, affiliate commission, and optional fixed per-order fees from gross sales.",
+    seoTitle: "TikTok Shop Fee Calculator - Estimate Seller Fees | Ecom Profit Tools",
+    seoDescription:
+      "Estimate TikTok Shop platform fees, affiliate commission, proceeds after fees, and effective fee rate with editable assumptions.",
+    formula: [
+      "Platform fee = Gross sales x Platform fee percentage",
+      "Affiliate commission = Gross sales x Affiliate commission percentage",
+      "Fixed order fees = Fixed fee per order x Orders",
+      "Total estimated fees = Platform fee + Affiliate commission + Fixed order fees",
+      "Proceeds after fees = Gross sales - Total estimated fees",
+      "Effective fee rate = Total estimated fees / Gross sales x 100",
+      "Fee per order = Total estimated fees / Orders",
+    ],
+    example:
+      "Suppose a seller models $1,500 in gross sales across 40 orders with a 6% platform fee assumption, no affiliate commission, and no other fixed order fee. The estimated platform fee is $90.00 and proceeds after modeled fees are $1,410.00 before product cost, shipping, samples, discounts, advertising, returns, taxes, or other operating expense. The modeled effective fee rate is 6.00%, or $2.25 per order.",
+    faqs: [
+      {
+        question: "Are the default TikTok Shop fee assumptions official rates?",
+        answer:
+          "No. The starting values are editable examples for scenario planning. Market, program, promotion, category, and policy changes may affect charges, so confirm current terms relevant to the seller account.",
+      },
+      {
+        question: "When should affiliate commission be entered?",
+        answer:
+          "Enter a commission assumption when modeling sales connected to an affiliate or creator arrangement that would incur that cost. Leave it at zero for scenarios where it does not apply.",
+      },
+      {
+        question: "Is proceeds after fees the same as profit?",
+        answer:
+          "No. It removes the fee assumptions entered here only. Product, shipping, promotion, sample, return, discount, tax, and overhead costs still affect profit.",
+      },
+    ],
+    relatedSlugs: [
+      "tiktok-shop-profit-calculator",
+      "roas-calculator",
+      "profit-margin-calculator",
+    ],
+    whatIs: [
+      "A TikTok Shop fee calculator estimates how selected platform and creator-related charges may reduce gross social-commerce sales. A short video or live shopping event can produce a rapid number of orders, but top-line sales do not show the deductions that must be covered before profit is evaluated. This tool provides a focused fee view for sellers planning a campaign, reviewing an offer, or comparing an affiliate-assisted scenario with sales that do not include commission.",
+      "The calculator accepts gross sales and order count rather than requesting account access or transaction data. Fee structures and promotional arrangements can differ across markets, programs, and periods, so platform percentage, affiliate commission, and any other fixed per-order assumption remain editable. Use verified current terms for the scenario; the default numbers exist only to illustrate how the calculation behaves.",
+    ],
+    howToCalculate: [
+      "Multiply gross sales by the platform percentage to estimate the platform fee. If an affiliate or creator commission is being modeled, multiply gross sales by that entered percentage separately. Multiply any additional fixed per-order assumption by order count. Adding these deductions gives total estimated fees, which can then be subtracted from gross sales to show proceeds after the chosen fees alone.",
+      "Divide total fees by gross sales for an effective rate and by order count for estimated fee per order. Those outputs support comparisons between scenarios with different commission arrangements or average order values. When sales or orders are zero, the corresponding ratio is undefined and the tool displays N/A rather than generating a misleading result. It does not infer fees or retrieve account data.",
+    ],
+    whyItMatters: [
+      "Creator commission and platform charges can be a meaningful portion of revenue in a social-commerce offer, especially when discounts, free shipping, or samples are also used to attract customers. Modeling these fees before committing inventory or campaign budget helps a seller decide whether a planned selling price and commission structure can leave room for fulfillment and expected profit.",
+    ],
+    howToUse: [
+      "Enter gross sales and number of orders for the event, period, or offer you want to model.",
+      "Enter a platform fee percentage consistent with the relevant current terms.",
+      "Add affiliate commission and optional fixed per-order cost only when those assumptions apply.",
+      "Review total estimated fees, proceeds after fees, fee per order, and effective rate before calculating full profit.",
+    ],
+    affiliateMessage:
+      "Selling through social commerce? Compare tools for creator, campaign, and product planning.",
   },
 ];
 

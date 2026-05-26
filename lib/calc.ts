@@ -366,3 +366,159 @@ export function calculateWooCommerceProfit(input: WooCommerceProfitInput) {
     roi: divideOrNull(netProfit * 100, totalCost),
   };
 }
+
+export interface ShopifyFeeInput {
+  totalSales: number;
+  numberOfOrders: number;
+  paymentFeePercentage: number;
+  fixedTransactionFee: number;
+  thirdPartyTransactionFeePercentage: number;
+}
+
+export function calculateShopifyFee(input: ShopifyFeeInput) {
+  const paymentProcessingFee =
+    input.totalSales * (input.paymentFeePercentage / 100) +
+    input.fixedTransactionFee * input.numberOfOrders;
+  const thirdPartyTransactionFee =
+    input.totalSales * (input.thirdPartyTransactionFeePercentage / 100);
+  const totalFees = paymentProcessingFee + thirdPartyTransactionFee;
+  const estimatedPayout = input.totalSales - totalFees;
+
+  return {
+    totalSales: input.totalSales,
+    paymentProcessingFee,
+    thirdPartyTransactionFee,
+    totalFees,
+    estimatedPayout,
+    feePerOrder: divideOrNull(totalFees, input.numberOfOrders),
+    effectiveFeeRate: divideOrNull(totalFees * 100, input.totalSales),
+  };
+}
+
+export interface EtsyProfitInput {
+  itemPrice: number;
+  shippingCharged: number;
+  itemCost: number;
+  shippingCost: number;
+  listingFee: number;
+  transactionFeePercentage: number;
+  processingPercentage: number;
+  processingFixedFee: number;
+  offsiteAdsFeePercentage: number;
+  orders: number;
+}
+
+export function calculateEtsyProfit(input: EtsyProfitInput) {
+  const revenuePerOrder = input.itemPrice + input.shippingCharged;
+  const totalRevenue = revenuePerOrder * input.orders;
+  const productAndShippingCost =
+    (input.itemCost + input.shippingCost) * input.orders;
+  const listingFees = input.listingFee * input.orders;
+  const transactionFees =
+    totalRevenue * (input.transactionFeePercentage / 100);
+  const paymentProcessingFees =
+    totalRevenue * (input.processingPercentage / 100) +
+    input.processingFixedFee * input.orders;
+  const offsiteAdsFees =
+    totalRevenue * (input.offsiteAdsFeePercentage / 100);
+  const totalFees =
+    listingFees + transactionFees + paymentProcessingFees + offsiteAdsFees;
+  const totalCost = productAndShippingCost + totalFees;
+  const netProfit = totalRevenue - totalCost;
+
+  return {
+    totalRevenue,
+    listingFees,
+    transactionFees,
+    paymentProcessingFees,
+    offsiteAdsFees,
+    totalFees,
+    totalCost,
+    netProfit,
+    profitPerOrder: divideOrNull(netProfit, input.orders),
+    profitMargin: divideOrNull(netProfit * 100, totalRevenue),
+  };
+}
+
+export interface AmazonReferralFeeInput {
+  sellingPrice: number;
+  unitsSold: number;
+  referralFeePercentage: number;
+  minimumReferralFee: number;
+}
+
+export function calculateAmazonReferralFee(input: AmazonReferralFeeInput) {
+  const percentageFeePerUnit =
+    input.sellingPrice * (input.referralFeePercentage / 100);
+  const appliedFeePerUnit = Math.max(
+    percentageFeePerUnit,
+    input.minimumReferralFee,
+  );
+  const totalRevenue = input.sellingPrice * input.unitsSold;
+  const totalReferralFees = appliedFeePerUnit * input.unitsSold;
+  const proceedsAfterReferralFees = totalRevenue - totalReferralFees;
+
+  return {
+    totalRevenue,
+    percentageFeePerUnit,
+    appliedFeePerUnit,
+    totalReferralFees,
+    proceedsAfterReferralFees,
+    effectiveFeeRate: divideOrNull(totalReferralFees * 100, totalRevenue),
+  };
+}
+
+export interface EbayPromotedListingFeeInput {
+  salePrice: number;
+  shippingCharged: number;
+  orders: number;
+  promotedListingAdRate: number;
+}
+
+export function calculateEbayPromotedListingFee(
+  input: EbayPromotedListingFeeInput,
+) {
+  const totalRevenue =
+    (input.salePrice + input.shippingCharged) * input.orders;
+  const promotedListingFee =
+    totalRevenue * (input.promotedListingAdRate / 100);
+  const proceedsAfterPromotedListingFee =
+    totalRevenue - promotedListingFee;
+
+  return {
+    totalRevenue,
+    promotedListingFee,
+    proceedsAfterPromotedListingFee,
+    feePerOrder: divideOrNull(promotedListingFee, input.orders),
+    effectiveFeeRate: divideOrNull(promotedListingFee * 100, totalRevenue),
+  };
+}
+
+export interface TikTokShopFeeInput {
+  grossSales: number;
+  orders: number;
+  platformFeePercentage: number;
+  affiliateCommissionPercentage: number;
+  fixedFeePerOrder: number;
+}
+
+export function calculateTikTokShopFee(input: TikTokShopFeeInput) {
+  const platformFee =
+    input.grossSales * (input.platformFeePercentage / 100);
+  const affiliateCommission =
+    input.grossSales * (input.affiliateCommissionPercentage / 100);
+  const fixedOrderFees = input.fixedFeePerOrder * input.orders;
+  const totalFees = platformFee + affiliateCommission + fixedOrderFees;
+  const proceedsAfterFees = input.grossSales - totalFees;
+
+  return {
+    grossSales: input.grossSales,
+    platformFee,
+    affiliateCommission,
+    fixedOrderFees,
+    totalFees,
+    proceedsAfterFees,
+    feePerOrder: divideOrNull(totalFees, input.orders),
+    effectiveFeeRate: divideOrNull(totalFees * 100, input.grossSales),
+  };
+}
