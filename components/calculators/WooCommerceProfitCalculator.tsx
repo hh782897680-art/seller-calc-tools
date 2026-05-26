@@ -16,7 +16,7 @@ type Field =
   | "adCost"
   | "unitsSold";
 
-const defaults: Record<Field, string> = {
+const sampleValues: Record<Field, string> = {
   sellingPrice: "50",
   productCost: "18",
   shippingCost: "5",
@@ -29,7 +29,7 @@ const defaults: Record<Field, string> = {
 
 export default function WooCommerceProfitCalculator() {
   const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(defaults);
+    useCalculatorInputs(sampleValues);
   const result = calculateWooCommerceProfit(numbers);
   const metrics = [
     { label: "Revenue", value: formatCurrency(result.revenue) },
@@ -52,14 +52,14 @@ export default function WooCommerceProfitCalculator() {
           : undefined
       }
     >
-      <InputField id="woocommerce-selling-price" label="Selling price" onChange={(value) => updateValue("sellingPrice", value)} prefix="$" value={values.sellingPrice} />
-      <InputField id="woocommerce-product-cost" label="Product cost" hint="Per unit" onChange={(value) => updateValue("productCost", value)} prefix="$" value={values.productCost} />
-      <InputField id="woocommerce-shipping-cost" label="Shipping cost" hint="Per unit" onChange={(value) => updateValue("shippingCost", value)} prefix="$" value={values.shippingCost} />
-      <InputField id="woocommerce-payment-percent" label="Payment fee percentage" onChange={(value) => updateValue("paymentFeePercentage", value)} suffix="%" value={values.paymentFeePercentage} />
-      <InputField id="woocommerce-fixed-fee" label="Fixed transaction fee" onChange={(value) => updateValue("fixedTransactionFee", value)} prefix="$" value={values.fixedTransactionFee} />
-      <InputField id="woocommerce-hosting-cost" label="Plugin or hosting cost" hint="Total for units sold" onChange={(value) => updateValue("pluginOrHostingCost", value)} prefix="$" value={values.pluginOrHostingCost} />
-      <InputField id="woocommerce-ad-cost" label="Ad cost" hint="Total for units sold" onChange={(value) => updateValue("adCost", value)} prefix="$" value={values.adCost} />
-      <InputField id="woocommerce-units" label="Units sold" onChange={(value) => updateValue("unitsSold", value)} step="1" value={values.unitsSold} />
+      <InputField id="woocommerce-selling-price" label="Selling price" onChange={(value) => updateValue("sellingPrice", value)} prefix="$" placeholder={sampleValues.sellingPrice} value={values.sellingPrice} />
+      <InputField id="woocommerce-product-cost" label="Product cost" hint="Per unit" onChange={(value) => updateValue("productCost", value)} prefix="$" placeholder={sampleValues.productCost} value={values.productCost} />
+      <InputField id="woocommerce-shipping-cost" label="Shipping cost" hint="Per unit" onChange={(value) => updateValue("shippingCost", value)} prefix="$" placeholder={sampleValues.shippingCost} value={values.shippingCost} />
+      <InputField id="woocommerce-payment-percent" label="Payment fee percentage" onChange={(value) => updateValue("paymentFeePercentage", value)} suffix="%" placeholder={sampleValues.paymentFeePercentage} value={values.paymentFeePercentage} />
+      <InputField id="woocommerce-fixed-fee" label="Fixed transaction fee" onChange={(value) => updateValue("fixedTransactionFee", value)} prefix="$" placeholder={sampleValues.fixedTransactionFee} value={values.fixedTransactionFee} />
+      <InputField id="woocommerce-hosting-cost" label="Plugin or hosting cost" hint="Total for units sold" onChange={(value) => updateValue("pluginOrHostingCost", value)} prefix="$" placeholder={sampleValues.pluginOrHostingCost} value={values.pluginOrHostingCost} />
+      <InputField id="woocommerce-ad-cost" label="Ad cost" hint="Total for units sold" onChange={(value) => updateValue("adCost", value)} prefix="$" placeholder={sampleValues.adCost} value={values.adCost} />
+      <InputField id="woocommerce-units" label="Units sold" onChange={(value) => updateValue("unitsSold", value)} step="1" placeholder={sampleValues.unitsSold} value={values.unitsSold} />
     </CalculatorWorkspace>
   );
 }

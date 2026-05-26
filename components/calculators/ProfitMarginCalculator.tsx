@@ -8,14 +8,14 @@ import { formatCurrency, formatPercent } from "@/lib/format";
 
 type Field = "revenue" | "cost";
 
-const defaults: Record<Field, string> = {
+const sampleValues: Record<Field, string> = {
   revenue: "125",
   cost: "80",
 };
 
 export default function ProfitMarginCalculator() {
   const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(defaults);
+    useCalculatorInputs(sampleValues);
   const result = calculateProfitMargin(numbers);
   const metrics = [
     { label: "Gross profit", value: formatCurrency(result.grossProfit), highlight: true },
@@ -34,8 +34,8 @@ export default function ProfitMarginCalculator() {
           : undefined
       }
     >
-      <InputField id="margin-revenue" label="Revenue" onChange={(value) => updateValue("revenue", value)} prefix="$" value={values.revenue} />
-      <InputField id="margin-cost" label="Cost" onChange={(value) => updateValue("cost", value)} prefix="$" value={values.cost} />
+      <InputField id="margin-revenue" label="Revenue" onChange={(value) => updateValue("revenue", value)} prefix="$" placeholder={sampleValues.revenue} value={values.revenue} />
+      <InputField id="margin-cost" label="Cost" onChange={(value) => updateValue("cost", value)} prefix="$" placeholder={sampleValues.cost} value={values.cost} />
     </CalculatorWorkspace>
   );
 }

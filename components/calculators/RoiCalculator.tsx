@@ -8,14 +8,14 @@ import { formatCurrency, formatPercent } from "@/lib/format";
 
 type Field = "investmentCost" | "returnAmount";
 
-const defaults: Record<Field, string> = {
+const sampleValues: Record<Field, string> = {
   investmentCost: "2500",
   returnAmount: "3400",
 };
 
 export default function RoiCalculator() {
   const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(defaults);
+    useCalculatorInputs(sampleValues);
   const result = calculateRoi(numbers);
   const metrics = [
     { label: "Net return", value: formatCurrency(result.netReturn), highlight: true },
@@ -33,8 +33,8 @@ export default function RoiCalculator() {
           : undefined
       }
     >
-      <InputField id="roi-investment" label="Investment cost" onChange={(value) => updateValue("investmentCost", value)} prefix="$" value={values.investmentCost} />
-      <InputField id="roi-return" label="Return amount" onChange={(value) => updateValue("returnAmount", value)} prefix="$" value={values.returnAmount} />
+      <InputField id="roi-investment" label="Investment cost" onChange={(value) => updateValue("investmentCost", value)} prefix="$" placeholder={sampleValues.investmentCost} value={values.investmentCost} />
+      <InputField id="roi-return" label="Return amount" onChange={(value) => updateValue("returnAmount", value)} prefix="$" placeholder={sampleValues.returnAmount} value={values.returnAmount} />
     </CalculatorWorkspace>
   );
 }

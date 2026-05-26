@@ -15,7 +15,7 @@ type Field =
   | "fixedOrderFee"
   | "promotedListingAdRate";
 
-const defaults: Record<Field, string> = {
+const sampleValues: Record<Field, string> = {
   salePrice: "60",
   shippingCharged: "8",
   itemCost: "24",
@@ -27,7 +27,7 @@ const defaults: Record<Field, string> = {
 
 export default function EbayFeeCalculator() {
   const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(defaults);
+    useCalculatorInputs(sampleValues);
   const result = calculateEbayFee(numbers);
   const metrics = [
     { label: "Total revenue", value: formatCurrency(result.totalRevenue) },
@@ -49,13 +49,13 @@ export default function EbayFeeCalculator() {
           : undefined
       }
     >
-      <InputField id="ebay-sale-price" label="Sale price" onChange={(value) => updateValue("salePrice", value)} prefix="$" value={values.salePrice} />
-      <InputField id="ebay-shipping-charged" label="Shipping charged" onChange={(value) => updateValue("shippingCharged", value)} prefix="$" value={values.shippingCharged} />
-      <InputField id="ebay-item-cost" label="Item cost" onChange={(value) => updateValue("itemCost", value)} prefix="$" value={values.itemCost} />
-      <InputField id="ebay-shipping-cost" label="Shipping cost" onChange={(value) => updateValue("shippingCost", value)} prefix="$" value={values.shippingCost} />
-      <InputField id="ebay-final-value-fee" label="Final value fee percentage" onChange={(value) => updateValue("finalValueFeePercentage", value)} suffix="%" value={values.finalValueFeePercentage} />
-      <InputField id="ebay-fixed-fee" label="Fixed order fee" onChange={(value) => updateValue("fixedOrderFee", value)} prefix="$" value={values.fixedOrderFee} />
-      <InputField id="ebay-promoted-rate" label="Promoted listing ad rate" onChange={(value) => updateValue("promotedListingAdRate", value)} suffix="%" value={values.promotedListingAdRate} />
+      <InputField id="ebay-sale-price" label="Sale price" onChange={(value) => updateValue("salePrice", value)} prefix="$" placeholder={sampleValues.salePrice} value={values.salePrice} />
+      <InputField id="ebay-shipping-charged" label="Shipping charged" onChange={(value) => updateValue("shippingCharged", value)} prefix="$" placeholder={sampleValues.shippingCharged} value={values.shippingCharged} />
+      <InputField id="ebay-item-cost" label="Item cost" onChange={(value) => updateValue("itemCost", value)} prefix="$" placeholder={sampleValues.itemCost} value={values.itemCost} />
+      <InputField id="ebay-shipping-cost" label="Shipping cost" onChange={(value) => updateValue("shippingCost", value)} prefix="$" placeholder={sampleValues.shippingCost} value={values.shippingCost} />
+      <InputField id="ebay-final-value-fee" label="Final value fee percentage" onChange={(value) => updateValue("finalValueFeePercentage", value)} suffix="%" placeholder={sampleValues.finalValueFeePercentage} value={values.finalValueFeePercentage} />
+      <InputField id="ebay-fixed-fee" label="Fixed order fee" onChange={(value) => updateValue("fixedOrderFee", value)} prefix="$" placeholder={sampleValues.fixedOrderFee} value={values.fixedOrderFee} />
+      <InputField id="ebay-promoted-rate" label="Promoted listing ad rate" onChange={(value) => updateValue("promotedListingAdRate", value)} suffix="%" placeholder={sampleValues.promotedListingAdRate} value={values.promotedListingAdRate} />
     </CalculatorWorkspace>
   );
 }

@@ -16,7 +16,7 @@ type Field =
   | "fixedTransactionFee"
   | "numberOfOrders";
 
-const defaults: Record<Field, string> = {
+const sampleValues: Record<Field, string> = {
   sellingPrice: "45",
   productCost: "16",
   shippingCost: "5",
@@ -29,7 +29,7 @@ const defaults: Record<Field, string> = {
 
 export default function ShopifyProfitCalculator() {
   const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(defaults);
+    useCalculatorInputs(sampleValues);
   const result = calculateShopifyProfit(numbers);
   const metrics = [
     { label: "Revenue", value: formatCurrency(result.revenue) },
@@ -55,14 +55,14 @@ export default function ShopifyProfitCalculator() {
           : undefined
       }
     >
-      <InputField id="shopify-selling-price" label="Selling price" onChange={(value) => updateValue("sellingPrice", value)} prefix="$" value={values.sellingPrice} />
-      <InputField id="shopify-product-cost" label="Product cost" hint="Per order" onChange={(value) => updateValue("productCost", value)} prefix="$" value={values.productCost} />
-      <InputField id="shopify-shipping-cost" label="Shipping cost" hint="Per order" onChange={(value) => updateValue("shippingCost", value)} prefix="$" value={values.shippingCost} />
-      <InputField id="shopify-ad-cost" label="Ad cost" hint="Per order average" onChange={(value) => updateValue("adCost", value)} prefix="$" value={values.adCost} />
-      <InputField id="shopify-other-cost" label="Other cost" hint="Per order" onChange={(value) => updateValue("otherCost", value)} prefix="$" value={values.otherCost} />
-      <InputField id="shopify-payment-fee" label="Payment fee percentage" onChange={(value) => updateValue("paymentFeePercentage", value)} suffix="%" value={values.paymentFeePercentage} />
-      <InputField id="shopify-fixed-fee" label="Fixed transaction fee" onChange={(value) => updateValue("fixedTransactionFee", value)} prefix="$" value={values.fixedTransactionFee} />
-      <InputField id="shopify-orders" label="Number of orders" onChange={(value) => updateValue("numberOfOrders", value)} step="1" value={values.numberOfOrders} />
+      <InputField id="shopify-selling-price" label="Selling price" onChange={(value) => updateValue("sellingPrice", value)} prefix="$" placeholder={sampleValues.sellingPrice} value={values.sellingPrice} />
+      <InputField id="shopify-product-cost" label="Product cost" hint="Per order" onChange={(value) => updateValue("productCost", value)} prefix="$" placeholder={sampleValues.productCost} value={values.productCost} />
+      <InputField id="shopify-shipping-cost" label="Shipping cost" hint="Per order" onChange={(value) => updateValue("shippingCost", value)} prefix="$" placeholder={sampleValues.shippingCost} value={values.shippingCost} />
+      <InputField id="shopify-ad-cost" label="Ad cost" hint="Per order average" onChange={(value) => updateValue("adCost", value)} prefix="$" placeholder={sampleValues.adCost} value={values.adCost} />
+      <InputField id="shopify-other-cost" label="Other cost" hint="Per order" onChange={(value) => updateValue("otherCost", value)} prefix="$" placeholder={sampleValues.otherCost} value={values.otherCost} />
+      <InputField id="shopify-payment-fee" label="Payment fee percentage" onChange={(value) => updateValue("paymentFeePercentage", value)} suffix="%" placeholder={sampleValues.paymentFeePercentage} value={values.paymentFeePercentage} />
+      <InputField id="shopify-fixed-fee" label="Fixed transaction fee" onChange={(value) => updateValue("fixedTransactionFee", value)} prefix="$" placeholder={sampleValues.fixedTransactionFee} value={values.fixedTransactionFee} />
+      <InputField id="shopify-orders" label="Number of orders" onChange={(value) => updateValue("numberOfOrders", value)} step="1" placeholder={sampleValues.numberOfOrders} value={values.numberOfOrders} />
     </CalculatorWorkspace>
   );
 }

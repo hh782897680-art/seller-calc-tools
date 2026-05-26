@@ -8,7 +8,7 @@ import { formatCurrency, formatNumber } from "@/lib/format";
 
 type Field = "fixedCosts" | "pricePerUnit" | "variableCostPerUnit";
 
-const defaults: Record<Field, string> = {
+const sampleValues: Record<Field, string> = {
   fixedCosts: "4000",
   pricePerUnit: "50",
   variableCostPerUnit: "30",
@@ -16,7 +16,7 @@ const defaults: Record<Field, string> = {
 
 export default function BreakEvenCalculator() {
   const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(defaults);
+    useCalculatorInputs(sampleValues);
   const result = calculateBreakEven(numbers);
   const metrics = [
     {
@@ -47,9 +47,9 @@ export default function BreakEvenCalculator() {
           : undefined
       }
     >
-      <InputField id="breakeven-fixed" label="Fixed costs" onChange={(value) => updateValue("fixedCosts", value)} prefix="$" value={values.fixedCosts} />
-      <InputField id="breakeven-price" label="Price per unit" onChange={(value) => updateValue("pricePerUnit", value)} prefix="$" value={values.pricePerUnit} />
-      <InputField id="breakeven-variable" label="Variable cost per unit" onChange={(value) => updateValue("variableCostPerUnit", value)} prefix="$" value={values.variableCostPerUnit} />
+      <InputField id="breakeven-fixed" label="Fixed costs" onChange={(value) => updateValue("fixedCosts", value)} prefix="$" placeholder={sampleValues.fixedCosts} value={values.fixedCosts} />
+      <InputField id="breakeven-price" label="Price per unit" onChange={(value) => updateValue("pricePerUnit", value)} prefix="$" placeholder={sampleValues.pricePerUnit} value={values.pricePerUnit} />
+      <InputField id="breakeven-variable" label="Variable cost per unit" onChange={(value) => updateValue("variableCostPerUnit", value)} prefix="$" placeholder={sampleValues.variableCostPerUnit} value={values.variableCostPerUnit} />
     </CalculatorWorkspace>
   );
 }

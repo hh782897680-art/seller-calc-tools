@@ -13,7 +13,7 @@ type Field =
   | "affiliateCommissionPercentage"
   | "fixedFeePerOrder";
 
-const defaults: Record<Field, string> = {
+const sampleValues: Record<Field, string> = {
   grossSales: "1500",
   orders: "40",
   platformFeePercentage: "6",
@@ -23,7 +23,7 @@ const defaults: Record<Field, string> = {
 
 export default function TikTokShopFeeCalculator() {
   const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(defaults);
+    useCalculatorInputs(sampleValues);
   const result = calculateTikTokShopFee(numbers);
   const metrics = [
     { label: "Gross sales", value: formatCurrency(result.grossSales) },
@@ -60,21 +60,21 @@ export default function TikTokShopFeeCalculator() {
         label="Gross sales"
         onChange={(value) => updateValue("grossSales", value)}
         prefix="$"
-        value={values.grossSales}
+        placeholder={sampleValues.grossSales} value={values.grossSales}
       />
       <InputField
         id="tiktok-fee-orders"
         label="Number of orders"
         onChange={(value) => updateValue("orders", value)}
         step="1"
-        value={values.orders}
+        placeholder={sampleValues.orders} value={values.orders}
       />
       <InputField
         id="tiktok-fee-platform-rate"
         label="Platform fee percentage"
         onChange={(value) => updateValue("platformFeePercentage", value)}
         suffix="%"
-        value={values.platformFeePercentage}
+        placeholder={sampleValues.platformFeePercentage} value={values.platformFeePercentage}
       />
       <InputField
         id="tiktok-fee-affiliate-rate"
@@ -82,7 +82,7 @@ export default function TikTokShopFeeCalculator() {
         hint="Use zero when no affiliate commission applies"
         onChange={(value) => updateValue("affiliateCommissionPercentage", value)}
         suffix="%"
-        value={values.affiliateCommissionPercentage}
+        placeholder={sampleValues.affiliateCommissionPercentage} value={values.affiliateCommissionPercentage}
       />
       <InputField
         id="tiktok-fee-fixed"
@@ -90,7 +90,7 @@ export default function TikTokShopFeeCalculator() {
         hint="Optional fee assumption"
         onChange={(value) => updateValue("fixedFeePerOrder", value)}
         prefix="$"
-        value={values.fixedFeePerOrder}
+        placeholder={sampleValues.fixedFeePerOrder} value={values.fixedFeePerOrder}
       />
     </CalculatorWorkspace>
   );

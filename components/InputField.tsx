@@ -3,6 +3,7 @@ interface InputFieldProps {
   label: string;
   value: string;
   onChange: (value: string) => void;
+  placeholder: string;
   prefix?: string;
   suffix?: string;
   hint?: string;
@@ -14,6 +15,7 @@ export default function InputField({
   label,
   value,
   onChange,
+  placeholder,
   prefix,
   suffix,
   hint,
@@ -31,13 +33,14 @@ export default function InputField({
           </span>
         )}
         <input
-          className={`w-full rounded-lg border border-slate-300 bg-white py-2.5 text-slate-900 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100 ${
+          className={`w-full rounded-lg border border-slate-300 bg-white py-2.5 text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100 ${
             prefix ? "pl-7" : "pl-3"
           } ${suffix ? "pr-10" : "pr-3"}`}
           id={id}
           inputMode="decimal"
           min="0"
           onChange={(event) => onChange(event.target.value)}
+          placeholder={placeholder}
           step={step}
           type="number"
           value={value}

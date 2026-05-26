@@ -17,7 +17,7 @@ type Field =
   | "processingFixedFee"
   | "offsiteAdsFeePercentage";
 
-const defaults: Record<Field, string> = {
+const sampleValues: Record<Field, string> = {
   itemPrice: "40",
   shippingCharged: "5",
   itemCost: "12",
@@ -31,7 +31,7 @@ const defaults: Record<Field, string> = {
 
 export default function EtsyFeeCalculator() {
   const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(defaults);
+    useCalculatorInputs(sampleValues);
   const result = calculateEtsyFee(numbers);
   const metrics = [
     { label: "Total revenue", value: formatCurrency(result.totalRevenue) },
@@ -55,15 +55,15 @@ export default function EtsyFeeCalculator() {
           : undefined
       }
     >
-      <InputField id="etsy-item-price" label="Item price" onChange={(value) => updateValue("itemPrice", value)} prefix="$" value={values.itemPrice} />
-      <InputField id="etsy-shipping-charged" label="Shipping charged to buyer" onChange={(value) => updateValue("shippingCharged", value)} prefix="$" value={values.shippingCharged} />
-      <InputField id="etsy-item-cost" label="Item cost" onChange={(value) => updateValue("itemCost", value)} prefix="$" value={values.itemCost} />
-      <InputField id="etsy-shipping-cost" label="Shipping cost" onChange={(value) => updateValue("shippingCost", value)} prefix="$" value={values.shippingCost} />
-      <InputField id="etsy-listing-fee" label="Etsy listing fee" onChange={(value) => updateValue("listingFee", value)} prefix="$" value={values.listingFee} />
-      <InputField id="etsy-transaction-fee" label="Transaction fee percentage" onChange={(value) => updateValue("transactionFeePercentage", value)} suffix="%" value={values.transactionFeePercentage} />
-      <InputField id="etsy-processing-percent" label="Payment processing percentage" onChange={(value) => updateValue("processingPercentage", value)} suffix="%" value={values.processingPercentage} />
-      <InputField id="etsy-processing-fixed" label="Payment fixed fee" onChange={(value) => updateValue("processingFixedFee", value)} prefix="$" value={values.processingFixedFee} />
-      <InputField id="etsy-offsite-ads" label="Offsite ads fee percentage (optional)" onChange={(value) => updateValue("offsiteAdsFeePercentage", value)} suffix="%" value={values.offsiteAdsFeePercentage} />
+      <InputField id="etsy-item-price" label="Item price" onChange={(value) => updateValue("itemPrice", value)} prefix="$" placeholder={sampleValues.itemPrice} value={values.itemPrice} />
+      <InputField id="etsy-shipping-charged" label="Shipping charged to buyer" onChange={(value) => updateValue("shippingCharged", value)} prefix="$" placeholder={sampleValues.shippingCharged} value={values.shippingCharged} />
+      <InputField id="etsy-item-cost" label="Item cost" onChange={(value) => updateValue("itemCost", value)} prefix="$" placeholder={sampleValues.itemCost} value={values.itemCost} />
+      <InputField id="etsy-shipping-cost" label="Shipping cost" onChange={(value) => updateValue("shippingCost", value)} prefix="$" placeholder={sampleValues.shippingCost} value={values.shippingCost} />
+      <InputField id="etsy-listing-fee" label="Etsy listing fee" onChange={(value) => updateValue("listingFee", value)} prefix="$" placeholder={sampleValues.listingFee} value={values.listingFee} />
+      <InputField id="etsy-transaction-fee" label="Transaction fee percentage" onChange={(value) => updateValue("transactionFeePercentage", value)} suffix="%" placeholder={sampleValues.transactionFeePercentage} value={values.transactionFeePercentage} />
+      <InputField id="etsy-processing-percent" label="Payment processing percentage" onChange={(value) => updateValue("processingPercentage", value)} suffix="%" placeholder={sampleValues.processingPercentage} value={values.processingPercentage} />
+      <InputField id="etsy-processing-fixed" label="Payment fixed fee" onChange={(value) => updateValue("processingFixedFee", value)} prefix="$" placeholder={sampleValues.processingFixedFee} value={values.processingFixedFee} />
+      <InputField id="etsy-offsite-ads" label="Offsite ads fee percentage (optional)" onChange={(value) => updateValue("offsiteAdsFeePercentage", value)} suffix="%" placeholder={sampleValues.offsiteAdsFeePercentage} value={values.offsiteAdsFeePercentage} />
     </CalculatorWorkspace>
   );
 }

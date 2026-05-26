@@ -2,25 +2,55 @@
 
 import { useState } from "react";
 
-export function useCalculatorInputs<Key extends string>(
-  defaults: Record<Key, string>,
+export function createEmptyInputValues<Key extends string>(
+  sampleValues: Record<Key, string>,
 ) {
-  const [values, setValues] = useState<Record<Key, string>>(defaults);
+  return Object.fromEntries(
+    Object.keys(sampleValues).map((key) => [key, ""]),
+  ) as Record<Key, string>;
+}
+
+export function parseInputNumber(value: string): number {
+  const number = Number.parseFloat(value);
+
+  return Number.isFinite(number) ? number : 0;
+}
+
+export function parseInputNumbers<Key extends string>(
+  values: Record<Key, string>,
+) {
+  return Object.fromEntries(
+    Object.entries(values).map(([key, value]) => [
+      key,
+      parseInputNumber(value as string),
+    ]),
+  ) as Record<Key, number>;
+}
+
+export function updateInputValues<Key extends string>(
+  values: Record<Key, string>,
+  key: Key,
+  value: string,
+) {
+  return { ...values, [key]: value };
+}
+
+export function useCalculatorInputs<Key extends string>(
+  sampleValues: Record<Key, string>,
+) {
+  const [values, setValues] = useState<Record<Key, string>>(() =>
+    createEmptyInputValues(sampleValues),
+  );
 
   function updateValue(key: Key, value: string) {
-    setValues((current) => ({ ...current, [key]: value }));
+    setValues((current) => updateInputValues(current, key, value));
   }
 
   function resetValues() {
-    setValues(defaults);
+    setValues(createEmptyInputValues(sampleValues));
   }
 
-  const numbers = Object.fromEntries(
-    Object.entries(values).map(([key, value]) => [
-      key,
-      Number.parseFloat(value as string) || 0,
-    ]),
-  ) as Record<Key, number>;
+  const numbers = parseInputNumbers(values);
 
   return { values, numbers, updateValue, resetValues };
 }

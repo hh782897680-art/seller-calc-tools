@@ -13,7 +13,7 @@ type Field =
   | "fixedTransactionFee"
   | "thirdPartyTransactionFeePercentage";
 
-const defaults: Record<Field, string> = {
+const sampleValues: Record<Field, string> = {
   totalSales: "2500",
   numberOfOrders: "50",
   paymentFeePercentage: "2.9",
@@ -23,7 +23,7 @@ const defaults: Record<Field, string> = {
 
 export default function ShopifyFeeCalculator() {
   const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(defaults);
+    useCalculatorInputs(sampleValues);
   const result = calculateShopifyFee(numbers);
   const metrics = [
     { label: "Total sales", value: formatCurrency(result.totalSales) },
@@ -60,28 +60,28 @@ export default function ShopifyFeeCalculator() {
         label="Total sales"
         onChange={(value) => updateValue("totalSales", value)}
         prefix="$"
-        value={values.totalSales}
+        placeholder={sampleValues.totalSales} value={values.totalSales}
       />
       <InputField
         id="shopify-fee-orders"
         label="Number of orders"
         onChange={(value) => updateValue("numberOfOrders", value)}
         step="1"
-        value={values.numberOfOrders}
+        placeholder={sampleValues.numberOfOrders} value={values.numberOfOrders}
       />
       <InputField
         id="shopify-fee-payment-rate"
         label="Payment processing percentage"
         onChange={(value) => updateValue("paymentFeePercentage", value)}
         suffix="%"
-        value={values.paymentFeePercentage}
+        placeholder={sampleValues.paymentFeePercentage} value={values.paymentFeePercentage}
       />
       <InputField
         id="shopify-fee-fixed"
         label="Fixed transaction fee"
         onChange={(value) => updateValue("fixedTransactionFee", value)}
         prefix="$"
-        value={values.fixedTransactionFee}
+        placeholder={sampleValues.fixedTransactionFee} value={values.fixedTransactionFee}
       />
       <InputField
         id="shopify-fee-additional-rate"
@@ -91,7 +91,7 @@ export default function ShopifyFeeCalculator() {
           updateValue("thirdPartyTransactionFeePercentage", value)
         }
         suffix="%"
-        value={values.thirdPartyTransactionFeePercentage}
+        placeholder={sampleValues.thirdPartyTransactionFeePercentage} value={values.thirdPartyTransactionFeePercentage}
       />
     </CalculatorWorkspace>
   );

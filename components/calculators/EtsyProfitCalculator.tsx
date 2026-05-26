@@ -18,7 +18,7 @@ type Field =
   | "offsiteAdsFeePercentage"
   | "orders";
 
-const defaults: Record<Field, string> = {
+const sampleValues: Record<Field, string> = {
   itemPrice: "40",
   shippingCharged: "5",
   itemCost: "12",
@@ -33,7 +33,7 @@ const defaults: Record<Field, string> = {
 
 export default function EtsyProfitCalculator() {
   const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(defaults);
+    useCalculatorInputs(sampleValues);
   const result = calculateEtsyProfit(numbers);
   const metrics = [
     { label: "Total revenue", value: formatCurrency(result.totalRevenue) },
@@ -78,14 +78,14 @@ export default function EtsyProfitCalculator() {
         label="Item price"
         onChange={(value) => updateValue("itemPrice", value)}
         prefix="$"
-        value={values.itemPrice}
+        placeholder={sampleValues.itemPrice} value={values.itemPrice}
       />
       <InputField
         id="etsy-profit-shipping-charged"
         label="Shipping charged to buyer"
         onChange={(value) => updateValue("shippingCharged", value)}
         prefix="$"
-        value={values.shippingCharged}
+        placeholder={sampleValues.shippingCharged} value={values.shippingCharged}
       />
       <InputField
         id="etsy-profit-item-cost"
@@ -93,7 +93,7 @@ export default function EtsyProfitCalculator() {
         hint="Per order"
         onChange={(value) => updateValue("itemCost", value)}
         prefix="$"
-        value={values.itemCost}
+        placeholder={sampleValues.itemCost} value={values.itemCost}
       />
       <InputField
         id="etsy-profit-shipping-cost"
@@ -101,7 +101,7 @@ export default function EtsyProfitCalculator() {
         hint="Per order"
         onChange={(value) => updateValue("shippingCost", value)}
         prefix="$"
-        value={values.shippingCost}
+        placeholder={sampleValues.shippingCost} value={values.shippingCost}
       />
       <InputField
         id="etsy-profit-listing-fee"
@@ -109,42 +109,42 @@ export default function EtsyProfitCalculator() {
         hint="Per order or renewal modeled"
         onChange={(value) => updateValue("listingFee", value)}
         prefix="$"
-        value={values.listingFee}
+        placeholder={sampleValues.listingFee} value={values.listingFee}
       />
       <InputField
         id="etsy-profit-transaction-rate"
         label="Transaction fee percentage"
         onChange={(value) => updateValue("transactionFeePercentage", value)}
         suffix="%"
-        value={values.transactionFeePercentage}
+        placeholder={sampleValues.transactionFeePercentage} value={values.transactionFeePercentage}
       />
       <InputField
         id="etsy-profit-processing-rate"
         label="Payment processing percentage"
         onChange={(value) => updateValue("processingPercentage", value)}
         suffix="%"
-        value={values.processingPercentage}
+        placeholder={sampleValues.processingPercentage} value={values.processingPercentage}
       />
       <InputField
         id="etsy-profit-processing-fixed"
         label="Payment fixed fee"
         onChange={(value) => updateValue("processingFixedFee", value)}
         prefix="$"
-        value={values.processingFixedFee}
+        placeholder={sampleValues.processingFixedFee} value={values.processingFixedFee}
       />
       <InputField
         id="etsy-profit-offsite-rate"
         label="Offsite ads percentage (optional)"
         onChange={(value) => updateValue("offsiteAdsFeePercentage", value)}
         suffix="%"
-        value={values.offsiteAdsFeePercentage}
+        placeholder={sampleValues.offsiteAdsFeePercentage} value={values.offsiteAdsFeePercentage}
       />
       <InputField
         id="etsy-profit-orders"
         label="Number of orders"
         onChange={(value) => updateValue("orders", value)}
         step="1"
-        value={values.orders}
+        placeholder={sampleValues.orders} value={values.orders}
       />
     </CalculatorWorkspace>
   );

@@ -12,7 +12,7 @@ type Field =
   | "referralFeePercentage"
   | "minimumReferralFee";
 
-const defaults: Record<Field, string> = {
+const sampleValues: Record<Field, string> = {
   sellingPrice: "35",
   unitsSold: "20",
   referralFeePercentage: "15",
@@ -21,7 +21,7 @@ const defaults: Record<Field, string> = {
 
 export default function AmazonReferralFeeCalculator() {
   const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(defaults);
+    useCalculatorInputs(sampleValues);
   const result = calculateAmazonReferralFee(numbers);
   const metrics = [
     { label: "Total revenue", value: formatCurrency(result.totalRevenue) },
@@ -59,14 +59,14 @@ export default function AmazonReferralFeeCalculator() {
         label="Selling price"
         onChange={(value) => updateValue("sellingPrice", value)}
         prefix="$"
-        value={values.sellingPrice}
+        placeholder={sampleValues.sellingPrice} value={values.sellingPrice}
       />
       <InputField
         id="amazon-referral-units"
         label="Units sold"
         onChange={(value) => updateValue("unitsSold", value)}
         step="1"
-        value={values.unitsSold}
+        placeholder={sampleValues.unitsSold} value={values.unitsSold}
       />
       <InputField
         id="amazon-referral-rate"
@@ -74,7 +74,7 @@ export default function AmazonReferralFeeCalculator() {
         hint="Confirm the applicable product category"
         onChange={(value) => updateValue("referralFeePercentage", value)}
         suffix="%"
-        value={values.referralFeePercentage}
+        placeholder={sampleValues.referralFeePercentage} value={values.referralFeePercentage}
       />
       <InputField
         id="amazon-referral-minimum"
@@ -82,7 +82,7 @@ export default function AmazonReferralFeeCalculator() {
         hint="Enter zero when no minimum applies"
         onChange={(value) => updateValue("minimumReferralFee", value)}
         prefix="$"
-        value={values.minimumReferralFee}
+        placeholder={sampleValues.minimumReferralFee} value={values.minimumReferralFee}
       />
     </CalculatorWorkspace>
   );

@@ -12,7 +12,7 @@ type Field =
   | "orders"
   | "promotedListingAdRate";
 
-const defaults: Record<Field, string> = {
+const sampleValues: Record<Field, string> = {
   salePrice: "60",
   shippingCharged: "8",
   orders: "10",
@@ -21,7 +21,7 @@ const defaults: Record<Field, string> = {
 
 export default function EbayPromotedListingFeeCalculator() {
   const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(defaults);
+    useCalculatorInputs(sampleValues);
   const result = calculateEbayPromotedListingFee(numbers);
   const metrics = [
     { label: "Total sale amount", value: formatCurrency(result.totalRevenue) },
@@ -52,21 +52,21 @@ export default function EbayPromotedListingFeeCalculator() {
         label="Sale price"
         onChange={(value) => updateValue("salePrice", value)}
         prefix="$"
-        value={values.salePrice}
+        placeholder={sampleValues.salePrice} value={values.salePrice}
       />
       <InputField
         id="ebay-promoted-shipping"
         label="Shipping charged to buyer"
         onChange={(value) => updateValue("shippingCharged", value)}
         prefix="$"
-        value={values.shippingCharged}
+        placeholder={sampleValues.shippingCharged} value={values.shippingCharged}
       />
       <InputField
         id="ebay-promoted-orders"
         label="Attributed orders"
         onChange={(value) => updateValue("orders", value)}
         step="1"
-        value={values.orders}
+        placeholder={sampleValues.orders} value={values.orders}
       />
       <InputField
         id="ebay-promoted-rate"
@@ -74,7 +74,7 @@ export default function EbayPromotedListingFeeCalculator() {
         hint="Use the rate for the modeled campaign"
         onChange={(value) => updateValue("promotedListingAdRate", value)}
         suffix="%"
-        value={values.promotedListingAdRate}
+        placeholder={sampleValues.promotedListingAdRate} value={values.promotedListingAdRate}
       />
     </CalculatorWorkspace>
   );

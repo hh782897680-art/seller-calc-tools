@@ -17,7 +17,7 @@ type Field =
   | "otherCost"
   | "unitsSold";
 
-const defaults: Record<Field, string> = {
+const sampleValues: Record<Field, string> = {
   sellingPrice: "34.99",
   productCost: "9",
   referralFeePercentage: "15",
@@ -31,7 +31,7 @@ const defaults: Record<Field, string> = {
 
 export default function AmazonFbaProfitCalculator() {
   const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(defaults);
+    useCalculatorInputs(sampleValues);
   const result = calculateAmazonFbaProfit(numbers);
   const metrics = [
     { label: "Revenue", value: formatCurrency(result.revenue) },
@@ -55,15 +55,15 @@ export default function AmazonFbaProfitCalculator() {
           : undefined
       }
     >
-      <InputField id="amazon-selling-price" label="Selling price" onChange={(value) => updateValue("sellingPrice", value)} prefix="$" value={values.sellingPrice} />
-      <InputField id="amazon-product-cost" label="Product cost" hint="Per unit" onChange={(value) => updateValue("productCost", value)} prefix="$" value={values.productCost} />
-      <InputField id="amazon-referral-fee" label="Referral fee percentage" onChange={(value) => updateValue("referralFeePercentage", value)} suffix="%" value={values.referralFeePercentage} />
-      <InputField id="amazon-fulfillment-fee" label="FBA fulfillment fee" hint="Per unit" onChange={(value) => updateValue("fulfillmentFee", value)} prefix="$" value={values.fulfillmentFee} />
-      <InputField id="amazon-storage-cost" label="Storage cost" hint="Per unit average" onChange={(value) => updateValue("storageCost", value)} prefix="$" value={values.storageCost} />
-      <InputField id="amazon-shipping" label="Shipping to Amazon" hint="Per unit" onChange={(value) => updateValue("shippingToAmazon", value)} prefix="$" value={values.shippingToAmazon} />
-      <InputField id="amazon-ad-cost" label="Ad cost" hint="Per unit average" onChange={(value) => updateValue("adCost", value)} prefix="$" value={values.adCost} />
-      <InputField id="amazon-other-cost" label="Other cost" hint="Per unit" onChange={(value) => updateValue("otherCost", value)} prefix="$" value={values.otherCost} />
-      <InputField id="amazon-units" label="Units sold" onChange={(value) => updateValue("unitsSold", value)} step="1" value={values.unitsSold} />
+      <InputField id="amazon-selling-price" label="Selling price" onChange={(value) => updateValue("sellingPrice", value)} prefix="$" placeholder={sampleValues.sellingPrice} value={values.sellingPrice} />
+      <InputField id="amazon-product-cost" label="Product cost" hint="Per unit" onChange={(value) => updateValue("productCost", value)} prefix="$" placeholder={sampleValues.productCost} value={values.productCost} />
+      <InputField id="amazon-referral-fee" label="Referral fee percentage" onChange={(value) => updateValue("referralFeePercentage", value)} suffix="%" placeholder={sampleValues.referralFeePercentage} value={values.referralFeePercentage} />
+      <InputField id="amazon-fulfillment-fee" label="FBA fulfillment fee" hint="Per unit" onChange={(value) => updateValue("fulfillmentFee", value)} prefix="$" placeholder={sampleValues.fulfillmentFee} value={values.fulfillmentFee} />
+      <InputField id="amazon-storage-cost" label="Storage cost" hint="Per unit average" onChange={(value) => updateValue("storageCost", value)} prefix="$" placeholder={sampleValues.storageCost} value={values.storageCost} />
+      <InputField id="amazon-shipping" label="Shipping to Amazon" hint="Per unit" onChange={(value) => updateValue("shippingToAmazon", value)} prefix="$" placeholder={sampleValues.shippingToAmazon} value={values.shippingToAmazon} />
+      <InputField id="amazon-ad-cost" label="Ad cost" hint="Per unit average" onChange={(value) => updateValue("adCost", value)} prefix="$" placeholder={sampleValues.adCost} value={values.adCost} />
+      <InputField id="amazon-other-cost" label="Other cost" hint="Per unit" onChange={(value) => updateValue("otherCost", value)} prefix="$" placeholder={sampleValues.otherCost} value={values.otherCost} />
+      <InputField id="amazon-units" label="Units sold" onChange={(value) => updateValue("unitsSold", value)} step="1" placeholder={sampleValues.unitsSold} value={values.unitsSold} />
     </CalculatorWorkspace>
   );
 }

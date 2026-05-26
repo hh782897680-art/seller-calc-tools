@@ -8,14 +8,14 @@ import { formatCurrency, formatRatio } from "@/lib/format";
 
 type Field = "adSpend" | "revenueFromAds";
 
-const defaults: Record<Field, string> = {
+const sampleValues: Record<Field, string> = {
   adSpend: "600",
   revenueFromAds: "2400",
 };
 
 export default function RoasCalculator() {
   const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(defaults);
+    useCalculatorInputs(sampleValues);
   const result = calculateRoas(numbers);
   const metrics = [
     { label: "ROAS", value: formatRatio(result.roas), highlight: true },
@@ -39,8 +39,8 @@ export default function RoasCalculator() {
           : undefined
       }
     >
-      <InputField id="roas-spend" label="Ad spend" onChange={(value) => updateValue("adSpend", value)} prefix="$" value={values.adSpend} />
-      <InputField id="roas-revenue" label="Revenue from ads" onChange={(value) => updateValue("revenueFromAds", value)} prefix="$" value={values.revenueFromAds} />
+      <InputField id="roas-spend" label="Ad spend" onChange={(value) => updateValue("adSpend", value)} prefix="$" placeholder={sampleValues.adSpend} value={values.adSpend} />
+      <InputField id="roas-revenue" label="Revenue from ads" onChange={(value) => updateValue("revenueFromAds", value)} prefix="$" placeholder={sampleValues.revenueFromAds} value={values.revenueFromAds} />
     </CalculatorWorkspace>
   );
 }

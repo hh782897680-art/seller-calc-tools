@@ -8,7 +8,7 @@ import { formatCurrency, formatPercent } from "@/lib/format";
 
 type Field = "amountReceived" | "feePercentage" | "fixedFee";
 
-const defaults: Record<Field, string> = {
+const sampleValues: Record<Field, string> = {
   amountReceived: "100",
   feePercentage: "3.49",
   fixedFee: "0.49",
@@ -16,7 +16,7 @@ const defaults: Record<Field, string> = {
 
 export default function PayPalFeeCalculator() {
   const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(defaults);
+    useCalculatorInputs(sampleValues);
   const result = calculatePayPalFee(numbers);
   const metrics = [
     { label: "PayPal fee", value: formatCurrency(result.fee), highlight: true },
@@ -35,9 +35,9 @@ export default function PayPalFeeCalculator() {
           : undefined
       }
     >
-      <InputField id="paypal-amount" label="Amount received" onChange={(value) => updateValue("amountReceived", value)} prefix="$" value={values.amountReceived} />
-      <InputField id="paypal-percent" label="Fee percentage" onChange={(value) => updateValue("feePercentage", value)} suffix="%" value={values.feePercentage} />
-      <InputField id="paypal-fixed-fee" label="Fixed fee" onChange={(value) => updateValue("fixedFee", value)} prefix="$" value={values.fixedFee} />
+      <InputField id="paypal-amount" label="Amount received" onChange={(value) => updateValue("amountReceived", value)} prefix="$" placeholder={sampleValues.amountReceived} value={values.amountReceived} />
+      <InputField id="paypal-percent" label="Fee percentage" onChange={(value) => updateValue("feePercentage", value)} suffix="%" placeholder={sampleValues.feePercentage} value={values.feePercentage} />
+      <InputField id="paypal-fixed-fee" label="Fixed fee" onChange={(value) => updateValue("fixedFee", value)} prefix="$" placeholder={sampleValues.fixedFee} value={values.fixedFee} />
     </CalculatorWorkspace>
   );
 }
