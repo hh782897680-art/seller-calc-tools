@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ecomprofittools.com"),
+  metadataBase: new URL("https://www.ecomprofittools.com"),
   verification: {
     google: "XeuV7TT5f4SAPYLKoCRzEIPcLEG0r8F25pIlf4AbNaY",
   },

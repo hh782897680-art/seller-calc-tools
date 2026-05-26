@@ -4,7 +4,7 @@ import BlogArticle, { ArticleSection } from "@/components/BlogArticle";
 import { getBlogPost } from "@/data/blog-posts";
 
 const post = getBlogPost("shopify-fees-explained");
-const url = `https://ecomprofittools.com/blog/${post.slug}`;
+const url = `https://www.ecomprofittools.com/blog/${post.slug}`;
 
 export const metadata: Metadata = {
   title: post.seoTitle,

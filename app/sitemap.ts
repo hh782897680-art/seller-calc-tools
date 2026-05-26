@@ -3,7 +3,7 @@ import { calculators } from "@/data/calculators";
 import { blogPosts } from "@/data/blog-posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://ecomprofittools.com";
+  const baseUrl = "https://www.ecomprofittools.com";
   const staticPages = [
     "",
     "/blog",

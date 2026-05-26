@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Contact Ecom Profit Tools with feedback, corrections, or partnership inquiries about our ecommerce calculators and educational content.",
   alternates: {
-    canonical: "https://ecomprofittools.com/contact",
+    canonical: "https://www.ecomprofittools.com/contact",
   },
   openGraph: {
     title: "Contact Ecom Profit Tools | Feedback and Inquiries",
     description:
       "Contact the Ecom Profit Tools team with feedback, corrections, or partnership inquiries.",
-    url: "https://ecomprofittools.com/contact",
+    url: "https://www.ecomprofittools.com/contact",
     type: "website",
     siteName: "Ecom Profit Tools",
   },

@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Ecom Profit Tools provides free browser-based calculators that help ecommerce sellers and small businesses estimate profit, fees, ROI, and ad returns.",
   alternates: {
-    canonical: "https://ecomprofittools.com/about",
+    canonical: "https://www.ecomprofittools.com/about",
   },
   openGraph: {
     title: "About Ecom Profit Tools | Free Seller Calculators",
     description:
       "Free calculators built to help ecommerce sellers and small business owners plan with clear estimates.",
-    url: "https://ecomprofittools.com/about",
+    url: "https://www.ecomprofittools.com/about",
     type: "website",
   },
 };

@@ -7,13 +7,13 @@ export const metadata: Metadata = {
   description:
     "Practical guides about ecommerce profit, fees, margins, ROAS, payment processing, and marketplace selling.",
   alternates: {
-    canonical: "https://ecomprofittools.com/blog",
+    canonical: "https://www.ecomprofittools.com/blog",
   },
   openGraph: {
     title: "Ecommerce Calculator Guides | Ecom Profit Tools Blog",
     description:
       "Practical guides about ecommerce profit, seller fees, pricing, payments, and advertising returns.",
-    url: "https://ecomprofittools.com/blog",
+    url: "https://www.ecomprofittools.com/blog",
     type: "website",
     siteName: "Ecom Profit Tools",
   },

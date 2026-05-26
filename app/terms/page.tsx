@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "Terms of Use | Ecom Profit Tools",
   description: "Basic terms of use for Ecom Profit Tools calculators and content.",
   alternates: {
-    canonical: "https://ecomprofittools.com/terms",
+    canonical: "https://www.ecomprofittools.com/terms",
   },
 };
 

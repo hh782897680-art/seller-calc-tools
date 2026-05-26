@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   description:
     "Free ecommerce profit and fee calculators for Shopify, Etsy, Amazon FBA, eBay, TikTok Shop, PayPal, Stripe, and WooCommerce sellers.",
   alternates: {
-    canonical: "https://ecomprofittools.com/",
+    canonical: "https://www.ecomprofittools.com/",
   },
   openGraph: {
     title: "Free Ecommerce Profit Calculators for Online Sellers | Ecom Profit Tools",
     description:
       "Free ecommerce profit and fee calculators for Shopify, Etsy, Amazon FBA, eBay, TikTok Shop, PayPal, Stripe, and WooCommerce sellers.",
-    url: "https://ecomprofittools.com/",
+    url: "https://www.ecomprofittools.com/",
     type: "website",
     siteName: "Ecom Profit Tools",
   },
