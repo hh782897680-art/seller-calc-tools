@@ -49,6 +49,9 @@ export default function AmazonFbaProfitCalculator() {
       metrics={metrics}
       name="Amazon FBA Profit Calculator Results"
       onReset={resetValues}
+      tone="shopify"
+      formTitle="Amazon FBA unit economics"
+      formDescription="Model your per-unit costs, Amazon fees, and ad spend assumptions. Results update instantly for scenario planning."
       warning={
         result.netProfit < 0
           ? "Your profit is negative. Review your product cost, FBA fees, or ad spend."
