@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+const numericInputPattern = /^[+-]?(?:\d+\.?\d*|\.\d+)(?:e[+-]?\d+)?$/i;
+
 export function createEmptyInputValues<Key extends string>(
   sampleValues: Record<Key, string>,
 ) {
@@ -10,19 +12,33 @@ export function createEmptyInputValues<Key extends string>(
   ) as Record<Key, string>;
 }
 
-export function parseInputNumber(value: string): number {
-  const number = Number.parseFloat(value);
+export function parseInputNumber(value: unknown): number {
+  if (typeof value === "number") {
+    return Number.isFinite(value) ? value : 0;
+  }
+
+  if (typeof value !== "string") {
+    return 0;
+  }
+
+  const normalizedValue = value.trim();
+
+  if (!numericInputPattern.test(normalizedValue)) {
+    return 0;
+  }
+
+  const number = Number(normalizedValue);
 
   return Number.isFinite(number) ? number : 0;
 }
 
 export function parseInputNumbers<Key extends string>(
-  values: Record<Key, string>,
+  values: Record<Key, unknown>,
 ) {
   return Object.fromEntries(
     Object.entries(values).map(([key, value]) => [
       key,
-      parseInputNumber(value as string),
+      parseInputNumber(value),
     ]),
   ) as Record<Key, number>;
 }

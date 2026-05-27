@@ -11,16 +11,16 @@ import {
 } from "@/data/calculators";
 
 export const metadata: Metadata = {
-  title: "Free Ecommerce Profit Calculators for Online Sellers | Ecom Profit Tools",
+  title: "Ecommerce Profit Calculator Tools",
   description:
-    "Free ecommerce profit and fee calculators for Shopify, Etsy, Amazon FBA, eBay, TikTok Shop, PayPal, Stripe, and WooCommerce sellers.",
+    "Free Shopify, Etsy, Amazon, and eBay seller calculators for estimating ecommerce profit, marketplace fees, margin, ROI, and ROAS.",
   alternates: {
     canonical: "https://www.ecomprofittools.com/",
   },
   openGraph: {
-    title: "Free Ecommerce Profit Calculators for Online Sellers | Ecom Profit Tools",
+    title: "Ecommerce Profit Calculator Tools",
     description:
-      "Free ecommerce profit and fee calculators for Shopify, Etsy, Amazon FBA, eBay, TikTok Shop, PayPal, Stripe, and WooCommerce sellers.",
+      "Free Shopify, Etsy, Amazon, and eBay seller calculators for estimating ecommerce profit, marketplace fees, margin, ROI, and ROAS.",
     url: "https://www.ecomprofittools.com/",
     type: "website",
     siteName: "Ecom Profit Tools",

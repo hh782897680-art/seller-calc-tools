@@ -28,14 +28,50 @@ interface CalculatorPageProps {
   form: ReactNode;
 }
 
+function serializeJsonLd(schema: object): string {
+  return JSON.stringify(schema).replace(/</g, "\\u003c");
+}
+
 export default function CalculatorPage({
   calculator,
   form,
 }: CalculatorPageProps) {
   const showFeeReviewNotice = reviewedFeeCalculatorSlugs.has(calculator.slug);
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: calculator.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: `How to use ${calculator.name}`,
+    description: calculator.shortDescription,
+    step: calculator.howToUse.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: `Step ${index + 1}`,
+      text: step,
+    })),
+  };
 
   return (
     <main>
+      <script
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
+        type="application/ld+json"
+      />
+      <script
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(howToSchema) }}
+        type="application/ld+json"
+      />
       <section className="border-b border-slate-200 bg-white">
         <div className="page-container py-12 sm:py-16">
           <p className="text-sm font-semibold uppercase tracking-widest text-brand-600">
@@ -69,12 +105,19 @@ export default function CalculatorPage({
 
       <article className="page-container mt-12 max-w-4xl space-y-12">
         <section>
-          <h2 className="section-heading">What is {calculator.name}?</h2>
+          <h2 className="section-heading">What is this calculator?</h2>
           <div className="mt-5 space-y-4 text-base leading-8 text-slate-600">
             {calculator.whatIs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
+        </section>
+
+        <section>
+          <h2 className="section-heading">Who should use it?</h2>
+          <p className="mt-5 text-base leading-8 text-slate-600">
+            {calculator.whoShouldUse}
+          </p>
         </section>
 
         <section>
@@ -97,7 +140,7 @@ export default function CalculatorPage({
         </section>
 
         <section>
-          <h2 className="section-heading">Why it matters for ecommerce sellers</h2>
+          <h2 className="section-heading">Why the result matters</h2>
           <div className="mt-5 space-y-4 text-base leading-8 text-slate-600">
             {calculator.whyItMatters.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
@@ -108,7 +151,7 @@ export default function CalculatorPage({
         <AffiliateCTA message={calculator.affiliateMessage} />
 
         <section>
-          <h2 className="section-heading">How to use this calculator</h2>
+          <h2 className="section-heading">How to use it</h2>
           <ol className="mt-5 list-none space-y-3 text-base leading-8 text-slate-600">
             {calculator.howToUse.map((step, index) => (
               <li className="flex gap-3" key={step}>
@@ -122,6 +165,17 @@ export default function CalculatorPage({
               </li>
             ))}
           </ol>
+        </section>
+
+        <section>
+          <h2 className="section-heading">Common mistakes to avoid</h2>
+          <ul className="mt-5 space-y-3 text-base leading-8 text-slate-600">
+            {calculator.commonMistakes.map((mistake) => (
+              <li className="rounded-xl border border-slate-200 bg-white px-5 py-3" key={mistake}>
+                {mistake}
+              </li>
+            ))}
+          </ul>
         </section>
 
         <AdPlaceholder />

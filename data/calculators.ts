@@ -35,9 +35,11 @@ export interface CalculatorData {
   faqs: FAQItem[];
   relatedSlugs: CalculatorSlug[];
   whatIs: string[];
+  whoShouldUse: string;
   howToCalculate: string[];
   whyItMatters: string[];
   howToUse: string[];
+  commonMistakes: string[];
   affiliateMessage: string;
 }
 
@@ -48,7 +50,7 @@ export const calculators: CalculatorData[] = [
     category: "Ecommerce Profit",
     shortDescription:
       "Estimate Shopify store revenue, fees, advertising cost, net profit, margin, ROI, and break-even ROAS.",
-    seoTitle: "Shopify Profit Calculator - Free Store Profit Tool | Ecom Profit Tools",
+    seoTitle: "Shopify Profit Calculator | EcomProfitTools",
     seoDescription:
       "Calculate Shopify profit, margin, ROI, fees, and break-even ROAS from product, shipping, ad, and payment costs with this free seller tool.",
     formula: [
@@ -88,6 +90,8 @@ export const calculators: CalculatorData[] = [
       "A Shopify profit calculator is a planning tool for understanding what remains after an online store makes sales and pays the costs needed to deliver those orders. Revenue alone can look healthy while product purchases, shipping, payment processing, advertising, packaging, apps, and returns quietly reduce the amount a seller keeps.",
       "This calculator works at the order level and scales the figures by the number of orders. Enter the selling price and costs that apply to one average order, plus payment charges. It then provides an estimated period total. This approach is useful before launching a product, when reviewing a campaign, or when setting a price for a new bundle.",
     ],
+    whoShouldUse:
+      "Shopify merchants can use this tool when pricing a new item, reviewing a bundle, comparing shipping offers, or checking whether paid traffic still leaves enough margin. It is especially useful for store owners who know their typical order costs and want a quick scenario before changing a price or campaign.",
     howToCalculate: [
       "Start with gross sales: selling price multiplied by completed orders. Multiply each per-order operating cost by the same order count. Payment processing has two parts: a percentage applied to revenue and a fixed charge applied once for each order. Add all costs before subtracting them from revenue.",
       "Margin answers how much of each sales dollar remains as profit. ROI compares profit with the money spent to generate and fulfill sales. Break-even ROAS in this simplified view compares revenue with ad cost; it helps you spot whether advertising is consuming too large a share of sales, but it should be reviewed with all non-ad costs in mind.",
@@ -102,6 +106,11 @@ export const calculators: CalculatorData[] = [
       "Set the expected or actual number of orders for the period you want to review.",
       "Review net profit, margin, ROI, and break-even ROAS, then copy the result for your planning notes.",
     ],
+    commonMistakes: [
+      "Treating gross sales or an estimated payout as profit before product, shipping, and advertising costs.",
+      "Leaving out fixed payment charges, allocated app costs, discounts, returns, or packaging when they apply.",
+      "Increasing ad spend from revenue alone without checking margin and break-even ROAS assumptions.",
+    ],
     affiliateMessage:
       "Want to start or optimize your Shopify store? Compare ecommerce tools here.",
   },
@@ -111,7 +120,7 @@ export const calculators: CalculatorData[] = [
     category: "Marketplace Fees",
     shortDescription:
       "Estimate Etsy transaction, payment processing, listing, and optional offsite ad fees alongside your net profit.",
-    seoTitle: "Etsy Fee Calculator - Estimate Seller Profit | Ecom Profit Tools",
+    seoTitle: "Etsy Fee Calculator | EcomProfitTools",
     seoDescription:
       "Estimate Etsy listing, transaction, payment processing, and offsite ads fees, then calculate net profit and margin for an Etsy sale.",
     formula: [
@@ -151,6 +160,8 @@ export const calculators: CalculatorData[] = [
       "An Etsy fee calculator estimates how a single order turns into take-home profit after marketplace charges and fulfillment costs. Handmade, vintage, craft supply, and digital product sellers commonly price an item based on materials and time, but platform fees can change the amount earned from each order.",
       "This tool separates collected revenue from costs. Revenue includes both the listed item amount and any shipping amount paid by the customer. Expenses include your item cost, the delivery cost you pay, a listing fee, transaction fees, payment processing, and an optional offsite advertising fee. Because fee programs vary, every fee field is editable.",
     ],
+    whoShouldUse:
+      "Etsy sellers preparing or revising a listing can use this estimate before choosing a price, shipping charge, or promotion. It supports handmade makers, vintage resellers, craft supply shops, and digital-product sellers who want to understand a representative order without assuming that every sale has identical fees.",
     howToCalculate: [
       "First add item price and customer shipping charge to find total revenue. Percentage-based transaction fees and payment processing are applied to that collected amount in this estimate. Payment processing also includes a fixed charge. Add a listing charge and, when relevant, the offsite advertising percentage.",
       "Total fees are added to product and shipping expense. The difference between collected revenue and the resulting total cost is net profit. Divide net profit by total revenue to see margin. Taxes, VAT collection, currency conversion, refunds, multi-quantity listings, and location-specific charges are not automatically inferred; enter or account for them separately.",
@@ -165,6 +176,11 @@ export const calculators: CalculatorData[] = [
       "Add an offsite ads percentage only when you want to model a sale that incurs that charge.",
       "Compare net profit and margin under different prices or shipping charges before publishing a listing.",
     ],
+    commonMistakes: [
+      "Applying percentage fees only to item price when the modeled fee base includes collected shipping.",
+      "Adding an offsite ads charge to every scenario, or omitting it from an attributed sale.",
+      "Assuming example listing and processing inputs match the seller's country and payment terms.",
+    ],
     affiliateMessage:
       "Selling on Etsy? Discover tools to improve your store workflow.",
   },
@@ -174,7 +190,7 @@ export const calculators: CalculatorData[] = [
     category: "Marketplace Profit",
     shortDescription:
       "Model Amazon FBA revenue, referral and fulfillment fees, inventory costs, advertising, margin, and ROI.",
-    seoTitle: "Amazon FBA Profit Calculator - Free Seller Tool | Ecom Profit Tools",
+    seoTitle: "Amazon FBA Profit Calculator | EcomProfitTools",
     seoDescription:
       "Calculate estimated Amazon FBA profit, referral fees, fulfillment costs, margin, ROI, and profit per unit for your product.",
     formula: [
@@ -215,6 +231,8 @@ export const calculators: CalculatorData[] = [
       "An Amazon FBA profit calculator estimates whether a Fulfillment by Amazon product leaves a viable profit after the marketplace and fulfillment process are paid. FBA can simplify delivery and customer service, but the selling price must support referral fees, fulfillment charges, inventory acquisition, shipping into Amazon, storage, and promotion.",
       "The calculator models a set of units sold, while most cost entries are averages for one unit. That makes the output useful for product research and for reviewing an existing SKU over a week or month. It reports total profit together with profit per unit, margin, and ROI, because an attractive sales total does not automatically indicate an attractive product.",
     ],
+    whoShouldUse:
+      "Amazon FBA sellers can use this model while researching a possible product, choosing a reorder quantity, or reviewing an established SKU after advertising costs change. It is designed for sellers who can provide category, size-tier, landed-cost, storage, and promotion assumptions for the product being evaluated.",
     howToCalculate: [
       "Multiply item price by units sold to establish revenue. Apply the referral percentage to revenue. Multiply fulfillment fee and other unit-level costs by units sold, including product purchase cost, storage, inbound shipping, ads, and miscellaneous costs. Subtract their sum from revenue.",
       "Profit per unit makes it easier to compare products at different prices. Margin measures profit as a share of revenue, while ROI compares profit with costs committed. Fee schedules and size tiers can change, so the accuracy of this forecast depends on entering the correct fulfillment and referral assumptions for the specific SKU.",
@@ -229,6 +247,11 @@ export const calculators: CalculatorData[] = [
       "Include per-unit storage, inbound shipping, advertising, and other operating allowances.",
       "Test different scenarios and use per-unit profit, margin, and ROI when evaluating inventory decisions.",
     ],
+    commonMistakes: [
+      "Using a fulfillment amount from the wrong size tier, weight, category, or marketplace.",
+      "Omitting inbound freight, storage, advertising, returns, or other unit-level allowances.",
+      "Reading revenue after one Amazon fee as final profit before inventory and fulfillment expense.",
+    ],
     affiliateMessage:
       "Need better Amazon seller tools? Compare research and profit tools here.",
   },
@@ -238,7 +261,7 @@ export const calculators: CalculatorData[] = [
     category: "Business Fundamentals",
     shortDescription:
       "Turn revenue and cost into gross profit, profit margin, and markup for fast pricing analysis.",
-    seoTitle: "Profit Margin Calculator for Sellers | Ecom Profit Tools",
+    seoTitle: "Profit Margin Calculator | EcomProfitTools",
     seoDescription:
       "Calculate gross profit, profit margin, and markup from revenue and cost with a free tool for ecommerce sellers and small businesses.",
     formula: [
@@ -274,6 +297,8 @@ export const calculators: CalculatorData[] = [
       "A profit margin calculator shows how efficiently revenue turns into profit after selected costs are deducted. Sellers can calculate margin for one item, one order, a product category, or an entire reporting period, as long as revenue and cost cover the same scope. The result is a percentage of sales rather than only a dollar amount.",
       "Margin is often confused with markup. A margin of 36% means 36 cents of each sales dollar remains as profit under the included costs. A markup percentage instead compares that profit with what the item cost. The distinction matters when using a target percentage to determine price or when comparing results with marketplace dashboards.",
     ],
+    whoShouldUse:
+      "Sellers on any channel can use this calculator when comparing products, reviewing a discount, or checking whether a fee or shipping increase has reduced retained profit. It also suits small businesses that need a simple, consistently scoped margin check before moving to a fuller income statement.",
     howToCalculate: [
       "Subtract cost from revenue to obtain gross profit. Then divide gross profit by revenue and multiply by 100 to get profit margin. The calculator also divides profit by cost to give markup. If you are comparing several products, be consistent about whether fees, shipping, ad acquisition, labor, or overhead are included.",
       "A negative output means costs exceeded revenue for the scope entered. A high margin may still omit fixed business costs if only variable product costs were used. Use an input definition that matches the question: pricing an order, assessing an ad-supported item, or reviewing overall operations are different analyses.",
@@ -288,6 +313,11 @@ export const calculators: CalculatorData[] = [
       "Review gross profit and margin first, then use markup when considering cost-based pricing.",
       "Change revenue or cost to model discounts, supplier savings, or increasing fulfillment fees.",
     ],
+    commonMistakes: [
+      "Confusing margin, which is based on revenue, with markup, which is based on cost.",
+      "Comparing products when one cost figure includes fees and ads while another does not.",
+      "Treating gross margin as complete business profit when overhead and returns remain excluded.",
+    ],
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
   },
@@ -297,7 +327,7 @@ export const calculators: CalculatorData[] = [
     category: "Pricing",
     shortDescription:
       "Set a markup above cost and see the resulting selling price, dollar profit, and profit margin.",
-    seoTitle: "Markup Calculator - Price Products from Cost | Ecom Profit Tools",
+    seoTitle: "Markup Calculator | EcomProfitTools",
     seoDescription:
       "Calculate a selling price, profit, and margin from product cost and markup percentage for ecommerce and small business pricing.",
     formula: [
@@ -333,6 +363,8 @@ export const calculators: CalculatorData[] = [
       "A markup calculator helps a seller establish a selling price by adding a chosen percentage above cost. Cost-based pricing is a practical starting point for wholesale products, handmade goods, services with direct materials, and early product research, because it ensures a planned amount is added to known expense.",
       "Markup is expressed relative to cost. If cost is $20 and the markup is 50%, the selling price becomes $30 and profit before omitted costs is $10. The resulting margin is only 33.33% because margin is measured against the selling price. Seeing both values avoids a common pricing misunderstanding.",
     ],
+    whoShouldUse:
+      "This tool is useful for makers, resellers, wholesalers, and online store owners establishing an initial price from known cost. It is a starting point when purchasing stock or planning a new item, before the seller checks the resulting price against platform fees, advertising, customer demand, and target margin.",
     howToCalculate: [
       "Choose a cost figure that represents the expense your price must recover. Multiply that amount by one plus the markup percentage expressed as a decimal. Subtract original cost from calculated price to find profit. Finally, divide profit by price to calculate margin.",
       "The arithmetic is simple, but cost definition is important. A markup built only on factory cost may be insufficient for a web sale after payment processing, delivery, marketplace commission, returns, advertising, or time spent fulfilling an order. Include relevant expenses or run a profit calculator after setting price.",
@@ -347,6 +379,11 @@ export const calculators: CalculatorData[] = [
       "Review calculated selling price, profit, and the equivalent margin percentage.",
       "Test costs and markup levels, then validate the price using all selling-channel expenses.",
     ],
+    commonMistakes: [
+      "Applying markup only to purchase cost while ignoring shipping, fees, packaging, or labor.",
+      "Expecting a markup percentage to equal the resulting profit margin percentage.",
+      "Publishing the calculated price without checking channel-specific selling and advertising costs.",
+    ],
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
   },
@@ -356,7 +393,7 @@ export const calculators: CalculatorData[] = [
     category: "Performance",
     shortDescription:
       "Measure net return and return on investment for inventory, software, promotions, or business projects.",
-    seoTitle: "ROI Calculator - Return on Investment Tool | Ecom Profit Tools",
+    seoTitle: "ROI Calculator | EcomProfitTools",
     seoDescription:
       "Calculate net return and ROI percentage from investment cost and return amount for ecommerce and small business decisions.",
     formula: [
@@ -391,6 +428,8 @@ export const calculators: CalculatorData[] = [
       "Return on investment, usually shortened to ROI, compares the net gain from an activity with the amount invested in that activity. An ecommerce owner might use it for a new product order, packaging equipment, a subscription that saves labor, a website redesign, or a broader promotion where the relevant return can be estimated.",
       "ROI provides a percentage that makes differently sized projects easier to compare. It does not automatically define which revenue or cost belongs in the comparison. The usefulness of the output depends on including realistic expenses and choosing a return amount that reflects the same period and decision as the investment cost.",
     ],
+    whoShouldUse:
+      "Online sellers and small business owners can use ROI when weighing inventory purchases, store improvements, operating tools, or a defined promotion. It works best when each option has a clearly documented cost and return over the same period, so the percentage supports a decision rather than hiding different assumptions.",
     howToCalculate: [
       "Subtract investment cost from return amount to find net return. Divide that net return by investment cost, then multiply by 100. A positive result indicates the entered return exceeded investment, while a negative result indicates the project has not recovered its entered cost.",
       "When investment cost is zero, ROI cannot be defined and the tool displays N/A. If a project continues producing benefits for many months, calculate using a clearly stated period or use more detailed finance methods where time, cash flow timing, risk, taxes, and residual value are material.",
@@ -405,6 +444,11 @@ export const calculators: CalculatorData[] = [
       "Read the dollar net return and ROI percentage; a negative value warrants review of assumptions.",
       "Keep the same cost and time definitions when comparing several potential investments.",
     ],
+    commonMistakes: [
+      "Using gross revenue as the return amount even though delivery and selling costs remain.",
+      "Comparing ROI figures measured over very different time periods without noting that difference.",
+      "Omitting implementation cost, recurring cost, risk, or cash tied up in inventory.",
+    ],
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
   },
@@ -414,7 +458,7 @@ export const calculators: CalculatorData[] = [
     category: "Advertising",
     shortDescription:
       "Calculate return on ad spend and revenue after advertising cost for ecommerce campaign review.",
-    seoTitle: "ROAS Calculator for Ecommerce Ads | Ecom Profit Tools",
+    seoTitle: "ROAS Calculator | EcomProfitTools",
     seoDescription:
       "Calculate ROAS from advertising spend and attributed revenue, with a clear view of revenue less ad spend for ecommerce campaigns.",
     formula: [
@@ -449,6 +493,8 @@ export const calculators: CalculatorData[] = [
       "ROAS means return on ad spend. It is a campaign efficiency ratio that divides revenue attributed to advertising by the advertising cost used to produce that revenue. Ecommerce advertisers see it in platforms such as paid social and search, where quick comparisons across ads, audiences, products, and time periods are needed.",
       "A ROAS calculator does not claim the campaign made a net profit. The revenue still needs to cover product costs, delivery, seller fees, payment processing, returns, discounts, overhead, and sometimes agency or creative expense. Attribution settings can also overstate or understate what the ad truly caused. ROAS is one useful lens, not a complete income statement.",
     ],
+    whoShouldUse:
+      "Ecommerce sellers running paid search, social advertising, marketplace ads, or creator-supported campaigns can use ROAS to compare attributed revenue with spend. It is most useful alongside a known contribution margin, because the revenue ratio must still be high enough to pay for products, delivery, fees, and returns.",
     howToCalculate: [
       "Enter the ad spend for a defined campaign and the revenue attributed over the matching period and attribution rule. Divide revenue by spend. A value of 3.00x means three dollars of attributed sales per dollar spent. The secondary result subtracts only ad spend from revenue to make the remaining amount visible before other costs.",
       "To find a workable performance target, consider contribution margin. If only 30% of a sale remains before ads, a campaign generally needs more than 3.33x revenue-to-spend merely to cover advertising under that simplified assumption. Use a profit calculator to incorporate actual product and selling expenses.",
@@ -463,6 +509,11 @@ export const calculators: CalculatorData[] = [
       "Review ROAS as a revenue ratio and remember that revenue less ads is not full profit.",
       "Compare the ratio with your margin-based break-even target before adjusting budgets.",
     ],
+    commonMistakes: [
+      "Calling a high ROAS profitable without subtracting product, fulfillment, payment, and return costs.",
+      "Comparing campaigns that use different attribution windows, currencies, or revenue definitions.",
+      "Scaling spend toward the highest revenue ratio without checking break-even margin requirements.",
+    ],
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
   },
@@ -472,7 +523,7 @@ export const calculators: CalculatorData[] = [
     category: "Planning",
     shortDescription:
       "Find contribution margin, units needed to recover fixed costs, and the revenue required to break even.",
-    seoTitle: "Break Even Calculator for Small Business | Ecom Profit Tools",
+    seoTitle: "Break Even Calculator | EcomProfitTools",
     seoDescription:
       "Calculate break-even units and revenue from fixed costs, price per unit, and variable unit cost for ecommerce planning.",
     formula: [
@@ -508,6 +559,8 @@ export const calculators: CalculatorData[] = [
       "A break-even calculator estimates how many units a business must sell before the contribution from sales recovers fixed costs. Before reaching that point, the modeled activity has not covered its fixed commitment; after reaching it, additional contribution may become profit, assuming price and costs stay consistent.",
       "This analysis separates costs into fixed and variable groups. Fixed costs are committed for the project or period regardless of each sale. Variable costs rise with each unit sold. Price minus variable cost is contribution margin per unit, the amount available from one additional sale to recover fixed expense.",
     ],
+    whoShouldUse:
+      "Sellers planning a new product, launch campaign, wholesale order, pop-up offer, or store investment can use break-even analysis to turn upfront cost into a sales target. It is helpful before committing cash, provided the variable cost per sale includes the costs that genuinely rise with each order.",
     howToCalculate: [
       "Subtract variable unit cost from unit price. If the result is positive, divide total fixed cost by that contribution to find the exact break-even quantity. Multiply quantity by price for break-even revenue. In practice, products cannot usually be sold in fractional units, so round the unit result upward when setting a sales target.",
       "When contribution is zero or negative, selling more does not pay down fixed cost under the entered assumptions. The calculator therefore does not show a break-even quantity. Reassess selling price, purchase and fulfillment expense, marketplace fees, discounting, or paid acquisition cost before planning volume.",
@@ -522,6 +575,11 @@ export const calculators: CalculatorData[] = [
       "Review contribution margin and break-even units; round required units up for a real sales target.",
       "Model price or cost changes to see what improves the required sales volume.",
     ],
+    commonMistakes: [
+      "Leaving transaction fees, packaging, shipping subsidy, or per-sale advertising out of variable cost.",
+      "Rounding a fractional break-even result down even though an additional full sale is required.",
+      "Assuming price and unit cost will remain stable across discounts, returns, and volume changes.",
+    ],
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
   },
@@ -531,7 +589,7 @@ export const calculators: CalculatorData[] = [
     category: "Payment Fees",
     shortDescription:
       "Estimate a PayPal transaction fee, the amount you keep, and the effective fee rate from a payment received.",
-    seoTitle: "PayPal Fee Calculator - Estimate Payment Fees | Ecom Profit Tools",
+    seoTitle: "PayPal Fee Calculator | EcomProfitTools",
     seoDescription:
       "Estimate PayPal payment fees and net amount received using an editable percentage and fixed fee for ecommerce payment planning.",
     formula: [
@@ -567,6 +625,8 @@ export const calculators: CalculatorData[] = [
       "A PayPal fee calculator estimates how much of an incoming payment is deducted as a processing charge and how much remains available to the seller. For an online merchant, payment fees are easy to overlook when reviewing gross sales, especially when products have low prices or narrow margins. A fixed amount on every payment can materially affect small orders.",
       "This tool is intended for planning a single received payment. You can change both the percentage and fixed fee rather than relying on one universal rate. That matters because payment arrangements can differ by market, currency, checkout product, seller location, nonprofit or micropayment program, and other account terms.",
     ],
+    whoShouldUse:
+      "Sellers accepting PayPal payments through invoices, direct checkout, or an online store can use this calculator when estimating the amount retained from one transaction. It is particularly helpful for low-value orders or pricing comparisons where the fixed charge materially changes the effective percentage of the payment.",
     howToCalculate: [
       "Enter the gross amount received from the customer. Multiply it by the fee percentage divided by 100, then add the fixed fee. Subtract that estimated charge from the gross payment to see the net amount. The tool also shows an effective fee rate by dividing the full estimated fee by the amount received.",
       "The effective rate makes transaction size easier to compare. A fixed fee contributes a smaller portion of a large order and a larger portion of a small one. When the received amount is zero, an effective percentage cannot be calculated, so the output is shown as N/A rather than a misleading value.",
@@ -581,6 +641,11 @@ export const calculators: CalculatorData[] = [
       "Review the fee, net amount, and effective rate, then copy results for a pricing note.",
       "Compare order sizes or payment options using consistent rate assumptions.",
     ],
+    commonMistakes: [
+      "Leaving default rate inputs unchanged without checking the applicable market and transaction type.",
+      "Treating the amount retained after PayPal fees as profit before order costs are deducted.",
+      "Forgetting possible currency conversion, dispute, refund, tax, or cross-border effects.",
+    ],
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
   },
@@ -590,7 +655,7 @@ export const calculators: CalculatorData[] = [
     category: "Payment Fees",
     shortDescription:
       "Estimate a Stripe transaction fee and net payout amount using editable processing fee assumptions.",
-    seoTitle: "Stripe Fee Calculator - Estimate Net Payment | Ecom Profit Tools",
+    seoTitle: "Stripe Fee Calculator | EcomProfitTools",
     seoDescription:
       "Estimate Stripe processing fees, net payment amount, and effective fee rate with an editable fee calculator for online sellers.",
     formula: [
@@ -626,6 +691,8 @@ export const calculators: CalculatorData[] = [
       "A Stripe fee calculator helps an online seller estimate processing cost before evaluating a direct-to-consumer payment. Stores that use a hosted ecommerce checkout, custom website, subscription flow, invoice, or payment link may collect revenue through Stripe while still needing to account for the portion removed before funds are available.",
       "This calculator accepts a gross amount, percentage charge, and fixed charge. Those fee inputs remain editable because payment method and account pricing are not identical for every merchant or transaction. It is useful as a quick estimate during product pricing, checkout planning, or comparison between direct-store and marketplace sales.",
     ],
+    whoShouldUse:
+      "Direct-to-consumer store owners, subscription sellers, and merchants using payment links or invoices can use this calculator to model payment processing for an order value. It is useful when comparing checkout methods or setting a minimum order amount, especially when a fixed transaction charge is important to margin.",
     howToCalculate: [
       "Multiply the amount received by the entered percentage fee divided by 100. Add the fixed processing charge to produce an estimated Stripe fee. Subtract the fee from the payment amount to obtain net amount. Dividing fee by payment amount produces the effective rate shown in the results.",
       "An effective rate is helpful when fixed charges matter. For example, breaking a purchase into several small payments may cost more than processing a single equivalent order. A zero-dollar payment has no meaningful effective rate, so the calculator safely presents N/A in that case.",
@@ -640,6 +707,11 @@ export const calculators: CalculatorData[] = [
       "Review estimated Stripe fee, amount retained, and effective cost percentage.",
       "Copy the result or test different order values before setting prices or discounts.",
     ],
+    commonMistakes: [
+      "Using a domestic card assumption for a payment method or international transaction with different terms.",
+      "Ignoring how a fixed processing fee affects smaller orders or split payments.",
+      "Calling net payment product profit before fulfillment, marketing, refund, and overhead costs.",
+    ],
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
   },
@@ -649,7 +721,7 @@ export const calculators: CalculatorData[] = [
     category: "Marketplace Fees",
     shortDescription:
       "Estimate eBay final value and optional promoted listing fees, then calculate order profit and margin.",
-    seoTitle: "eBay Fee Calculator - Estimate Seller Profit | Ecom Profit Tools",
+    seoTitle: "eBay Fee Calculator | EcomProfitTools",
     seoDescription:
       "Estimate eBay final value fees, promoted listing charges, total cost, net profit, and margin for a seller order.",
     formula: [
@@ -688,6 +760,8 @@ export const calculators: CalculatorData[] = [
       "An eBay fee calculator estimates the money remaining from a marketplace order after the seller pays item cost, delivery cost, final value fees, and an optional promoted listing charge. Buyers may pay shipping in addition to item price, while seller fees may be calculated using the collected order amount, so both revenue fields are included.",
       "The calculator focuses on a representative order rather than trying to infer a seller account or category automatically. Fee schedules and advertising participation vary, so its rate and fixed-order fields are deliberately editable. This makes it useful for preparing a listing, evaluating a promotion, or reviewing whether an item still works at a discounted price.",
     ],
+    whoShouldUse:
+      "eBay resellers and small shops can use this tool before listing an item, changing shipping, accepting an offer, or testing promoted listings. It helps sellers whose product cost and delivery expense are known but whose retained margin may shift because of category fees or an optional advertising charge.",
     howToCalculate: [
       "Add sale price and shipping collected to determine modeled revenue. Multiply that revenue by the entered final value fee percentage, then add the fixed order charge. When modeling promoted listings, apply the advertising percentage to revenue as a separate fee. Add both fees to the item and shipping costs you pay.",
       "Subtract total cost from total revenue for net profit. Divide that profit by revenue for margin. A negative result indicates that the listed cost and fee assumptions exceed the amount collected. The formula does not infer taxes, return losses, optional listing upgrades, or seller-specific fee adjustments.",
@@ -702,6 +776,11 @@ export const calculators: CalculatorData[] = [
       "Enter a promoted listing rate only if the scenario should include that charge.",
       "Review profit and margin, then test price or promotion changes before publishing.",
     ],
+    commonMistakes: [
+      "Ignoring shipping collected when it forms part of the modeled final value fee base.",
+      "Using a rate from another category, selling program, store plan, or country.",
+      "Including promoted listing fees inconsistently when comparing promoted and unpromoted orders.",
+    ],
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
   },
@@ -711,7 +790,7 @@ export const calculators: CalculatorData[] = [
     category: "Social Commerce",
     shortDescription:
       "Model TikTok Shop revenue, seller fees, campaign costs, per-unit profit, margin, and ROI.",
-    seoTitle: "TikTok Shop Profit Calculator for Sellers | Ecom Profit Tools",
+    seoTitle: "TikTok Shop Profit Calculator | EcomProfitTools",
     seoDescription:
       "Calculate estimated TikTok Shop profit, seller fees, cost, profit per unit, margin, and ROI from your sales assumptions.",
     formula: [
@@ -751,6 +830,8 @@ export const calculators: CalculatorData[] = [
       "A TikTok Shop profit calculator estimates whether social-commerce orders remain profitable after products are fulfilled and platform-related expenses are considered. Video-driven discovery can produce rapid order volume, but revenue can be reduced by seller fees, paid promotion, shipping subsidies, creator arrangements, samples, and other operating costs.",
       "This tool models multiple units in one scenario. Selling price, product cost, and shipping cost are applied per unit. Advertising and other cost fields are period totals, making it practical to enter a campaign spend or combined allowance associated with the units sold. The results show total and per-unit performance.",
     ],
+    whoShouldUse:
+      "TikTok Shop sellers can use this estimate before joining a promotion, increasing live-shopping inventory, testing paid traffic, or setting a creator budget. It supports merchants who need unit economics for a social-commerce campaign rather than relying on views, gross sales, or order count alone.",
     howToCalculate: [
       "Multiply selling price by units sold to find revenue. Apply the entered TikTok fee percentage to that revenue. Multiply per-unit product and shipping expense by units, then add fee expense, total ad cost, and total other cost. Revenue minus this sum is net profit.",
       "Profit per unit supports comparisons between products or creator offers. Margin expresses profit relative to sales, while ROI expresses profit relative to entered cost. If no units or revenue are entered, percentage outputs that require division show N/A to avoid presenting undefined performance.",
@@ -765,6 +846,11 @@ export const calculators: CalculatorData[] = [
       "Enter total advertising and other costs allocated to those sales.",
       "Review profit, unit economics, margin, and ROI before changing your campaign plan.",
     ],
+    commonMistakes: [
+      "Omitting creator commission, samples, discounts, returns, or shipping subsidies from modeled costs.",
+      "Mixing per-unit product inputs with total campaign costs when entering a scenario.",
+      "Assuming a fee percentage from one market or program applies to another campaign.",
+    ],
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
   },
@@ -774,7 +860,7 @@ export const calculators: CalculatorData[] = [
     category: "Independent Store",
     shortDescription:
       "Estimate WooCommerce order profit after inventory, shipping, payment processing, hosting, plugins, and advertising.",
-    seoTitle: "WooCommerce Profit Calculator - Store Profit Tool | Ecom Profit Tools",
+    seoTitle: "WooCommerce Profit Calculator | EcomProfitTools",
     seoDescription:
       "Calculate WooCommerce store profit, payment fees, profit per unit, margin, and ROI with hosting, plugins, and ad costs included.",
     formula: [
@@ -814,6 +900,8 @@ export const calculators: CalculatorData[] = [
       "A WooCommerce profit calculator estimates earnings for an independent online store built on WordPress and WooCommerce. Owning the storefront can provide control over checkout and customer relationships, but it does not remove product, fulfillment, payment gateway, marketing, hosting, and plugin expenses.",
       "This tool measures a set of units sold. Selling price, product cost, shipping cost, and fixed transaction fee scale with unit count. Payment percentage applies to revenue, while allocated plugin or hosting cost and advertising spend are entered as totals for the scenario. This gives sellers a convenient period or campaign estimate.",
     ],
+    whoShouldUse:
+      "WooCommerce store owners can use this calculator when setting prices, changing gateways, buying plugins, budgeting hosting, or reviewing an ad-supported product. It is also useful when comparing an independent storefront scenario with a marketplace option, provided costs are entered consistently for both channels.",
     howToCalculate: [
       "Multiply price by units for revenue. Payment fees consist of a percentage of revenue plus the fixed transaction charge for each sale. Multiply inventory and shipping expenses by unit count, then add payment fees, allocated plugin or hosting expense, and advertising cost. Subtract total cost from revenue for profit.",
       "The result also provides profit per unit, margin, and ROI. These measures answer different questions: retained dollars per item, profit as a percentage of sales, and profit compared with modeled costs. Division-dependent values show N/A when there is no meaningful denominator.",
@@ -828,6 +916,11 @@ export const calculators: CalculatorData[] = [
       "Allocate plugin or hosting expense and advertising cost for the modeled sales period.",
       "Evaluate net profit, per-unit profit, margin, and ROI before changing pricing or spend.",
     ],
+    commonMistakes: [
+      "Forgetting to allocate hosting, paid extensions, maintenance, or checkout-related subscription costs.",
+      "Using payment gateway assumptions that do not match the selected method or merchant terms.",
+      "Comparing gross direct-store sales with marketplace profit after fees instead of like-for-like cost scope.",
+    ],
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
   },
@@ -837,7 +930,7 @@ export const calculators: CalculatorData[] = [
     category: "Storefront Fees",
     shortDescription:
       "Estimate Shopify payment processing and applicable additional transaction fees from sales and order volume.",
-    seoTitle: "Shopify Fee Calculator - Estimate Store Payment Fees | Ecom Profit Tools",
+    seoTitle: "Shopify Fee Calculator | EcomProfitTools",
     seoDescription:
       "Estimate Shopify payment processing fees, additional transaction charges, payout, and effective fee rate with editable seller assumptions.",
     formula: [
@@ -876,6 +969,8 @@ export const calculators: CalculatorData[] = [
       "A Shopify fee calculator helps an online seller isolate checkout-related deductions before evaluating wider store profit. When orders are processed, a percentage charge and a fixed per-transaction amount can make the amount retained different from the headline sales total. Some payment arrangements may also involve an additional percentage transaction charge. Because those terms vary, this calculator does not prescribe a plan rate: it lets the seller enter the assumptions relevant to the store being reviewed.",
       "This tool is useful for pricing a product, comparing payment arrangements, or reviewing how average order value changes payment cost. A fixed charge usually represents a larger share of a small order than of a larger basket, so fee per order and effective percentage can reveal a cost that gross revenue alone hides. The output estimates payment-related deductions only, keeping it separate from the full Shopify profit tool that includes merchandise, fulfillment, and advertising costs.",
     ],
+    whoShouldUse:
+      "Shopify merchants reviewing payment arrangements, average order value, or checkout costs can use this focused fee estimator before running a complete profit model. It is useful for comparing order scenarios when the seller knows the relevant processing terms and whether an additional transaction charge applies.",
     howToCalculate: [
       "Begin with sales collected during the period and the number of paid orders. Apply the editable processing percentage to sales, then add the fixed charge once per order. If the checkout arrangement being evaluated has a separate transaction percentage, calculate it against sales as a second fee. Add both figures to find total estimated transaction fees and subtract that amount from sales for an estimated payout before non-payment expenses.",
       "Dividing total fees by order count gives a practical per-order estimate for pricing reviews. Dividing fees by sales produces an effective fee rate, which is helpful when comparing different basket sizes or payment scenarios. A zero-dollar or zero-order scenario has no meaningful rate or per-order cost, so the tool displays N/A rather than an invalid ratio. Verify actual statements and plan terms before decisions.",
@@ -889,6 +984,11 @@ export const calculators: CalculatorData[] = [
       "Enter an additional transaction fee percentage only when it applies to your selected payment arrangement.",
       "Review estimated payout, fee per order, and effective fee rate before analyzing complete store profit.",
     ],
+    commonMistakes: [
+      "Entering an additional transaction fee by default when the modeled payment setup does not apply one.",
+      "Treating estimated payout after checkout fees as complete Shopify store profit.",
+      "Modeling gross sales without an accurate order count when a fixed per-transaction amount applies.",
+    ],
     affiliateMessage:
       "Running a Shopify store? Compare seller tools that support pricing and checkout decisions.",
   },
@@ -898,7 +998,7 @@ export const calculators: CalculatorData[] = [
     category: "Marketplace Profit",
     shortDescription:
       "Estimate Etsy profit across multiple modeled orders after product, delivery, listing, payment, transaction, and optional ad fees.",
-    seoTitle: "Etsy Profit Calculator - Estimate Seller Earnings | Ecom Profit Tools",
+    seoTitle: "Etsy Profit Calculator | EcomProfitTools",
     seoDescription:
       "Calculate estimated Etsy revenue, fees, cost, profit per order, and margin across multiple sales with editable assumptions.",
     formula: [
@@ -937,6 +1037,8 @@ export const calculators: CalculatorData[] = [
     whatIs: [
       "An Etsy profit calculator turns an average listing sale into a period-level earnings estimate. Etsy sellers often know the price shown to a customer but need a clearer picture after product materials or purchase cost, shipping paid by the seller, listing amounts, marketplace transaction fees, processing charges, and optional advertising deductions are considered. By including order count, this tool can model a small product launch, a seasonal batch, or a representative month without entering every sale individually.",
     ],
+    whoShouldUse:
+      "Etsy shops that sell repeated or similar orders can use this calculator to model a launch batch, seasonal run, or typical month. It is intended for makers and resellers choosing price, delivery, and promotion assumptions when they need profit per order and total estimated profit together.",
     howToCalculate: [
       "Add item price and any shipping amount charged to the buyer to establish revenue per modeled order, then multiply by order count. Multiply product and delivery expense by that same order count. Fees are modeled separately: listing amount occurs once for each modeled order, transaction and optional advertising percentages apply to collected revenue, and payment processing combines a revenue percentage with a fixed amount for each order.",
       "After adding expenses and fees, subtract total cost from total revenue for net profit. Divide profit by order count to estimate earnings per representative order, and divide profit by revenue for margin. If no orders or revenue are entered, the ratio metrics are not meaningful and appear as N/A. The calculation is suitable for scenario planning; completed-sales reports remain the evidence for actual performance.",
@@ -950,6 +1052,11 @@ export const calculators: CalculatorData[] = [
       "Add an offsite ads percentage only for orders that you want to model as subject to that charge.",
       "Review net profit, per-order profit, and margin as you compare prices, fulfillment costs, or promotion choices.",
     ],
+    commonMistakes: [
+      "Changing order count without scaling recurring listing, product, delivery, and fixed payment costs correctly.",
+      "Applying an offsite ads assumption across all modeled orders without a matching attribution scenario.",
+      "Omitting materials, packaging, labor allowance, refunds, or other expenses needed for a realistic profit review.",
+    ],
     affiliateMessage:
       "Growing an Etsy shop? Explore tools that support listings, fulfillment, and pricing reviews.",
   },
@@ -959,7 +1066,7 @@ export const calculators: CalculatorData[] = [
     category: "Marketplace Fees",
     shortDescription:
       "Estimate Amazon referral fees using an editable category percentage and optional minimum fee per unit.",
-    seoTitle: "Amazon Referral Fee Calculator - Estimate Selling Fees | Ecom Profit Tools",
+    seoTitle: "Amazon Referral Fee Calculator | EcomProfitTools",
     seoDescription:
       "Estimate Amazon referral fee per unit, total referral fees, proceeds after fees, and effective rate with editable category assumptions.",
     formula: [
@@ -998,6 +1105,8 @@ export const calculators: CalculatorData[] = [
       "An Amazon referral fee calculator focuses on one marketplace deduction: the sales-based amount a seller models for allowing a product to be sold through a category on Amazon. This narrow calculation is useful during product research because a candidate item's price may look attractive before marketplace deductions are considered. The referral fee is separate from fulfillment and inventory economics, allowing a seller to understand the category charge before building a complete landed-cost model.",
       "The editable percentage and minimum fee inputs matter because products do not necessarily share the same assumptions. A category may use a different percentage, and the seller may need to account for an applicable per-item minimum under current terms. Rather than asserting a rate, the tool asks for the assumptions the seller has verified. It then applies the greater of the modeled percentage amount and entered minimum per unit.",
     ],
+    whoShouldUse:
+      "Amazon sellers can use this focused tool during early product research or category comparisons before moving to full FBA or merchant-fulfilled profit modeling. It is most useful when a seller wants to isolate referral fee impact using a verified category percentage and any applicable minimum amount.",
     howToCalculate: [
       "Multiply selling price by the entered referral percentage to find a percentage-based fee for one unit. Compare that amount with the optional minimum fee per unit and apply whichever is larger. Multiplying the applied unit fee by units sold provides total referral fees; multiplying price by units provides modeled sales revenue. Subtract referral fees from revenue for proceeds after this single fee category.",
       "The effective rate shows total referral fees as a share of modeled revenue, which can rise above the entered percentage when a minimum fee controls low-priced items. When revenue is zero, no meaningful effective percentage can be reported, so the calculator presents N/A. The proceeds result is not profit because no product, fulfillment, advertising, refund, tax, or operating costs have been deducted.",
@@ -1011,6 +1120,11 @@ export const calculators: CalculatorData[] = [
       "Enter a per-unit minimum fee when applicable, or use zero to model percentage-only charges.",
       "Review applied fee per unit, total referral fee, and effective rate before completing a full profit estimate.",
     ],
+    commonMistakes: [
+      "Treating referral fee proceeds as profit before fulfillment, inventory, storage, and ad costs.",
+      "Applying a generic percentage without confirming the relevant product category and current terms.",
+      "Ignoring an applicable minimum fee when modeling low-price items or many units.",
+    ],
     affiliateMessage:
       "Researching Amazon products? Compare seller tools for sourcing and fee planning.",
   },
@@ -1020,7 +1134,7 @@ export const calculators: CalculatorData[] = [
     category: "Advertising Fees",
     shortDescription:
       "Estimate an eBay promoted listing ad fee across attributed sales using an editable ad rate assumption.",
-    seoTitle: "eBay Promoted Listing Fee Calculator | Ecom Profit Tools",
+    seoTitle: "eBay Promoted Listing Fee Calculator | EcomProfitTools",
     seoDescription:
       "Estimate eBay promoted listing fees, proceeds after the promoted fee, fee per order, and effective ad fee rate.",
     formula: [
@@ -1059,6 +1173,8 @@ export const calculators: CalculatorData[] = [
       "An eBay promoted listing fee calculator helps a marketplace seller model the advertising charge associated with sales attributed to a promoted campaign. Promotion can increase visibility for a listing, but the relevant decision is not simply whether an item sells. A seller also needs to know how the advertising deduction changes the amount available to cover merchandise, shipping, standard marketplace fees, returns, and eventual profit.",
       "This calculator deliberately isolates the promoted fee from other eBay charges. Enter a sale price, any shipping charged in the modeled order amount, the count of attributed orders, and an advertising rate assumption. The result shows the total promoted fee and fee per order without claiming that the entered rate or attribution rules apply universally. Current campaign terms and actual reports remain the appropriate source for a completed-sales review.",
     ],
+    whoShouldUse:
+      "eBay sellers using or considering promoted listings can use this tool to review advertising cost per attributed order before adjusting a campaign rate. It is suitable for sellers who already understand an item's normal margin and want to isolate the additional promoted listing deduction.",
     howToCalculate: [
       "First add the modeled item sale price and shipping charged to the buyer, then multiply by attributed orders to establish the sale amount being reviewed. Multiply that amount by the entered promoted listing percentage to estimate the promoted fee. Subtract the result from attributed sale amount to see proceeds remaining after this advertising charge alone. The rate field is intentionally editable so different campaign assumptions can be compared.",
       "Fee per attributed order provides a direct way to consider whether advertising cost fits the expected margin on an item. Effective rate repeats the selected ad percentage when the modeled base is consistent, while making the dollar impact visible at volume. If there are no attributed orders or no sale amount, per-order and rate outputs have no meaningful denominator and are shown as N/A.",
@@ -1072,6 +1188,11 @@ export const calculators: CalculatorData[] = [
       "Review total promoted fee and fee per attributed order to understand advertising cost.",
       "Compare the fee with complete product margin and current reports before adjusting campaign settings.",
     ],
+    commonMistakes: [
+      "Applying the promoted percentage to every sale instead of the attributed orders being modeled.",
+      "Reading proceeds after the promoted charge as profit before standard fees and fulfillment cost.",
+      "Changing the ad rate without comparing the added fee with item margin and actual campaign reports.",
+    ],
     affiliateMessage:
       "Managing marketplace ads? Explore tools that help sellers review promotion and margin.",
   },
@@ -1081,7 +1202,7 @@ export const calculators: CalculatorData[] = [
     category: "Social Commerce Fees",
     shortDescription:
       "Estimate TikTok Shop platform, affiliate commission, and optional fixed per-order fees from gross sales.",
-    seoTitle: "TikTok Shop Fee Calculator - Estimate Seller Fees | Ecom Profit Tools",
+    seoTitle: "TikTok Shop Fee Calculator | EcomProfitTools",
     seoDescription:
       "Estimate TikTok Shop platform fees, affiliate commission, proceeds after fees, and effective fee rate with editable assumptions.",
     formula: [
@@ -1121,6 +1242,8 @@ export const calculators: CalculatorData[] = [
       "A TikTok Shop fee calculator estimates how selected platform and creator-related charges may reduce gross social-commerce sales. A short video or live shopping event can produce a rapid number of orders, but top-line sales do not show the deductions that must be covered before profit is evaluated. This tool provides a focused fee view for sellers planning a campaign, reviewing an offer, or comparing an affiliate-assisted scenario with sales that do not include commission.",
       "The calculator accepts gross sales and order count rather than requesting account access or transaction data. Fee structures and promotional arrangements can differ across markets, programs, and periods, so platform percentage, affiliate commission, and any other fixed per-order assumption remain editable. Use verified current terms for the scenario; the default numbers exist only to illustrate how the calculation behaves.",
     ],
+    whoShouldUse:
+      "TikTok Shop merchants planning creator collaborations, live offers, or general shop sales can use this tool to compare fee scenarios before calculating full profit. It helps sellers separate platform and affiliate deductions from product and fulfillment expenses while reviewing commission choices or average order value.",
     howToCalculate: [
       "Multiply gross sales by the platform percentage to estimate the platform fee. If an affiliate or creator commission is being modeled, multiply gross sales by that entered percentage separately. Multiply any additional fixed per-order assumption by order count. Adding these deductions gives total estimated fees, which can then be subtracted from gross sales to show proceeds after the chosen fees alone.",
       "Divide total fees by gross sales for an effective rate and by order count for estimated fee per order. Those outputs support comparisons between scenarios with different commission arrangements or average order values. When sales or orders are zero, the corresponding ratio is undefined and the tool displays N/A rather than generating a misleading result. It does not infer fees or retrieve account data.",
@@ -1133,6 +1256,11 @@ export const calculators: CalculatorData[] = [
       "Enter a platform fee percentage consistent with the relevant current terms.",
       "Add affiliate commission and optional fixed per-order cost only when those assumptions apply.",
       "Review total estimated fees, proceeds after fees, fee per order, and effective rate before calculating full profit.",
+    ],
+    commonMistakes: [
+      "Adding affiliate commission when a sale does not involve it, or omitting it when it does.",
+      "Interpreting proceeds after selected fees as profit before stock, shipping, ads, and returns.",
+      "Assuming platform and campaign terms are identical across markets, categories, or promotion periods.",
     ],
     affiliateMessage:
       "Selling through social commerce? Compare tools for creator, campaign, and product planning.",

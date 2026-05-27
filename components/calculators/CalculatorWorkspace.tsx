@@ -1,8 +1,12 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import ResultCard, { type ResultMetric } from "@/components/ResultCard";
 import { copyResults } from "@/lib/copy";
+
+export const COPY_FEEDBACK_DURATION_MS = 2200;
+
+type CopyFeedback = "success" | "error" | null;
 
 interface CalculatorWorkspaceProps {
   name: string;
@@ -19,21 +23,61 @@ export default function CalculatorWorkspace({
   warning,
   onReset,
 }: CalculatorWorkspaceProps) {
-  const [copyMessage, setCopyMessage] = useState("");
+  const [copyFeedback, setCopyFeedback] = useState<CopyFeedback>(null);
+  const copyAttemptRef = useRef(0);
+  const feedbackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (feedbackTimeoutRef.current !== null) {
+        clearTimeout(feedbackTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  function showCopyFeedback(feedback: Exclude<CopyFeedback, null>) {
+    if (feedbackTimeoutRef.current !== null) {
+      clearTimeout(feedbackTimeoutRef.current);
+    }
+
+    setCopyFeedback(feedback);
+    feedbackTimeoutRef.current = setTimeout(() => {
+      setCopyFeedback(null);
+      feedbackTimeoutRef.current = null;
+    }, COPY_FEEDBACK_DURATION_MS);
+  }
 
   async function handleCopy() {
+    const copyAttempt = ++copyAttemptRef.current;
+
     try {
       await copyResults(name, metrics);
-      setCopyMessage("Results copied.");
+      if (copyAttempt === copyAttemptRef.current) {
+        showCopyFeedback("success");
+      }
     } catch {
-      setCopyMessage("Unable to copy results in this browser.");
+      if (copyAttempt === copyAttemptRef.current) {
+        showCopyFeedback("error");
+      }
     }
   }
 
   function handleReset() {
+    copyAttemptRef.current += 1;
+    if (feedbackTimeoutRef.current !== null) {
+      clearTimeout(feedbackTimeoutRef.current);
+      feedbackTimeoutRef.current = null;
+    }
+    setCopyFeedback(null);
     onReset();
-    setCopyMessage("");
   }
+
+  const copyMessage =
+    copyFeedback === "success"
+      ? "Results copied."
+      : copyFeedback === "error"
+        ? "Copy failed. Please try again."
+        : "";
 
   return (
     <div className="grid items-start gap-6 lg:grid-cols-[1fr_0.9fr]">
@@ -48,14 +92,24 @@ export default function CalculatorWorkspace({
         </p>
         <div className="mt-6 grid gap-5 sm:grid-cols-2">{children}</div>
         <div className="mt-7 flex flex-wrap gap-3">
-          <button className="primary-button" onClick={handleCopy} type="button">
-            Copy Results
+          <button
+            className="primary-button min-w-[8.5rem]"
+            onClick={handleCopy}
+            type="button"
+          >
+            {copyFeedback === "success" ? "Copied!" : "Copy Results"}
           </button>
           <button className="secondary-button" onClick={handleReset} type="button">
             Reset
           </button>
         </div>
-        <p className="mt-3 min-h-5 text-sm text-brand-700" aria-live="polite">
+        <p
+          className={`mt-3 min-h-5 text-sm ${
+            copyFeedback === "error" ? "text-red-700" : "text-brand-700"
+          }`}
+          aria-live="polite"
+          role="status"
+        >
           {copyMessage}
         </p>
       </form>

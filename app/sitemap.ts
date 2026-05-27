@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.ecomprofittools.com";
   const staticPages = [
     "",
+    "/free-ecommerce-calculators",
     "/blog",
     "/about",
     "/contact",
