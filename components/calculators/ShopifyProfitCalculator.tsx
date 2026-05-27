@@ -49,6 +49,9 @@ export default function ShopifyProfitCalculator() {
       metrics={metrics}
       name="Shopify Profit Calculator Results"
       onReset={resetValues}
+      tone="shopify"
+      formTitle="Shopify order economics"
+      formDescription="Enter your own assumptions for price, unit costs, and payment fees. Results update instantly for planning."
       warning={
         result.netProfit < 0
           ? "Your profit is negative. Review your product cost, ad spend, or fees."
