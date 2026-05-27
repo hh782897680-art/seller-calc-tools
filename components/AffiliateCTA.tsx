@@ -13,7 +13,7 @@ export default function AffiliateCTA({ message }: AffiliateCTAProps) {
         </p>
         <p className="mt-2 font-semibold text-ink">{message}</p>
       </div>
-      <Link href="#" className="primary-button mt-5 shrink-0 sm:mt-0">
+      <Link href="/free-ecommerce-calculators" className="primary-button mt-5 shrink-0 sm:mt-0">
         Explore tools
       </Link>
     </aside>
