@@ -272,6 +272,31 @@ export default function FreeEcommerceCalculatorsPage() {
 
       <section className="border-t border-slate-200 bg-white py-14 sm:py-16">
         <div className="page-container max-w-4xl">
+          <div className="surface-card bg-brand-50 p-7 sm:p-8">
+            <p className="text-sm font-semibold uppercase tracking-widest text-brand-600">
+              Seller workflow resource
+            </p>
+            <h2 className="mt-4 text-2xl font-semibold text-ink">
+              Exploring AI support for ecommerce work?
+            </h2>
+            <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
+              After estimating fees, profit, and advertising room, review our
+              guide to{" "}
+              <Link
+                className="font-semibold text-brand-600"
+                href="/ai-tools-for-ecommerce-sellers"
+              >
+                AI tool categories for ecommerce sellers
+              </Link>
+              , including product copy, photos, SEO, ads, customer support, and
+              email marketing workflows.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-slate-200 bg-white py-14 sm:py-16">
+        <div className="page-container max-w-4xl">
           <h2 className="section-heading">Frequently asked questions</h2>
           <div className="mt-7">
             <FAQ items={faqs} />
