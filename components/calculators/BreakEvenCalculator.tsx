@@ -15,8 +15,10 @@ const sampleValues: Record<Field, string> = {
 };
 
 export default function BreakEvenCalculator() {
-  const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(sampleValues);
+  const { values, numbers, updateValue, resetValues, clearSavedValues } =
+    useCalculatorInputs(sampleValues, {
+      storageKey: "calculator-inputs:break-even-calculator",
+    });
   const result = calculateBreakEven(numbers);
   const metrics = [
     {
@@ -41,6 +43,8 @@ export default function BreakEvenCalculator() {
       metrics={metrics}
       name="Break Even Calculator Results"
       onReset={resetValues}
+      onClearSavedInputs={clearSavedValues}
+      savedInputsNotice="Your inputs are saved locally in this browser only. They are not sent to a server."
       warning={
         result.contributionMarginPerUnit <= 0
           ? "There is no break-even volume while variable cost equals or exceeds price per unit."

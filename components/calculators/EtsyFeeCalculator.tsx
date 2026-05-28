@@ -30,8 +30,10 @@ const sampleValues: Record<Field, string> = {
 };
 
 export default function EtsyFeeCalculator() {
-  const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(sampleValues);
+  const { values, numbers, updateValue, resetValues, clearSavedValues } =
+    useCalculatorInputs(sampleValues, {
+      storageKey: "calculator-inputs:etsy-fee-calculator",
+    });
   const result = calculateEtsyFee(numbers);
   const metrics = [
     { label: "Total revenue", value: formatCurrency(result.totalRevenue) },
@@ -49,6 +51,8 @@ export default function EtsyFeeCalculator() {
       metrics={metrics}
       name="Etsy Fee Calculator Results"
       onReset={resetValues}
+      onClearSavedInputs={clearSavedValues}
+      savedInputsNotice="Your inputs are saved locally in this browser only. They are not sent to a server."
       warning={
         result.netProfit < 0
           ? "Your profit is negative. Review your item cost, shipping, or marketplace fees."

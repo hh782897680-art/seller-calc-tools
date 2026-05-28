@@ -3,10 +3,20 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import ResultCard, { type ResultMetric } from "@/components/ResultCard";
 import { copyResults } from "@/lib/copy";
+import {
+  downloadCalculatorResultsCsv,
+  type CsvField,
+} from "@/lib/csv";
 
 export const COPY_FEEDBACK_DURATION_MS = 2200;
 
 type CopyFeedback = "success" | "error" | null;
+type StatusFeedbackTone = "success" | "error";
+
+interface StatusFeedback {
+  message: string;
+  tone: StatusFeedbackTone;
+}
 
 interface CalculatorWorkspaceProps {
   name: string;
@@ -17,6 +27,8 @@ interface CalculatorWorkspaceProps {
   tone?: "default" | "shopify";
   formTitle?: string;
   formDescription?: string;
+  onClearSavedInputs?: () => void;
+  savedInputsNotice?: string;
 }
 
 export default function CalculatorWorkspace({
@@ -28,11 +40,15 @@ export default function CalculatorWorkspace({
   tone = "default",
   formTitle = "Enter your numbers",
   formDescription = "Enter your own numbers. Empty inputs are treated as zero. Gray placeholder values are examples only.",
+  onClearSavedInputs,
+  savedInputsNotice,
 }: CalculatorWorkspaceProps) {
   const isShopifyTone = tone === "shopify";
   const [copyFeedback, setCopyFeedback] = useState<CopyFeedback>(null);
+  const [statusFeedback, setStatusFeedback] = useState<StatusFeedback | null>(null);
   const copyAttemptRef = useRef(0);
   const feedbackTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   useEffect(() => {
     return () => {
@@ -42,16 +58,56 @@ export default function CalculatorWorkspace({
     };
   }, []);
 
-  function showCopyFeedback(feedback: Exclude<CopyFeedback, null>) {
+  function showStatusFeedback(
+    message: string,
+    tone: StatusFeedbackTone,
+    options?: {
+      clearCopyFeedback?: boolean;
+    },
+  ) {
     if (feedbackTimeoutRef.current !== null) {
       clearTimeout(feedbackTimeoutRef.current);
     }
 
-    setCopyFeedback(feedback);
+    setStatusFeedback({ message, tone });
     feedbackTimeoutRef.current = setTimeout(() => {
-      setCopyFeedback(null);
+      if (options?.clearCopyFeedback) {
+        setCopyFeedback(null);
+      }
+      setStatusFeedback(null);
       feedbackTimeoutRef.current = null;
     }, COPY_FEEDBACK_DURATION_MS);
+  }
+
+  function showCopyFeedback(feedback: Exclude<CopyFeedback, null>) {
+    setCopyFeedback(feedback);
+    showStatusFeedback(
+      feedback === "success" ? "Results copied." : "Copy failed. Please try again.",
+      feedback === "success" ? "success" : "error",
+      { clearCopyFeedback: true },
+    );
+  }
+
+  function collectInputValues(): CsvField[] {
+    if (!formRef.current) {
+      return [];
+    }
+
+    const inputElements = Array.from(
+      formRef.current.querySelectorAll<HTMLInputElement>("input"),
+    );
+
+    return inputElements.map((inputElement) => {
+      const rawLabel = formRef.current?.querySelector<HTMLLabelElement>(
+        `label[for="${inputElement.id}"]`,
+      )?.textContent;
+      const label = rawLabel?.trim() || inputElement.name || inputElement.id || "input";
+
+      return {
+        label,
+        value: inputElement.value,
+      };
+    });
   }
 
   async function handleCopy() {
@@ -69,6 +125,27 @@ export default function CalculatorWorkspace({
     }
   }
 
+  function handleCsvExport() {
+    const inputValues = collectInputValues();
+    const hasAnyInput = inputValues.some((item) => item.value.trim() !== "");
+
+    if (!hasAnyInput) {
+      showStatusFeedback("Complete the calculator first.", "error");
+      return;
+    }
+
+    try {
+      downloadCalculatorResultsCsv({
+        calculatorName: name,
+        inputs: inputValues,
+        results: metrics,
+      });
+      showStatusFeedback("CSV downloaded.", "success");
+    } catch {
+      showStatusFeedback("CSV export failed. Please try again.", "error");
+    }
+  }
+
   function handleReset() {
     copyAttemptRef.current += 1;
     if (feedbackTimeoutRef.current !== null) {
@@ -76,21 +153,16 @@ export default function CalculatorWorkspace({
       feedbackTimeoutRef.current = null;
     }
     setCopyFeedback(null);
+    setStatusFeedback(null);
     onReset();
   }
-
-  const copyMessage =
-    copyFeedback === "success"
-      ? "Results copied."
-      : copyFeedback === "error"
-        ? "Copy failed. Please try again."
-        : "";
 
   return (
     <div
       className={`grid items-start gap-6 ${isShopifyTone ? "lg:grid-cols-[1.06fr_0.94fr]" : "lg:grid-cols-[1fr_0.9fr]"}`}
     >
       <form
+        ref={formRef}
         className={`surface-card p-5 sm:p-7 ${isShopifyTone ? "relative overflow-hidden border-brand-100 bg-gradient-to-b from-white to-brand-50/30 shadow-lg shadow-brand-100/30" : ""}`}
         onSubmit={(event) => event.preventDefault()}
       >
@@ -122,18 +194,39 @@ export default function CalculatorWorkspace({
           >
             {copyFeedback === "success" ? "Copied!" : "Copy Results"}
           </button>
+          <button
+            className="secondary-button min-w-[8.5rem]"
+            onClick={handleCsvExport}
+            type="button"
+          >
+            Export CSV
+          </button>
           <button className="secondary-button" onClick={handleReset} type="button">
             Reset
           </button>
         </div>
+        {(savedInputsNotice || onClearSavedInputs) && (
+          <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-slate-500">
+            {savedInputsNotice && <p>{savedInputsNotice}</p>}
+            {onClearSavedInputs && (
+              <button
+                className="text-xs font-medium text-slate-600 underline underline-offset-2 hover:text-slate-800"
+                onClick={onClearSavedInputs}
+                type="button"
+              >
+                Clear saved inputs
+              </button>
+            )}
+          </div>
+        )}
         <p
           className={`mt-3 min-h-5 text-sm ${
-            copyFeedback === "error" ? "text-red-700" : "text-brand-700"
+            statusFeedback?.tone === "error" ? "text-red-700" : "text-brand-700"
           }`}
           aria-live="polite"
           role="status"
         >
-          {copyMessage}
+          {statusFeedback?.message ?? ""}
         </p>
       </form>
       <ResultCard metrics={metrics} tone={tone} warning={warning} />

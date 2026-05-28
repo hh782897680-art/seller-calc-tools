@@ -14,8 +14,10 @@ const sampleValues: Record<Field, string> = {
 };
 
 export default function RoasCalculator() {
-  const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(sampleValues);
+  const { values, numbers, updateValue, resetValues, clearSavedValues } =
+    useCalculatorInputs(sampleValues, {
+      storageKey: "calculator-inputs:roas-calculator",
+    });
   const result = calculateRoas(numbers);
   const metrics = [
     { label: "ROAS", value: formatRatio(result.roas), highlight: true },
@@ -33,6 +35,8 @@ export default function RoasCalculator() {
       metrics={metrics}
       name="ROAS Calculator Results"
       onReset={resetValues}
+      onClearSavedInputs={clearSavedValues}
+      savedInputsNotice="Your inputs are saved locally in this browser only. They are not sent to a server."
       warning={
         result.profitBeforeProductCost < 0
           ? "Revenue is below ad spend. Review this campaign before including product and fulfillment costs."

@@ -15,8 +15,10 @@ const sampleValues: Record<Field, string> = {
 };
 
 export default function PayPalFeeCalculator() {
-  const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(sampleValues);
+  const { values, numbers, updateValue, resetValues, clearSavedValues } =
+    useCalculatorInputs(sampleValues, {
+      storageKey: "calculator-inputs:paypal-fee-calculator",
+    });
   const result = calculatePayPalFee(numbers);
   const metrics = [
     { label: "PayPal fee", value: formatCurrency(result.fee), highlight: true },
@@ -29,6 +31,8 @@ export default function PayPalFeeCalculator() {
       metrics={metrics}
       name="PayPal Fee Calculator Results"
       onReset={resetValues}
+      onClearSavedInputs={clearSavedValues}
+      savedInputsNotice="Your inputs are saved locally in this browser only. They are not sent to a server."
       warning={
         result.netAmount < 0
           ? "The estimated fee exceeds the received amount. Review the transaction value and fee assumptions."

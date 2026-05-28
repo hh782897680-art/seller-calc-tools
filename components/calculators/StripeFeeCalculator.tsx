@@ -15,8 +15,10 @@ const sampleValues: Record<Field, string> = {
 };
 
 export default function StripeFeeCalculator() {
-  const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(sampleValues);
+  const { values, numbers, updateValue, resetValues, clearSavedValues } =
+    useCalculatorInputs(sampleValues, {
+      storageKey: "calculator-inputs:stripe-fee-calculator",
+    });
   const result = calculateStripeFee(numbers);
   const metrics = [
     { label: "Stripe fee", value: formatCurrency(result.fee), highlight: true },
@@ -29,6 +31,8 @@ export default function StripeFeeCalculator() {
       metrics={metrics}
       name="Stripe Fee Calculator Results"
       onReset={resetValues}
+      onClearSavedInputs={clearSavedValues}
+      savedInputsNotice="Your inputs are saved locally in this browser only. They are not sent to a server."
       warning={
         result.netAmount < 0
           ? "The estimated fee exceeds the received amount. Review the transaction value and fee assumptions."

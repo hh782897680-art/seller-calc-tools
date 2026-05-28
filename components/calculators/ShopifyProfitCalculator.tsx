@@ -28,8 +28,10 @@ const sampleValues: Record<Field, string> = {
 };
 
 export default function ShopifyProfitCalculator() {
-  const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(sampleValues);
+  const { values, numbers, updateValue, resetValues, clearSavedValues } =
+    useCalculatorInputs(sampleValues, {
+      storageKey: "calculator-inputs:shopify-profit-calculator",
+    });
   const result = calculateShopifyProfit(numbers);
   const metrics = [
     { label: "Revenue", value: formatCurrency(result.revenue) },
@@ -49,6 +51,8 @@ export default function ShopifyProfitCalculator() {
       metrics={metrics}
       name="Shopify Profit Calculator Results"
       onReset={resetValues}
+      onClearSavedInputs={clearSavedValues}
+      savedInputsNotice="Your inputs are saved locally in this browser only. They are not sent to a server."
       tone="shopify"
       formTitle="Shopify order economics"
       formDescription="Enter your own assumptions for price, unit costs, and payment fees. Results update instantly for planning."

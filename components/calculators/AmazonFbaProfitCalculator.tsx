@@ -30,8 +30,10 @@ const sampleValues: Record<Field, string> = {
 };
 
 export default function AmazonFbaProfitCalculator() {
-  const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(sampleValues);
+  const { values, numbers, updateValue, resetValues, clearSavedValues } =
+    useCalculatorInputs(sampleValues, {
+      storageKey: "calculator-inputs:amazon-fba-profit-calculator",
+    });
   const result = calculateAmazonFbaProfit(numbers);
   const metrics = [
     { label: "Revenue", value: formatCurrency(result.revenue) },
@@ -49,6 +51,8 @@ export default function AmazonFbaProfitCalculator() {
       metrics={metrics}
       name="Amazon FBA Profit Calculator Results"
       onReset={resetValues}
+      onClearSavedInputs={clearSavedValues}
+      savedInputsNotice="Your inputs are saved locally in this browser only. They are not sent to a server."
       tone="shopify"
       formTitle="Amazon FBA unit economics"
       formDescription="Model your per-unit costs, Amazon fees, and ad spend assumptions. Results update instantly for scenario planning."

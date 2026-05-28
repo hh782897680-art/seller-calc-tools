@@ -28,8 +28,10 @@ const sampleValues: Record<Field, string> = {
 };
 
 export default function WooCommerceProfitCalculator() {
-  const { values, numbers, updateValue, resetValues } =
-    useCalculatorInputs(sampleValues);
+  const { values, numbers, updateValue, resetValues, clearSavedValues } =
+    useCalculatorInputs(sampleValues, {
+      storageKey: "calculator-inputs:woocommerce-profit-calculator",
+    });
   const result = calculateWooCommerceProfit(numbers);
   const metrics = [
     { label: "Revenue", value: formatCurrency(result.revenue) },
@@ -46,6 +48,8 @@ export default function WooCommerceProfitCalculator() {
       metrics={metrics}
       name="WooCommerce Profit Calculator Results"
       onReset={resetValues}
+      onClearSavedInputs={clearSavedValues}
+      savedInputsNotice="Your inputs are saved locally in this browser only. They are not sent to a server."
       warning={
         result.netProfit < 0
           ? "Your profit is negative. Review product cost, processing, hosting, or ad spend."
