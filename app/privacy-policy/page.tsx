@@ -12,7 +12,7 @@ export default function PrivacyPolicyPage() {
   return (
     <main className="page-container max-w-4xl py-14 sm:py-20">
       <h1 className="text-4xl font-bold tracking-tight text-ink">Privacy Policy</h1>
-      <p className="mt-3 text-sm text-slate-500">Last updated: May 26, 2026</p>
+      <p className="mt-3 text-sm text-slate-500">Last updated: May 28, 2026</p>
       <div className="mt-9 space-y-9 text-base leading-8 text-slate-600">
         <section>
           <h2 className="text-2xl font-semibold text-ink">Overview</h2>
@@ -27,8 +27,17 @@ export default function PrivacyPolicyPage() {
           <p className="mt-3">
             Calculator entries are processed in your browser. Ecom Profit Tools
             does not require an account to use its calculators and does not ask
-            you to enter sensitive financial information. Calculator inputs are
-            not transmitted to an Ecom Profit Tools database.
+            you to enter account passwords, payment card numbers, or other
+            sensitive personal financial data. Calculator inputs are not
+            transmitted to an Ecom Profit Tools server or database.
+          </p>
+          <p className="mt-3">
+            The site may use browser local storage to save calculator inputs
+            locally on your device so your previous values can be restored in
+            the same browser. Saved inputs are not sent to our server. You can
+            remove saved calculator values from the calculator page using
+            <span className="font-semibold text-slate-700"> Clear saved inputs</span>,
+            and you can also clear browser storage from your browser settings.
           </p>
         </section>
         <section>
@@ -42,8 +51,9 @@ export default function PrivacyPolicyPage() {
           <p className="mt-3">
             Google and other third-party analytics or advertising services may
             use cookies or similar technologies when you visit this website.
-            You can manage or disable cookies through your browser settings,
-            although doing so may affect some website or advertising features.
+            You can manage or disable cookies and clear browser storage through
+            your browser settings, although doing so may affect some website or
+            advertising features.
           </p>
         </section>
         <section>
