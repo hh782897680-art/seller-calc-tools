@@ -23,6 +23,21 @@ export interface FAQItem {
   answer: string;
 }
 
+export interface CalculatorSourceLink {
+  label: string;
+  href: string;
+}
+
+export interface CalculatorExpertReview {
+  lastReviewed: string;
+  summary: string;
+  includes: string[];
+  excludes: string[];
+  scenarioChecks: string[];
+  updateChecklist: string[];
+  sourceLinks?: CalculatorSourceLink[];
+}
+
 export interface CalculatorData {
   slug: CalculatorSlug;
   name: string;
@@ -40,6 +55,7 @@ export interface CalculatorData {
   whyItMatters: string[];
   howToUse: string[];
   commonMistakes: string[];
+  expertReview?: CalculatorExpertReview;
   affiliateMessage: string;
 }
 
@@ -111,6 +127,41 @@ export const calculators: CalculatorData[] = [
       "Leaving out fixed payment charges, allocated app costs, discounts, returns, or packaging when they apply.",
       "Increasing ad spend from revenue alone without checking margin and break-even ROAS assumptions.",
     ],
+    expertReview: {
+      lastReviewed: "June 2026",
+      summary:
+        "Use this Shopify calculator as an order-level contribution model. It is best for deciding whether a product, bundle, shipping offer, or ad campaign still leaves enough margin after the major variable costs are entered.",
+      includes: [
+        "Selling price, order volume, product cost, shipping cost, advertising cost, other per-order costs, payment percentage, and fixed payment charge.",
+        "Net profit, margin, ROI, and break-even ROAS from the same set of assumptions.",
+        "Editable fee inputs so merchants can model Shopify Payments, third-party processors, or their own checkout arrangement.",
+      ],
+      excludes: [
+        "Automatic subscription allocation for Shopify plans, apps, themes, domains, email tools, or other recurring store costs.",
+        "Taxes, duties, chargebacks, refund recovery, currency conversion, and multi-market pricing rules.",
+        "Lifetime value, repeat purchases, inventory timing, and cash flow pressure from stock purchases.",
+      ],
+      scenarioChecks: [
+        "Run a base case with current actual order costs, then a second case with ad cost 20-30% higher.",
+        "Test whether a free-shipping threshold still works after packaging and delivery expense are included.",
+        "Compare single-product pricing against a bundle price to see whether higher AOV offsets extra fulfillment cost.",
+      ],
+      updateChecklist: [
+        "Update payment fee inputs after changing Shopify plan, payment provider, currency, or checkout setup.",
+        "Update other cost when adding or removing paid apps that support the product or order flow.",
+        "Refresh product, shipping, and ad assumptions after each monthly payout and campaign review.",
+      ],
+      sourceLinks: [
+        {
+          label: "Shopify Payments fees",
+          href: "https://help.shopify.com/en/manual/payments/shopify-payments/onboarding/cost-of-shopify-payments",
+        },
+        {
+          label: "Shopify pricing",
+          href: "https://www.shopify.com/pricing",
+        },
+      ],
+    },
     affiliateMessage:
       "Want to start or optimize your Shopify store? Compare ecommerce tools here.",
   },
@@ -181,6 +232,41 @@ export const calculators: CalculatorData[] = [
       "Adding an offsite ads charge to every scenario, or omitting it from an attributed sale.",
       "Assuming example listing and processing inputs match the seller's country and payment terms.",
     ],
+    expertReview: {
+      lastReviewed: "June 2026",
+      summary:
+        "Use this Etsy fee calculator to model one representative order before publishing or discounting a listing. It is most useful when item price, shipping charged, actual shipping expense, and ad attribution are separated instead of combined.",
+      includes: [
+        "Item price, shipping charged to the buyer, item cost, actual shipping cost, listing fee, transaction fee, payment processing, and optional offsite ads.",
+        "Net profit and profit margin after the entered marketplace fees and fulfillment costs.",
+        "Editable percentage and fixed fee fields so non-US sellers and special cases can replace defaults with their own shop terms.",
+      ],
+      excludes: [
+        "Automatic country-specific payment processing rates, regulatory operating fees, VAT/GST handling, and currency conversion.",
+        "Etsy Ads budgets, renewal strategy across multi-quantity listings, refunds, reserves, or deposit timing.",
+        "Labor time, custom packaging, photography, tools, booth fees, and other maker overhead unless entered as cost.",
+      ],
+      scenarioChecks: [
+        "Compare buyer-paid shipping with free shipping by moving cost from shipping charged into item price.",
+        "Run one case with offsite ads at zero and another with an attributed offsite ads percentage.",
+        "Test whether a low-priced item still works after fixed listing and payment charges are included.",
+      ],
+      updateChecklist: [
+        "Update fee assumptions after checking Etsy Payment account charges for recent completed orders.",
+        "Review inputs when selling internationally, changing shipping strategy, or enabling promotional tools.",
+        "Refresh item cost when materials, packaging, postage labels, or production time change.",
+      ],
+      sourceLinks: [
+        {
+          label: "Etsy Fee Basics",
+          href: "https://help.etsy.com/hc/en-gb/articles/360035902374-Etsy-Fee-Basics",
+        },
+        {
+          label: "Etsy fees and taxes",
+          href: "https://help.etsy.com/hc/en-gb/articles/115014483627",
+        },
+      ],
+    },
     affiliateMessage:
       "Selling on Etsy? Discover tools to improve your store workflow.",
   },
@@ -252,6 +338,37 @@ export const calculators: CalculatorData[] = [
       "Omitting inbound freight, storage, advertising, returns, or other unit-level allowances.",
       "Reading revenue after one Amazon fee as final profit before inventory and fulfillment expense.",
     ],
+    expertReview: {
+      lastReviewed: "June 2026",
+      summary:
+        "Use this Amazon FBA calculator as a SKU-level contribution model. It is designed to show whether a product can survive referral fees, fulfillment fees, landed cost, storage, inbound shipping, and advertising before committing inventory or increasing PPC spend.",
+      includes: [
+        "Selling price, units sold, referral fee percentage, fulfillment fee per unit, product cost, storage, inbound shipping, ad cost, and other unit allowances.",
+        "Total net profit, per-unit profit, margin, and ROI for the modeled quantity.",
+        "Separate cost lines so sellers can test category, size-tier, ad, and landed-cost changes independently.",
+      ],
+      excludes: [
+        "Automatic Amazon category lookup, product-size tier lookup, monthly storage changes, returns, removals, disposal, reimbursements, and aged inventory surcharges.",
+        "Selling plan fees, coupons, Lightning Deals, Subscribe & Save, multi-channel fulfillment, and brand registry costs.",
+        "Inventory cash-flow timing, long-term holding risk, tax treatment, and financing costs.",
+      ],
+      scenarioChecks: [
+        "Run one scenario using launch PPC cost and another using mature average PPC cost from real campaign reports.",
+        "Test a price decrease, referral fee tier change, or FBA fulfillment fee increase before reordering.",
+        "Compare profit per unit against required return on cash tied up in inventory.",
+      ],
+      updateChecklist: [
+        "Update referral fee and fulfillment fee after category, dimensions, weight, marketplace, or Amazon fee schedule changes.",
+        "Update ad cost per unit from actual Sponsored Products or total advertising reports.",
+        "Refresh storage and inbound shipping inputs before each reorder or seasonal inventory period.",
+      ],
+      sourceLinks: [
+        {
+          label: "Amazon selling fees",
+          href: "https://sell.amazon.com/pricing",
+        },
+      ],
+    },
     affiliateMessage:
       "Need better Amazon seller tools? Compare research and profit tools here.",
   },
@@ -318,6 +435,31 @@ export const calculators: CalculatorData[] = [
       "Comparing products when one cost figure includes fees and ads while another does not.",
       "Treating gross margin as complete business profit when overhead and returns remain excluded.",
     ],
+    expertReview: {
+      lastReviewed: "June 2026",
+      summary:
+        "Use this profit margin calculator to keep cost scope consistent. It is strongest when revenue and cost describe the same product, order, channel, campaign, or reporting period.",
+      includes: [
+        "Revenue, cost, gross profit, profit margin, and markup from one consistent cost definition.",
+        "A clear separation between margin and markup so pricing decisions do not confuse the two percentages.",
+        "Support for simple product, order, category, channel, or period analysis when inputs are scoped consistently.",
+      ],
+      excludes: [
+        "Automatic allocation of overhead, owner salary, tax, refunds, returns, discounts, or ad attribution.",
+        "Cash-flow timing, inventory turns, customer lifetime value, or contribution margin by cohort.",
+        "Industry benchmarks or a universal answer for what margin should be good enough.",
+      ],
+      scenarioChecks: [
+        "Compare margin before and after marketplace fees, payment fees, and shipping subsidies are included.",
+        "Test discount depth to see how much revenue can fall before the target margin disappears.",
+        "Run the same product across channels using the same cost scope for each comparison.",
+      ],
+      updateChecklist: [
+        "Update cost definitions before comparing products or reporting periods.",
+        "Recalculate after supplier cost, fulfillment cost, payment fee, return rate, or ad cost changes.",
+        "Use actual records for final business reviews rather than copying a launch estimate forward.",
+      ],
+    },
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
   },
@@ -646,6 +788,37 @@ export const calculators: CalculatorData[] = [
       "Treating the amount retained after PayPal fees as profit before order costs are deducted.",
       "Forgetting possible currency conversion, dispute, refund, tax, or cross-border effects.",
     ],
+    expertReview: {
+      lastReviewed: "June 2026",
+      summary:
+        "Use this PayPal calculator as a payment-retention check, not a full product profit statement. It is designed to show how percentage and fixed payment charges change the amount left from one transaction.",
+      includes: [
+        "Gross payment amount, editable percentage fee, editable fixed fee, estimated payment fee, net amount, and effective fee rate.",
+        "Visibility into the fixed-fee effect on low-priced orders and split payments.",
+        "Editable assumptions for different PayPal checkout, invoice, card, Venmo, or goods-and-services transaction setups.",
+      ],
+      excludes: [
+        "Automatic country, currency, card type, cross-border, Pay Later, QR, invoicing, dispute, chargeback, refund, or currency conversion handling.",
+        "Product cost, shipping, advertising, platform fees, tax, customer service, or business overhead.",
+        "Payout timing, reserve rules, account-specific custom pricing, or negotiated terms.",
+      ],
+      scenarioChecks: [
+        "Compare the effective fee rate for a single larger order versus several smaller payments.",
+        "Model domestic and international assumptions separately when cross-border sales are material.",
+        "Use the net amount as one input in a product profit model, not as final profit.",
+      ],
+      updateChecklist: [
+        "Update fee inputs when payment type, country, currency, checkout product, or account pricing changes.",
+        "Review actual PayPal activity statements before adjusting prices or minimum order thresholds.",
+        "Refresh assumptions when adding PayPal invoicing, Venmo, Pay Later, QR payments, or international selling.",
+      ],
+      sourceLinks: [
+        {
+          label: "PayPal business fees",
+          href: "https://www.paypal.com/us/business/paypal-business-fees",
+        },
+      ],
+    },
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
   },

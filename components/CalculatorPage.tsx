@@ -58,6 +58,7 @@ export default function CalculatorPage({
   const isAmazonFbaProfitPage = calculator.slug === "amazon-fba-profit-calculator";
   const isFeaturedCalculatorPage = isShopifyProfitPage || isAmazonFbaProfitPage;
   const showFeeReviewNotice = reviewedFeeCalculatorSlugs.has(calculator.slug);
+  const expertReview = calculator.expertReview;
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -429,6 +430,89 @@ export default function CalculatorPage({
             </p>
           </div>
         </section>
+
+        {expertReview && (
+          <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-widest text-brand-600">
+                  Expert review notes
+                </p>
+                <h2 className="mt-3 text-2xl font-semibold text-ink">
+                  What this calculator is designed to check
+                </h2>
+              </div>
+              <p className="text-sm font-medium text-slate-500">
+                Last reviewed: {expertReview.lastReviewed}
+              </p>
+            </div>
+            <p className="mt-5 text-base leading-8 text-slate-600">
+              {expertReview.summary}
+            </p>
+
+            <div className="mt-7 grid gap-6 md:grid-cols-2">
+              <div>
+                <h3 className="text-lg font-semibold text-ink">Included in this estimate</h3>
+                <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+                  {expertReview.includes.map((item) => (
+                    <li className="border-l-2 border-brand-200 pl-3" key={item}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-ink">Not automatically included</h3>
+                <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+                  {expertReview.excludes.map((item) => (
+                    <li className="border-l-2 border-slate-300 pl-3" key={item}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-7 grid gap-6 md:grid-cols-2">
+              <div>
+                <h3 className="text-lg font-semibold text-ink">Scenario checks worth running</h3>
+                <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+                  {expertReview.scenarioChecks.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-ink">When to update inputs</h3>
+                <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+                  {expertReview.updateChecklist.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {expertReview.sourceLinks && expertReview.sourceLinks.length > 0 && (
+              <div className="mt-7 border-t border-slate-200 pt-5">
+                <h3 className="text-lg font-semibold text-ink">Official references to verify</h3>
+                <ul className="mt-4 flex flex-wrap gap-3 text-sm">
+                  {expertReview.sourceLinks.map((source) => (
+                    <li key={source.href}>
+                      <a
+                        className="font-semibold text-brand-700 hover:underline"
+                        href={source.href}
+                        rel="noreferrer"
+                        target="_blank"
+                      >
+                        {source.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </section>
+        )}
 
         <section>
           <h2 className="section-heading">Example calculation</h2>

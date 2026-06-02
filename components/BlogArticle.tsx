@@ -7,6 +7,7 @@ interface BlogArticleProps {
   title: string;
   description: string;
   readTime: string;
+  updatedAt?: string;
   relatedCalculatorSlugs: CalculatorSlug[];
   children: ReactNode;
 }
@@ -32,6 +33,7 @@ export default function BlogArticle({
   title,
   description,
   readTime,
+  updatedAt,
   relatedCalculatorSlugs,
   children,
 }: BlogArticleProps) {
@@ -55,7 +57,10 @@ export default function BlogArticle({
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             {description}
           </p>
-          <p className="mt-5 text-sm font-medium text-slate-500">{readTime}</p>
+          <p className="mt-5 text-sm font-medium text-slate-500">
+            {readTime}
+            {updatedAt ? ` · Last updated: ${updatedAt}` : ""}
+          </p>
         </div>
       </header>
 

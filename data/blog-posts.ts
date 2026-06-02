@@ -5,9 +5,40 @@ export interface BlogPostSummary {
   category: string;
   description: string;
   readTime: string;
+  updatedAt?: string;
 }
 
 export const blogPosts: BlogPostSummary[] = [
+  {
+    slug: "ecommerce-profit-formula-explained",
+    title: "Ecommerce Profit Formula Explained",
+    seoTitle: "Ecommerce Profit Formula Explained: Costs, Fees, and Margin",
+    category: "Profit",
+    description:
+      "A practical framework for calculating ecommerce profit from revenue, product cost, shipping, payment fees, marketplace fees, advertising, returns, and overhead.",
+    readTime: "11 min read",
+    updatedAt: "June 2, 2026",
+  },
+  {
+    slug: "how-to-price-products-for-profit",
+    title: "How to Price Products for Ecommerce Profit",
+    seoTitle: "How to Price Products for Ecommerce Profit: Seller Pricing Guide",
+    category: "Pricing",
+    description:
+      "Learn a repeatable pricing workflow that connects landed cost, fees, margin, shipping, discounts, advertising, and break-even checks.",
+    readTime: "11 min read",
+    updatedAt: "June 2, 2026",
+  },
+  {
+    slug: "ecommerce-fee-stack-checklist",
+    title: "Ecommerce Fee Stack Checklist",
+    seoTitle: "Ecommerce Fee Stack Checklist for Shopify, Etsy, Amazon, and Payments",
+    category: "Fees",
+    description:
+      "Use this fee checklist to identify platform, payment, fulfillment, advertising, return, and operating costs before judging seller profit.",
+    readTime: "12 min read",
+    updatedAt: "June 2, 2026",
+  },
   {
     slug: "how-to-calculate-ecommerce-profit",
     title: "How to Calculate Ecommerce Profit",

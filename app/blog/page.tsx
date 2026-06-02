@@ -44,7 +44,10 @@ export default function BlogPage() {
             <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">
               {post.description}
             </p>
-            <p className="mt-5 text-xs font-medium text-slate-500">{post.readTime}</p>
+            <p className="mt-5 text-xs font-medium text-slate-500">
+              {post.readTime}
+              {post.updatedAt ? ` · Updated ${post.updatedAt}` : ""}
+            </p>
             <Link
               className="mt-4 text-sm font-semibold text-brand-600"
               href={`/blog/${post.slug}`}
