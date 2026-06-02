@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
-import AdPlaceholder from "@/components/AdPlaceholder";
 import FAQ from "@/components/FAQ";
 import {
   calculators,
@@ -429,7 +428,6 @@ export default function HomePage() {
             <HomepageCalculatorCard calculator={calculator} key={calculator.slug} />
           ))}
         </div>
-        <AdPlaceholder className="mt-12" />
       </section>
 
       <section className="border-y border-slate-200 bg-gradient-to-b from-white to-slate-50 py-16">

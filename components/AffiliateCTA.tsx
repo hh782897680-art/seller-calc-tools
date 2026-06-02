@@ -9,7 +9,7 @@ export default function AffiliateCTA({ message }: AffiliateCTAProps) {
     <aside className="rounded-2xl border border-brand-100 bg-brand-50 p-6 sm:flex sm:items-center sm:justify-between sm:gap-6">
       <div>
         <p className="text-xs font-semibold uppercase tracking-wider text-brand-600">
-          Recommended tools
+          Related planning tools
         </p>
         <p className="mt-2 font-semibold text-ink">{message}</p>
       </div>

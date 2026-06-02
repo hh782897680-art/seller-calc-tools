@@ -4,6 +4,7 @@ const navigation = [
   { label: "Calculators", href: "/#calculators" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
@@ -22,7 +23,7 @@ export default function Header() {
           <span className="hidden sm:inline">Ecom Profit Tools</span>
         </Link>
         <nav aria-label="Main navigation">
-          <ul className="flex items-center gap-3 text-sm font-medium text-slate-600 sm:gap-7">
+          <ul className="flex items-center gap-3 text-sm font-medium text-slate-600 sm:gap-5 md:gap-7">
             {navigation.map((item) => (
               <li key={item.label}>
                 <Link className="transition hover:text-brand-600" href={item.href}>

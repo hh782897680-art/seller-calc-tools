@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import AdPlaceholder from "@/components/AdPlaceholder";
 import AffiliateCTA from "@/components/AffiliateCTA";
 import FAQ from "@/components/FAQ";
 import FormulaBox from "@/components/FormulaBox";
@@ -377,10 +376,6 @@ export default function CalculatorPage({
         </div>
       </section>
 
-      <div className="page-container py-8">
-        <AdPlaceholder />
-      </div>
-
       <article className={`page-container mt-12 ${isFeaturedCalculatorPage ? "max-w-5xl space-y-14" : "max-w-4xl space-y-12"}`}>
         <section>
           <h2 className="section-heading">What is this calculator?</h2>
@@ -407,6 +402,31 @@ export default function CalculatorPage({
           </div>
           <div className="mt-7">
             <FormulaBox formulas={calculator.formula} />
+          </div>
+        </section>
+
+        <section>
+          <h2 className="section-heading">How this estimate is prepared</h2>
+          <div className="mt-5 space-y-4 text-base leading-8 text-slate-600">
+            <p>
+              This page explains the formula behind {calculator.name} before asking
+              for inputs, so sellers can review what each field changes and spot
+              assumptions that do not match their own store records.
+            </p>
+            <p>
+              Marketplace and payment fees can change by country, account type,
+              category, currency, and platform policy. Treat the result as a
+              planning estimate, then compare important decisions against your
+              current invoices, dashboard reports, and official fee schedules.
+            </p>
+            <p>
+              Learn more about how Ecom Profit Tools writes and reviews calculator
+              content in the{" "}
+              <Link className="text-brand-700 hover:underline" href="/editorial-policy">
+                editorial policy
+              </Link>
+              .
+            </p>
           </div>
         </section>
 
@@ -493,8 +513,6 @@ export default function CalculatorPage({
           </ul>
         </section>
 
-        <AdPlaceholder />
-
         <section className={isFeaturedCalculatorPage ? "rounded-3xl border border-slate-200 bg-white p-6 sm:p-8" : ""}>
           <h2 className="section-heading">Frequently asked questions</h2>
           <div className="mt-6">
@@ -546,7 +564,7 @@ export default function CalculatorPage({
         </section>
 
         <ShareCalculator
-          fallbackUrl={`https://ecomprofittools.com/${calculator.slug}`}
+          fallbackUrl={`https://www.ecomprofittools.com/${calculator.slug}`}
         />
       </article>
     </main>
