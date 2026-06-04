@@ -22,20 +22,20 @@ export default function InputField({
   step = "0.01",
 }: InputFieldProps) {
   return (
-    <div>
-      <label htmlFor={id} className="mb-2 block text-sm font-medium text-slate-700">
+    <div className="group">
+      <label htmlFor={id} className="mb-2 block text-sm font-semibold text-slate-700">
         {label}
       </label>
-      <div className="relative">
+      <div className="relative rounded-lg border border-slate-200 bg-white shadow-sm transition group-hover:border-slate-300 group-focus-within:border-brand-500 group-focus-within:ring-4 group-focus-within:ring-brand-100/80">
         {prefix && (
-          <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-500">
+          <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-sm font-semibold text-slate-500">
             {prefix}
           </span>
         )}
         <input
-          className={`w-full rounded-lg border border-slate-300 bg-white py-2.5 text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-100 ${
-            prefix ? "pl-7" : "pl-3"
-          } ${suffix ? "pr-10" : "pr-3"}`}
+          className={`w-full rounded-lg border-0 bg-transparent py-3 text-sm font-semibold text-slate-950 placeholder:text-slate-400 outline-none ${
+            prefix ? "pl-8" : "pl-3"
+          } ${suffix ? "pr-11" : "pr-3"}`}
           id={id}
           inputMode="decimal"
           min="0"
@@ -46,12 +46,12 @@ export default function InputField({
           value={value}
         />
         {suffix && (
-          <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-slate-500">
+          <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-sm font-semibold text-slate-500">
             {suffix}
           </span>
         )}
       </div>
-      {hint && <p className="mt-1.5 text-xs text-slate-500">{hint}</p>}
+      {hint && <p className="mt-1.5 text-xs leading-5 text-slate-500">{hint}</p>}
     </div>
   );
 }

@@ -9,7 +9,7 @@ const toolLinks = [
 
 export default function Footer() {
   return (
-    <footer className="mt-20 border-t border-slate-200 bg-white">
+    <footer className="mt-20 border-t border-slate-200 bg-white/90">
       <div className="page-container grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <p className="text-lg font-bold text-ink">Ecom Profit Tools</p>
@@ -27,7 +27,7 @@ export default function Footer() {
           <ul className="mt-4 space-y-3 text-sm">
             {toolLinks.map(([label, href]) => (
               <li key={href}>
-                <Link href={href} className="transition hover:text-brand-600">
+                <Link href={href} className="transition hover:text-brand-700">
                   {label} Calculator
                 </Link>
               </li>
@@ -38,32 +38,32 @@ export default function Footer() {
           <p className="text-sm font-semibold text-ink">Company</p>
           <ul className="mt-4 space-y-3 text-sm">
             <li>
-              <Link className="transition hover:text-brand-600" href="/about">
+              <Link className="transition hover:text-brand-700" href="/about">
                 About
               </Link>
             </li>
             <li>
-              <Link className="transition hover:text-brand-600" href="/blog">
+              <Link className="transition hover:text-brand-700" href="/blog">
                 Blog
               </Link>
             </li>
             <li>
-              <Link className="transition hover:text-brand-600" href="/contact">
+              <Link className="transition hover:text-brand-700" href="/contact">
                 Contact
               </Link>
             </li>
             <li>
-              <Link className="transition hover:text-brand-600" href="/editorial-policy">
+              <Link className="transition hover:text-brand-700" href="/editorial-policy">
                 Editorial Policy
               </Link>
             </li>
             <li>
-              <Link className="transition hover:text-brand-600" href="/privacy-policy">
+              <Link className="transition hover:text-brand-700" href="/privacy-policy">
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link className="transition hover:text-brand-600" href="/terms">
+              <Link className="transition hover:text-brand-700" href="/terms">
                 Terms of Use
               </Link>
             </li>

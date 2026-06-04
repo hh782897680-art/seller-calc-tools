@@ -27,18 +27,49 @@ export const metadata: Metadata = {
   },
 };
 
-const benefits = [
+const trustValues: { title: string; text: string; iconKey: IconKey }[] = [
   {
-    title: "Clear profit decisions",
-    text: "See the costs behind a sale before adjusting prices, promotions, or advertising budgets.",
+    title: "No signup required",
+    text: "Open any calculator and start modeling product costs, fees, ads, and margin without creating an account.",
+    iconKey: "calculator",
   },
   {
-    title: "Seller-focused inputs",
-    text: "Model channel fees, fulfillment, paid ads, margins, and return metrics using practical fields.",
+    title: "Works in your browser",
+    text: "Calculations run in the current browser session, so sellers can test scenarios quickly and privately.",
+    iconKey: "creditCard",
   },
   {
-    title: "Fast and private",
-    text: "All calculations run in your browser. No signup or stored financial inputs are required.",
+    title: "Built for ecommerce sellers",
+    text: "Use practical fields for channel fees, fulfillment, paid ads, margins, ROI, ROAS, and break-even planning.",
+    iconKey: "shoppingCart",
+  },
+  {
+    title: "Export and compare results",
+    text: "Copy results or export CSV from calculator workspaces, then compare pricing and promotion scenarios.",
+    iconKey: "trending",
+  },
+];
+
+const sellerUseCases: { title: string; text: string; iconKey: IconKey }[] = [
+  {
+    title: "Check product profitability before launch",
+    text: "Model price, product cost, shipping, fees, and ad spend before ordering inventory or publishing a listing.",
+    iconKey: "package",
+  },
+  {
+    title: "Compare fees across platforms",
+    text: "Review Shopify, Etsy, Amazon, eBay, TikTok Shop, PayPal, Stripe, and WooCommerce assumptions with matching tools.",
+    iconKey: "scale",
+  },
+  {
+    title: "Estimate break-even ROAS",
+    text: "See the revenue multiple an ad campaign needs before paid traffic starts reducing contribution profit.",
+    iconKey: "trending",
+  },
+  {
+    title: "Plan discounts and promotions",
+    text: "Test price cuts, shipping offers, bundles, and acquisition cost changes before launching a campaign.",
+    iconKey: "receipt",
   },
 ];
 
@@ -96,6 +127,12 @@ const platformCoverage = [
   "WooCommerce",
 ];
 
+const heroStats = [
+  "18 free calculators",
+  "No signup",
+  "CSV export",
+];
+
 const howItWorksSteps = [
   {
     title: "Choose your selling channel",
@@ -111,26 +148,54 @@ const howItWorksSteps = [
   },
 ];
 
-const dashboardBreakdown = [
+const dashboardMetrics = [
   {
-    label: "Product + COGS",
-    value: "$2,300",
-    widthClass: "w-[82%]",
+    label: "Net Profit",
+    value: "$1,284",
+    helper: "after variable costs",
   },
   {
-    label: "Shipping + fulfillment",
-    value: "$900",
-    widthClass: "w-[62%]",
+    label: "Margin",
+    value: "32.4%",
+    helper: "profit share",
+  },
+  {
+    label: "ROI",
+    value: "148%",
+    helper: "return on cost",
+  },
+  {
+    label: "Break-even ROAS",
+    value: "2.7x",
+    helper: "ad efficiency target",
+  },
+  {
+    label: "Fees",
+    value: "$186",
+    helper: "platform + payment",
+  },
+];
+
+const dashboardBreakdown = [
+  {
+    label: "Revenue",
+    value: "$3,960",
+    widthClass: "w-[92%]",
+  },
+  {
+    label: "COGS + fulfillment",
+    value: "$1,680",
+    widthClass: "w-[58%]",
   },
   {
     label: "Ads",
-    value: "$800",
-    widthClass: "w-[56%]",
+    value: "$810",
+    widthClass: "w-[42%]",
   },
   {
-    label: "Payment fees",
-    value: "$160.50",
-    widthClass: "w-[36%]",
+    label: "Fees",
+    value: "$186",
+    widthClass: "w-[28%]",
   },
 ];
 
@@ -293,15 +358,15 @@ function HomepageCalculatorCard({ calculator }: { calculator: CalculatorData }) 
 
   return (
     <Link
-      className="group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-card transition duration-200 hover:-translate-y-1 hover:border-brand-100 hover:shadow-xl"
+      className="dashboard-card group flex h-full flex-col p-5 transition duration-200 hover:-translate-y-1 hover:border-brand-200 hover:shadow-xl"
       href={`/${calculator.slug}`}
     >
       <div className="flex items-start justify-between gap-3">
-        <p className="inline-flex rounded-full border border-brand-100 bg-brand-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-brand-700">
+        <p className="soft-badge bg-slate-50">
           {calculator.category}
         </p>
         <span
-          className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${iconWrapperClassByKey[iconKey]}`}
+          className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${iconWrapperClassByKey[iconKey]}`}
         >
           {iconByKey[iconKey]}
         </span>
@@ -312,8 +377,8 @@ function HomepageCalculatorCard({ calculator }: { calculator: CalculatorData }) 
       <p className="mt-3 flex-1 text-sm leading-6 text-slate-600">
         {calculator.shortDescription}
       </p>
-      <span className="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white transition group-hover:bg-brand-700 sm:w-auto">
-        Use calculator &rarr;
+      <span className="mt-6 inline-flex items-center text-sm font-semibold text-brand-700 transition group-hover:text-brand-600">
+        Use calculator <span aria-hidden="true" className="ml-1 transition group-hover:translate-x-0.5">&rarr;</span>
       </span>
     </Link>
   );
@@ -326,18 +391,22 @@ export default function HomePage() {
 
   return (
     <main>
-      <section className="overflow-hidden border-b border-slate-200 bg-gradient-to-b from-white via-slate-50 to-brand-50/40">
-        <div className="page-container grid items-center gap-10 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
+      <section className="relative overflow-hidden border-b border-slate-200 bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_48%,#f6f8fb_100%)]">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(to_right,rgba(15,23,42,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.05)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:linear-gradient(to_bottom,black,transparent_78%)]"
+        />
+        <div className="page-container relative grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.02fr_0.98fr] lg:py-20">
           <div>
-            <p className="inline-flex rounded-full border border-brand-100 bg-brand-50 px-4 py-2 text-sm font-semibold text-brand-700">
+            <p className="eyebrow">
               Free tools for ecommerce sellers
             </p>
-            <h1 className="mt-6 max-w-3xl text-4xl font-bold tracking-tight text-ink sm:text-6xl">
+            <h1 className="mt-6 max-w-3xl text-4xl font-bold text-ink sm:text-6xl">
               Free Ecommerce Profit Calculators for Online Sellers
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-              Calculate Shopify, Etsy, Amazon FBA, eBay, TikTok Shop, PayPal,
-              Stripe, and WooCommerce profit, fees, margin, ROI, and ROAS.
+              Calculate profit, margin, ROI, ROAS, platform fees, and
+              break-even numbers for Shopify, Etsy, Amazon, eBay, and more.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
               <Link className="primary-button w-full sm:w-auto" href="#calculators">
@@ -347,69 +416,142 @@ export default function HomePage() {
                 Calculate Shopify profit
               </Link>
             </div>
+            <div className="mt-7 flex flex-wrap gap-2.5">
+              {heroStats.map((stat) => (
+                <span className="soft-badge bg-white/90" key={stat}>
+                  {stat}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <div className="surface-card relative w-full max-w-xl overflow-hidden p-5 shadow-xl sm:ml-auto sm:p-7">
-            <div className="absolute -right-14 -top-14 h-36 w-36 rounded-full bg-brand-100/80 blur-3xl" />
-            <div className="relative">
-              <div className="rounded-2xl bg-ink p-5 text-white sm:p-6">
-                <p className="text-sm text-slate-300">Example net profit</p>
-                <p className="mt-2 text-3xl font-bold sm:text-4xl">$1,339.50</p>
-                <div className="mt-6 grid grid-cols-2 gap-3">
-                  <div className="rounded-lg bg-white/10 p-3">
-                    <p className="text-xs text-slate-300">Margin</p>
-                    <p className="mt-1 text-lg font-semibold">29.77%</p>
-                  </div>
-                  <div className="rounded-lg bg-white/10 p-3">
-                    <p className="text-xs text-slate-300">ROI</p>
-                    <p className="mt-1 text-lg font-semibold">42.38%</p>
-                  </div>
-                  <div className="col-span-2 rounded-lg bg-white/10 p-3">
-                    <p className="text-xs text-slate-300">Break-even ROAS</p>
-                    <p className="mt-1 text-lg font-semibold">5.63x</p>
-                  </div>
-                </div>
+          <div className="dashboard-card w-full max-w-xl overflow-hidden p-0 shadow-xl shadow-slate-200/80 sm:ml-auto">
+            <div className="flex items-center justify-between gap-4 border-b border-slate-200 bg-gradient-to-b from-white to-slate-50 px-5 py-4 sm:px-6">
+              <div>
+                <p className="text-sm font-semibold text-ink">Profit snapshot</p>
+                <p className="mt-1 text-xs text-slate-500">Example dashboard preview</p>
               </div>
+              <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                Live estimate
+              </span>
+            </div>
 
-              <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
-                <div className="flex items-center justify-between">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                    Cost breakdown
+            <div className="grid gap-3 p-5 sm:grid-cols-2 sm:p-6">
+              {dashboardMetrics.map((metric, index) => (
+                <div
+                  className={`rounded-lg border border-slate-200 p-4 ${
+                    index === 0 ? "bg-ink text-white sm:col-span-2" : "bg-slate-50"
+                  }`}
+                  key={metric.label}
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <p
+                      className={`text-sm font-medium ${
+                        index === 0 ? "text-slate-200" : "text-slate-500"
+                      }`}
+                    >
+                      {metric.label}
+                    </p>
+                    <span
+                      className={`h-2 w-2 rounded-full ${
+                        index === 0 ? "bg-emerald-300" : "bg-brand-500"
+                      }`}
+                    />
+                  </div>
+                  <p
+                    className={`mt-2 font-bold ${
+                      index === 0 ? "text-4xl text-white" : "text-2xl text-ink"
+                    }`}
+                  >
+                    {metric.value}
                   </p>
-                  <p className="text-xs font-semibold text-slate-500">100 orders</p>
+                  <p
+                    className={`mt-1 text-xs ${
+                      index === 0 ? "text-slate-300" : "text-slate-500"
+                    }`}
+                  >
+                    {metric.helper}
+                  </p>
                 </div>
-                <ul className="mt-3 space-y-3">
-                  {dashboardBreakdown.map((item) => (
-                    <li key={item.label}>
-                      <div className="mb-1 flex items-center justify-between text-xs text-slate-600">
-                        <span>{item.label}</span>
-                        <span>{item.value}</span>
-                      </div>
-                      <div className="h-2 overflow-hidden rounded-full bg-slate-200">
-                        <div className={`h-full rounded-full bg-brand-500 ${item.widthClass}`} />
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+              ))}
+            </div>
+
+            <div className="mx-5 mb-5 rounded-lg border border-slate-200 bg-white p-4 sm:mx-6 sm:mb-6">
+              <div className="flex items-center justify-between gap-4">
+                <p className="text-xs font-semibold uppercase text-slate-500">
+                  Cost breakdown
+                </p>
+                <p className="text-xs font-semibold text-slate-500">Sample order set</p>
               </div>
+              <ul className="mt-3 space-y-3">
+                {dashboardBreakdown.map((item) => (
+                  <li key={item.label}>
+                    <div className="mb-1 flex items-center justify-between gap-4 text-xs text-slate-600">
+                      <span>{item.label}</span>
+                      <span className="font-semibold text-slate-900">{item.value}</span>
+                    </div>
+                    <div className="h-2 overflow-hidden rounded-full bg-slate-200">
+                      <div className={`h-full rounded-full bg-brand-500 ${item.widthClass}`} />
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="border-b border-slate-200 bg-white">
+      <section className="border-b border-slate-200 bg-white/85">
         <div className="page-container py-7">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-            Platform coverage
-          </p>
-          <div className="mt-4 flex flex-wrap gap-2.5 sm:gap-3">
-            {platformCoverage.map((platform) => (
-              <span
-                className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-sm font-medium text-slate-700"
-                key={platform}
+          <div className="dashboard-card flex flex-col gap-5 p-5 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase text-brand-700">
+                Platform coverage
+              </p>
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Dedicated tools for major ecommerce channels, payment fees, ad metrics, and pricing decisions.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2.5 md:justify-end">
+              {platformCoverage.map((platform) => (
+                <span className="soft-badge bg-slate-50" key={platform}>
+                  {platform}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-white py-16">
+        <div className="page-container">
+          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <div className="max-w-2xl">
+              <h2 className="section-heading">Why use Ecom Profit Tools?</h2>
+              <p className="mt-4 leading-7 text-slate-600">
+                A sale is only useful when it supports a healthy business. Use
+                straightforward estimates to make better informed selling choices.
+              </p>
+            </div>
+            <p className="max-w-sm text-sm leading-6 text-slate-500">
+              Built for quick pricing, fee, margin, ROI, ROAS, and break-even
+              checks across common ecommerce selling channels.
+            </p>
+          </div>
+          <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {trustValues.map((value) => (
+              <div
+                className="dashboard-card bg-slate-50 p-5"
+                key={value.title}
               >
-                {platform}
-              </span>
+                <span
+                  className={`inline-flex h-10 w-10 items-center justify-center rounded-lg ${iconWrapperClassByKey[value.iconKey]}`}
+                >
+                  {iconByKey[value.iconKey]}
+                </span>
+                <h3 className="mt-4 text-base font-semibold text-ink">{value.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{value.text}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -423,10 +565,44 @@ export default function HomePage() {
             review advertising, or plan the sales needed to cover costs.
           </p>
         </div>
-        <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {calculators.map((calculator) => (
             <HomepageCalculatorCard calculator={calculator} key={calculator.slug} />
           ))}
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-slate-50 py-16">
+        <div className="page-container">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div>
+              <h2 className="section-heading">Use cases for ecommerce sellers</h2>
+              <p className="mt-4 leading-7 text-slate-600">
+                Use the calculators when a selling decision depends on the
+                relationship between price, cost, fees, promotion, and paid traffic.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {sellerUseCases.map((useCase) => (
+                <div
+                  className="dashboard-card p-5"
+                  key={useCase.title}
+                >
+                  <span
+                    className={`inline-flex h-10 w-10 items-center justify-center rounded-lg ${iconWrapperClassByKey[useCase.iconKey]}`}
+                  >
+                    {iconByKey[useCase.iconKey]}
+                  </span>
+                  <h3 className="mt-4 text-base font-semibold text-ink">
+                    {useCase.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                    {useCase.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -441,7 +617,10 @@ export default function HomePage() {
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {howItWorksSteps.map((step, index) => (
-              <div className="surface-card p-6" key={step.title}>
+              <div
+                className="dashboard-card p-6"
+                key={step.title}
+              >
                 <p className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-brand-600 text-sm font-semibold text-white">
                   {index + 1}
                 </p>
@@ -455,11 +634,10 @@ export default function HomePage() {
 
       <section className="bg-white py-12">
         <div className="page-container">
-          <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-r from-slate-900 via-ink to-brand-700 px-6 py-8 text-white shadow-card sm:px-8">
-            <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-white/15 blur-2xl" />
-            <div className="relative flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-center">
+          <div className="dashboard-card overflow-hidden bg-gradient-to-r from-slate-900 via-ink to-brand-700 px-6 py-8 text-white sm:px-8">
+            <div className="flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-center">
               <div className="max-w-2xl">
-                <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+                <h2 className="text-2xl font-bold sm:text-3xl">
                   AI Tools for E-commerce Sellers
                 </h2>
                 <p className="mt-3 text-sm leading-7 text-slate-100">
@@ -489,7 +667,10 @@ export default function HomePage() {
           </div>
           <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {calculatorCategories.map((category) => (
-              <div className="surface-card p-6" key={category.title}>
+              <div
+                className="dashboard-card p-6"
+                key={category.title}
+              >
                 <h3 className="text-lg font-semibold text-ink">{category.title}</h3>
                 <ul className="mt-5 space-y-3 text-sm">
                   {category.slugs.map((slug) => {
@@ -508,29 +689,6 @@ export default function HomePage() {
                     );
                   })}
                 </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-slate-50 py-16">
-        <div className="page-container">
-          <div className="max-w-2xl">
-            <h2 className="section-heading">Why use Ecom Profit Tools?</h2>
-            <p className="mt-4 leading-7 text-slate-600">
-              A sale is only useful when it supports a healthy business. Use
-              straightforward estimates to make better informed selling choices.
-            </p>
-          </div>
-          <div className="mt-9 grid gap-6 md:grid-cols-3">
-            {benefits.map((benefit) => (
-              <div
-                className="rounded-2xl border border-slate-200 bg-white p-6 shadow-card"
-                key={benefit.title}
-              >
-                <h3 className="text-lg font-semibold text-ink">{benefit.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-600">{benefit.text}</p>
               </div>
             ))}
           </div>

@@ -10,9 +10,9 @@ export default function FAQ({ items }: FAQProps) {
       {items.map((item) => (
         <details
           key={item.question}
-          className="group rounded-xl border border-slate-200 bg-white px-5 py-4"
+          className="group rounded-lg border border-slate-200 bg-white px-5 py-4 shadow-sm transition hover:border-brand-100 hover:shadow-card open:border-brand-100 open:bg-brand-50/30"
         >
-          <summary className="cursor-pointer list-none pr-7 font-semibold text-ink marker:hidden">
+          <summary className="cursor-pointer list-none pr-7 font-semibold text-ink outline-none marker:hidden focus-visible:ring-2 focus-visible:ring-brand-500">
             <span>{item.question}</span>
             <span className="float-right text-brand-600 transition group-open:rotate-45">
               +

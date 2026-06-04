@@ -29,7 +29,7 @@ export default function ShareCalculator({ fallbackUrl }: ShareCalculatorProps) {
   }
 
   return (
-    <aside className="surface-card bg-brand-50 p-6 sm:p-7">
+    <aside className="dashboard-card bg-gradient-to-r from-brand-50 via-white to-white p-5 sm:p-7">
       <h2 className="text-xl font-semibold text-ink">Share this calculator</h2>
       <p className="mt-3 text-base leading-7 text-slate-600">
         Share this free calculator with another seller.
@@ -38,7 +38,7 @@ export default function ShareCalculator({ fallbackUrl }: ShareCalculatorProps) {
         <p className="min-w-0 flex-1 break-all rounded-lg border border-brand-100 bg-white px-4 py-3 text-sm text-slate-600">
           {pageUrl}
         </p>
-        <button className="secondary-button shrink-0" onClick={handleCopy} type="button">
+        <button className="secondary-button w-full shrink-0 sm:w-auto" onClick={handleCopy} type="button">
           Copy link
         </button>
       </div>

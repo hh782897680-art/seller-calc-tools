@@ -96,13 +96,13 @@ export default function CalculatorPage({
       />
       {isShopifyProfitPage ? (
         <>
-          <section className="overflow-hidden border-b border-slate-200 bg-gradient-to-b from-white via-slate-50 to-brand-50/40">
+          <section className="overflow-hidden border-b border-slate-200 bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_52%,#f6f8fb_100%)]">
             <div className="page-container grid items-center gap-8 py-12 sm:py-16 lg:grid-cols-[1.02fr_0.98fr]">
               <div>
-                <p className="inline-flex rounded-full border border-brand-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-brand-700">
+                <p className="eyebrow">
                   {calculator.category}
                 </p>
-                <h1 className="mt-5 max-w-4xl text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+                <h1 className="mt-5 max-w-4xl text-4xl font-bold text-ink sm:text-5xl">
                   {calculator.name}
                 </h1>
                 <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
@@ -111,7 +111,7 @@ export default function CalculatorPage({
                 <div className="mt-6 flex flex-wrap gap-2">
                   {shopifyPlatforms.map((platform) => (
                     <span
-                      className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700"
+                      className="soft-badge"
                       key={platform}
                     >
                       {platform}
@@ -126,7 +126,7 @@ export default function CalculatorPage({
                     Browse all calculators
                   </Link>
                 </div>
-                <aside className="mt-6 max-w-3xl rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm leading-6 text-slate-600">
+                <aside className="mt-6 max-w-3xl rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm leading-6 text-slate-600 shadow-sm">
                   <p className="font-semibold text-slate-700">Trust note: planning estimate</p>
                   <p className="mt-1">
                     Results are directional. Verify Shopify payment and transaction
@@ -136,35 +136,34 @@ export default function CalculatorPage({
                 </aside>
               </div>
 
-              <aside className="surface-card relative overflow-hidden border-brand-100 p-5 shadow-lg shadow-brand-100/40 sm:p-7">
-                <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-brand-100/80 blur-3xl" aria-hidden="true" />
-                <div className="relative">
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <aside className="dashboard-card overflow-hidden border-brand-100 p-5 shadow-lg shadow-brand-100/40 sm:p-7">
+                <div>
+                  <p className="text-xs font-semibold uppercase text-brand-700">
                     Example use case
                   </p>
                   <h2 className="mt-3 text-xl font-semibold text-ink">
                     Validate a product before increasing ad spend
                   </h2>
                   <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                    <div className="rounded-xl border border-slate-200 bg-white p-4">
+                    <div className="rounded-lg border border-brand-100 bg-brand-50 p-4">
                       <p className="text-xs text-slate-500">Example net profit</p>
                       <p className="mt-1 text-2xl font-bold text-brand-700">$1,339.50</p>
                     </div>
-                    <div className="rounded-xl border border-slate-200 bg-white p-4">
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
                       <p className="text-xs text-slate-500">Margin</p>
                       <p className="mt-1 text-2xl font-bold text-ink">29.77%</p>
                     </div>
-                    <div className="rounded-xl border border-slate-200 bg-white p-4">
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
                       <p className="text-xs text-slate-500">ROI</p>
                       <p className="mt-1 text-2xl font-bold text-ink">42.38%</p>
                     </div>
-                    <div className="rounded-xl border border-slate-200 bg-white p-4">
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
                       <p className="text-xs text-slate-500">Break-even ROAS</p>
                       <p className="mt-1 text-2xl font-bold text-ink">5.63x</p>
                     </div>
                   </div>
-                  <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  <div className="mt-4 rounded-lg border border-slate-200 bg-white p-4">
+                    <p className="text-xs font-semibold uppercase text-slate-500">
                       Cost breakdown
                     </p>
                     <ul className="mt-3 space-y-2 text-sm text-slate-600">
@@ -186,15 +185,15 @@ export default function CalculatorPage({
               </aside>
             </div>
           </section>
-          <section className="border-b border-slate-200 bg-white">
+          <section className="border-b border-slate-200 bg-white/80">
             <div className="page-container py-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                Platform badges
+              <p className="text-xs font-semibold uppercase text-slate-500">
+                Planning context
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {shopifyPlatforms.map((platform) => (
                   <span
-                    className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm font-medium text-slate-700"
+                    className="soft-badge bg-slate-50"
                     key={`strip-${platform}`}
                   >
                     {platform}
@@ -206,13 +205,13 @@ export default function CalculatorPage({
         </>
       ) : isAmazonFbaProfitPage ? (
         <>
-          <section className="overflow-hidden border-b border-slate-200 bg-gradient-to-b from-white via-slate-50 to-brand-50/40">
+          <section className="overflow-hidden border-b border-slate-200 bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_52%,#f6f8fb_100%)]">
             <div className="page-container grid items-center gap-8 py-12 sm:py-16 lg:grid-cols-[1.02fr_0.98fr]">
               <div>
-                <p className="inline-flex rounded-full border border-brand-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-brand-700">
+                <p className="eyebrow">
                   {calculator.category}
                 </p>
-                <h1 className="mt-5 max-w-4xl text-4xl font-bold tracking-tight text-ink sm:text-5xl">
+                <h1 className="mt-5 max-w-4xl text-4xl font-bold text-ink sm:text-5xl">
                   {calculator.name}
                 </h1>
                 <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
@@ -221,7 +220,7 @@ export default function CalculatorPage({
                 <div className="mt-6 flex flex-wrap gap-2">
                   {amazonFbaPlatforms.map((platform) => (
                     <span
-                      className="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700"
+                      className="soft-badge"
                       key={platform}
                     >
                       {platform}
@@ -236,7 +235,7 @@ export default function CalculatorPage({
                     Browse all calculators
                   </Link>
                 </div>
-                <aside className="mt-6 max-w-3xl rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm leading-6 text-slate-600">
+                <aside className="mt-6 max-w-3xl rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm leading-6 text-slate-600 shadow-sm">
                   <p className="font-semibold text-slate-700">Trust note: estimate only</p>
                   <p className="mt-1">
                     Results are planning estimates for Amazon FBA sellers, not
@@ -246,43 +245,42 @@ export default function CalculatorPage({
                 </aside>
               </div>
 
-              <aside className="surface-card relative overflow-hidden border-brand-100 p-5 shadow-lg shadow-brand-100/40 sm:p-7">
-                <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-brand-100/80 blur-3xl" aria-hidden="true" />
-                <div className="relative">
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+              <aside className="dashboard-card overflow-hidden border-brand-100 p-5 shadow-lg shadow-brand-100/40 sm:p-7">
+                <div>
+                  <p className="text-xs font-semibold uppercase text-brand-700">
                     Example FBA snapshot
                   </p>
                   <h2 className="mt-3 text-xl font-semibold text-ink">
                     Check if an FBA SKU still works after fee and ad changes
                   </h2>
                   <div className="mt-4 grid gap-3 sm:grid-cols-2">
-                    <div className="rounded-xl border border-slate-200 bg-white p-4">
+                    <div className="rounded-lg border border-brand-100 bg-brand-50 p-4">
                       <p className="text-xs text-slate-500">Example net profit</p>
                       <p className="mt-1 text-2xl font-bold text-brand-700">$1,029.15</p>
                     </div>
-                    <div className="rounded-xl border border-slate-200 bg-white p-4">
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
                       <p className="text-xs text-slate-500">FBA fees</p>
                       <p className="mt-1 text-2xl font-bold text-ink">$500.00</p>
                     </div>
-                    <div className="rounded-xl border border-slate-200 bg-white p-4">
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
                       <p className="text-xs text-slate-500">Referral fee</p>
                       <p className="mt-1 text-2xl font-bold text-ink">$524.85</p>
                     </div>
-                    <div className="rounded-xl border border-slate-200 bg-white p-4">
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
                       <p className="text-xs text-slate-500">Margin</p>
                       <p className="mt-1 text-2xl font-bold text-ink">29.41%</p>
                     </div>
-                    <div className="rounded-xl border border-slate-200 bg-white p-4">
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
                       <p className="text-xs text-slate-500">ROI</p>
                       <p className="mt-1 text-2xl font-bold text-ink">41.67%</p>
                     </div>
-                    <div className="rounded-xl border border-slate-200 bg-white p-4">
+                    <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
                       <p className="text-xs text-slate-500">Break-even ROAS</p>
                       <p className="mt-1 text-2xl font-bold text-ink">8.75x</p>
                     </div>
                   </div>
-                  <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  <div className="mt-4 rounded-lg border border-slate-200 bg-white p-4">
+                    <p className="text-xs font-semibold uppercase text-slate-500">
                       Cost breakdown
                     </p>
                     <ul className="mt-3 space-y-2 text-sm text-slate-600">
@@ -304,15 +302,15 @@ export default function CalculatorPage({
               </aside>
             </div>
           </section>
-          <section className="border-b border-slate-200 bg-white">
+          <section className="border-b border-slate-200 bg-white/80">
             <div className="page-container py-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                Platform badges
+              <p className="text-xs font-semibold uppercase text-slate-500">
+                Planning context
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {amazonFbaPlatforms.map((platform) => (
                   <span
-                    className="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm font-medium text-slate-700"
+                    className="soft-badge bg-slate-50"
                     key={`strip-${platform}`}
                   >
                     {platform}
@@ -323,38 +321,89 @@ export default function CalculatorPage({
           </section>
         </>
       ) : (
-        <section className="border-b border-slate-200 bg-white">
-          <div className="page-container py-12 sm:py-16">
-            <p className="text-sm font-semibold uppercase tracking-widest text-brand-600">
-              {calculator.category}
-            </p>
-            <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-              {calculator.name}
-            </h1>
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-              {calculator.shortDescription}
-            </p>
-            {showFeeReviewNotice && (
-              <aside className="mt-6 max-w-3xl rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-600">
-                <p className="font-medium text-slate-700">Last reviewed: May 2026</p>
-                <p className="mt-1">
-                  Fees may vary by country, currency, account type, category, and
-                  platform policy. Always verify the latest official fee schedule.
+        <section className="overflow-hidden border-b border-slate-200 bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_52%,#f6f8fb_100%)]">
+          <div className="page-container grid items-center gap-8 py-12 sm:py-16 lg:grid-cols-[1.02fr_0.98fr]">
+            <div>
+              <p className="eyebrow">{calculator.category}</p>
+              <h1 className="mt-5 max-w-4xl text-4xl font-bold text-ink sm:text-5xl">
+                {calculator.name}
+              </h1>
+              <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
+                {calculator.shortDescription}
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Link className="primary-button w-full sm:w-auto" href="#calculator-workspace">
+                  Start calculating
+                </Link>
+                <Link className="secondary-button w-full sm:w-auto" href="/free-ecommerce-calculators">
+                  Browse all calculators
+                </Link>
+              </div>
+              {showFeeReviewNotice && (
+                <aside className="mt-6 max-w-3xl rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm leading-6 text-slate-600 shadow-sm">
+                  <p className="font-medium text-slate-700">Last reviewed: May 2026</p>
+                  <p className="mt-1">
+                    Fees may vary by country, currency, account type, category, and
+                    platform policy. Always verify the latest official fee schedule.
+                  </p>
+                </aside>
+              )}
+            </div>
+
+            <aside className="dashboard-card overflow-hidden border-brand-100 p-5 shadow-lg shadow-brand-100/30 sm:p-7">
+              <p className="text-xs font-semibold uppercase text-brand-700">
+                Calculator workspace
+              </p>
+              <h2 className="mt-3 text-xl font-semibold text-ink">
+                Test a selling scenario in seconds
+              </h2>
+              <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                <div className="rounded-lg border border-brand-100 bg-brand-50 p-4 sm:col-span-3">
+                  <p className="text-xs font-semibold uppercase text-slate-500">
+                    Primary result
+                  </p>
+                  <p className="mt-2 text-3xl font-bold text-brand-700">
+                    Live estimate
+                  </p>
+                </div>
+                <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                  <p className="text-xs text-slate-500">Inputs</p>
+                  <p className="mt-1 text-xl font-bold text-ink">Editable</p>
+                </div>
+                <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                  <p className="text-xs text-slate-500">Results</p>
+                  <p className="mt-1 text-xl font-bold text-ink">Instant</p>
+                </div>
+                <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                  <p className="text-xs text-slate-500">Export</p>
+                  <p className="mt-1 text-xl font-bold text-ink">CSV</p>
+                </div>
+              </div>
+              <div className="mt-5 rounded-lg border border-slate-200 bg-white p-4">
+                <p className="text-xs font-semibold uppercase text-slate-500">
+                  Built for
                 </p>
-              </aside>
-            )}
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {["Profit", "Fees", "Margin", "ROI", "ROAS"].map((item) => (
+                    <span className="soft-badge bg-slate-50" key={item}>
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </aside>
           </div>
         </section>
       )}
 
       <section
-        className={isFeaturedCalculatorPage ? "border-b border-slate-200 bg-gradient-to-b from-white to-slate-50/60" : ""}
+        className="border-b border-slate-200 bg-gradient-to-b from-white to-slate-50/70"
         id="calculator-workspace"
         aria-label={`${calculator.name} tool`}
       >
-        <div className="page-container py-6">
+        <div className="page-container py-8 sm:py-10">
           {isShopifyProfitPage && (
-            <aside className="mb-6 rounded-2xl border border-brand-100 bg-brand-50/60 p-5 text-sm leading-7 text-slate-700">
+            <aside className="mb-6 rounded-lg border border-brand-100 bg-brand-50/70 p-5 text-sm leading-7 text-slate-700 shadow-sm">
               <p className="font-semibold text-ink">Example use case</p>
               <p className="mt-1">
                 A seller planning to scale ads can model current order economics
@@ -364,7 +413,7 @@ export default function CalculatorPage({
             </aside>
           )}
           {isAmazonFbaProfitPage && (
-            <aside className="mb-6 rounded-2xl border border-brand-100 bg-brand-50/60 p-5 text-sm leading-7 text-slate-700">
+            <aside className="mb-6 rounded-lg border border-brand-100 bg-brand-50/70 p-5 text-sm leading-7 text-slate-700 shadow-sm">
               <p className="font-semibold text-ink">Example use case</p>
               <p className="mt-1">
                 Before placing a reorder, model a higher PPC cost and fulfillment
@@ -377,7 +426,7 @@ export default function CalculatorPage({
         </div>
       </section>
 
-      <article className={`page-container mt-12 ${isFeaturedCalculatorPage ? "max-w-5xl space-y-14" : "max-w-4xl space-y-12"}`}>
+      <article className={`calculator-content page-container py-14 ${isFeaturedCalculatorPage ? "max-w-5xl space-y-8" : "max-w-4xl space-y-8"}`}>
         <section>
           <h2 className="section-heading">What is this calculator?</h2>
           <div className="mt-5 space-y-4 text-base leading-8 text-slate-600">
@@ -432,10 +481,10 @@ export default function CalculatorPage({
         </section>
 
         {expertReview && (
-          <section className="rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
+          <section className="bg-slate-50">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-widest text-brand-600">
+                <p className="text-sm font-semibold uppercase text-brand-700">
                   Expert review notes
                 </p>
                 <h2 className="mt-3 text-2xl font-semibold text-ink">
@@ -532,12 +581,12 @@ export default function CalculatorPage({
 
         <AffiliateCTA message={calculator.affiliateMessage} />
 
-        <section className={isFeaturedCalculatorPage ? "rounded-3xl border border-slate-200 bg-white p-6 sm:p-8" : ""}>
+        <section>
           <h2 className="section-heading">How to use it</h2>
           {isFeaturedCalculatorPage ? (
             <ol className="mt-6 grid list-none gap-4 md:grid-cols-2">
               {calculator.howToUse.map((step, index) => (
-                <li className="rounded-2xl border border-slate-200 bg-slate-50 p-5" key={step}>
+                <li className="rounded-lg border border-slate-200 bg-slate-50 p-5" key={step}>
                   <span
                     aria-hidden="true"
                     className="flex h-7 w-7 items-center justify-center rounded-full bg-brand-600 text-sm font-bold text-white"
@@ -590,14 +639,14 @@ export default function CalculatorPage({
           <h2 className="section-heading">Common mistakes to avoid</h2>
           <ul className="mt-5 space-y-3 text-base leading-8 text-slate-600">
             {calculator.commonMistakes.map((mistake) => (
-              <li className="rounded-xl border border-slate-200 bg-white px-5 py-3" key={mistake}>
+              <li className="rounded-lg border border-slate-200 bg-slate-50 px-5 py-3" key={mistake}>
                 {mistake}
               </li>
             ))}
           </ul>
         </section>
 
-        <section className={isFeaturedCalculatorPage ? "rounded-3xl border border-slate-200 bg-white p-6 sm:p-8" : ""}>
+        <section>
           <h2 className="section-heading">Frequently asked questions</h2>
           <div className="mt-6">
             <FAQ items={calculator.faqs} />
@@ -613,7 +662,7 @@ export default function CalculatorPage({
           )}
         </section>
 
-        <section className={isFeaturedCalculatorPage ? "rounded-3xl border border-slate-200 bg-white p-6 sm:p-8" : ""}>
+        <section>
           <h2 className="section-heading">Related calculators</h2>
           {isShopifyProfitPage && (
             <p className="mt-3 text-sm leading-7 text-slate-600">

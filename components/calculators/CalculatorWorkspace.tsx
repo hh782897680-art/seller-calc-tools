@@ -159,49 +159,45 @@ export default function CalculatorWorkspace({
 
   return (
     <div
-      className={`grid items-start gap-6 ${isShopifyTone ? "lg:grid-cols-[1.06fr_0.94fr]" : "lg:grid-cols-[1fr_0.9fr]"}`}
+      className={`grid items-start gap-6 ${isShopifyTone ? "lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)]" : "lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)]"}`}
     >
       <form
         ref={formRef}
-        className={`surface-card p-5 sm:p-7 ${isShopifyTone ? "relative overflow-hidden border-brand-100 bg-gradient-to-b from-white to-brand-50/30 shadow-lg shadow-brand-100/30" : ""}`}
+        className={`dashboard-card relative overflow-hidden p-5 sm:p-7 ${isShopifyTone ? "border-brand-100 bg-gradient-to-b from-white to-brand-50/30 shadow-lg shadow-brand-100/30" : ""}`}
         onSubmit={(event) => event.preventDefault()}
       >
-        {isShopifyTone && (
-          <div className="absolute -right-14 -top-14 h-36 w-36 rounded-full bg-brand-100/80 blur-3xl" aria-hidden="true" />
-        )}
-        <div className="relative">
-          {isShopifyTone && (
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand-700">
+        <div className="relative flex flex-col gap-4 border-b border-slate-200 pb-5 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <p className="text-xs font-semibold uppercase text-brand-700">
               Scenario inputs
             </p>
-          )}
-          <h2 className="mt-2 text-xl font-semibold text-ink">{formTitle}</h2>
-          <p className="mt-2 text-sm text-slate-500">
-            {formDescription}
-          </p>
-        </div>
-        {isShopifyTone && (
-          <div className="mt-4 inline-flex rounded-full border border-brand-200 bg-white px-3 py-1 text-xs font-medium text-brand-700">
-            Tip: compare at least 2 pricing scenarios before publishing.
+            <h2 className="mt-2 text-2xl font-semibold text-ink">{formTitle}</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">
+              {formDescription}
+            </p>
           </div>
-        )}
-        <div className={`mt-6 grid gap-5 ${isShopifyTone ? "sm:grid-cols-2" : "sm:grid-cols-2"}`}>{children}</div>
-        <div className={`mt-7 flex flex-wrap gap-3 ${isShopifyTone ? "sm:items-center" : ""}`}>
+          <span className="soft-badge shrink-0">No signup</span>
+        </div>
+        <div className="mt-4 rounded-lg border border-brand-100 bg-brand-50/70 px-4 py-3 text-sm leading-6 text-slate-700">
+          Tip: compare at least 2 pricing scenarios before publishing or scaling.
+        </div>
+        <div className="mt-6 grid gap-5 sm:grid-cols-2">{children}</div>
+        <div className="mt-7 grid gap-3 sm:flex sm:flex-wrap sm:items-center">
           <button
-            className="primary-button min-w-[8.5rem]"
+            className="primary-button w-full sm:w-auto sm:min-w-[8.5rem]"
             onClick={handleCopy}
             type="button"
           >
             {copyFeedback === "success" ? "Copied!" : "Copy Results"}
           </button>
           <button
-            className="secondary-button min-w-[8.5rem]"
+            className="secondary-button w-full sm:w-auto sm:min-w-[8.5rem]"
             onClick={handleCsvExport}
             type="button"
           >
             Export CSV
           </button>
-          <button className="secondary-button" onClick={handleReset} type="button">
+          <button className="tertiary-button w-full sm:w-auto" onClick={handleReset} type="button">
             Reset
           </button>
         </div>
@@ -229,7 +225,9 @@ export default function CalculatorWorkspace({
           {statusFeedback?.message ?? ""}
         </p>
       </form>
-      <ResultCard metrics={metrics} tone={tone} warning={warning} />
+      <div className="lg:sticky lg:top-24">
+        <ResultCard metrics={metrics} tone={tone} warning={warning} />
+      </div>
     </div>
   );
 }
