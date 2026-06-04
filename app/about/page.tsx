@@ -29,15 +29,19 @@ export default function AboutPage() {
       <p className="mt-4 text-sm text-slate-500">Last updated: June 2, 2026</p>
       <div className="mt-8 space-y-5 text-lg leading-8 text-slate-600">
         <p>
-          Ecom Profit Tools is a free tool website for Shopify, Etsy, Amazon FBA,
-          independent store sellers, marketers, and small business owners. It is
-          designed to make common business calculations quick to run and easy to
-          understand.
+          Ecom Profit Tools is a free calculator website for ecommerce sellers,
+          marketers, and small business owners who need quick estimates before
+          making pricing, fee, margin, inventory, or advertising decisions.
         </p>
         <p>
           Our calculators help estimate profit, marketplace fees, profit margin,
           markup, return on investment, advertising return, and break-even sales.
           Calculations happen directly in your browser and do not require a login.
+        </p>
+        <p>
+          The site is built for Shopify store owners, Etsy sellers, Amazon and
+          eBay marketplace sellers, TikTok Shop merchants, WooCommerce operators,
+          and sellers comparing payment options such as PayPal and Stripe.
         </p>
         <p>
           Results provide general educational estimates only. Actual fees,
@@ -66,6 +70,36 @@ export default function AboutPage() {
             broken links, and content that needs stronger sourcing or examples.
           </p>
         </div>
+      </section>
+
+      <section className="mt-10 rounded-lg border border-slate-200 bg-white p-6">
+        <h2 className="text-2xl font-semibold text-ink">Review and correction process</h2>
+        <div className="mt-4 space-y-4 text-base leading-8 text-slate-600">
+          <p>
+            Calculator pages are reviewed when new fee-sensitive content is
+            published, when platform terms appear to change, or when a user
+            reports an issue. Updates may include clearer assumptions, better
+            examples, source links, or corrected explanatory text.
+          </p>
+          <p>
+            If you believe a formula explanation, fee assumption, source link, or
+            calculator label needs review, send the page URL and the specific
+            issue through the contact page. We prioritize corrections that could
+            materially affect seller decisions.
+          </p>
+        </div>
+      </section>
+
+      <section className="mt-10 rounded-lg border border-slate-200 bg-slate-50 p-6">
+        <h2 className="text-2xl font-semibold text-ink">Independence</h2>
+        <p className="mt-4 text-base leading-8 text-slate-600">
+          Ecom Profit Tools is not an official calculator, partner site, or
+          representative of Shopify, Etsy, Amazon, eBay, PayPal, Stripe, TikTok,
+          WooCommerce, Meta, Google, or any other marketplace, payment processor,
+          advertising network, or ecommerce platform mentioned on the site.
+          Platform names are used to identify seller workflows and fee categories
+          that readers may need to verify in their own accounts.
+        </p>
       </section>
       <div className="mt-10 flex flex-col gap-3 sm:flex-row">
         <Link className="primary-button" href="/#calculators">

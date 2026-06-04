@@ -105,6 +105,7 @@ export const calculators: CalculatorData[] = [
     whatIs: [
       "A Shopify profit calculator is a planning tool for understanding what remains after an online store makes sales and pays the costs needed to deliver those orders. Revenue alone can look healthy while product purchases, shipping, payment processing, advertising, packaging, apps, and returns quietly reduce the amount a seller keeps.",
       "This calculator works at the order level and scales the figures by the number of orders. Enter the selling price and costs that apply to one average order, plus payment charges. It then provides an estimated period total. This approach is useful before launching a product, when reviewing a campaign, or when setting a price for a new bundle.",
+      "For Shopify sellers, the same product can behave differently across ordinary store checkout, a free-shipping offer, a paid social campaign, a bundle, or a discount code. Use the editable cost fields to model the version of the order you actually plan to run instead of assuming the storefront price is the amount the business keeps.",
     ],
     whoShouldUse:
       "Shopify merchants can use this tool when pricing a new item, reviewing a bundle, comparing shipping offers, or checking whether paid traffic still leaves enough margin. It is especially useful for store owners who know their typical order costs and want a quick scenario before changing a price or campaign.",
@@ -115,6 +116,7 @@ export const calculators: CalculatorData[] = [
     whyItMatters: [
       "Shopify merchants usually make decisions across products, channels, and campaigns. A product with a high order value can still lose money if acquisition cost rises or shipping is underestimated. Checking profit rather than only revenue helps prevent scaling an offer that becomes more expensive with every order.",
       "Use the output to test pricing changes, free-shipping thresholds, bundles, discount campaigns, and target customer acquisition costs. The calculation is an estimate rather than an accounting statement: taxes, refunds, chargebacks, subscriptions, and region-specific fees may need separate tracking. Regularly replace assumptions with actual store reports for better decisions.",
+      "A practical use case is comparing a baseline product page against a campaign landing page. If the campaign version needs a deeper discount, higher ad spend, or faster shipping, the calculator can show whether the extra conversion work still leaves enough contribution after payment fees and per-order costs.",
     ],
     howToUse: [
       "Enter the average selling price and each per-order product, shipping, advertising, and other cost.",
@@ -126,6 +128,7 @@ export const calculators: CalculatorData[] = [
       "Treating gross sales or an estimated payout as profit before product, shipping, and advertising costs.",
       "Leaving out fixed payment charges, allocated app costs, discounts, returns, or packaging when they apply.",
       "Increasing ad spend from revenue alone without checking margin and break-even ROAS assumptions.",
+      "Using one average shipping cost for all orders when expedited shipping, heavy bundles, or international delivery materially change fulfillment expense.",
     ],
     expertReview: {
       lastReviewed: "June 2026",
@@ -210,6 +213,7 @@ export const calculators: CalculatorData[] = [
     whatIs: [
       "An Etsy fee calculator estimates how a single order turns into take-home profit after marketplace charges and fulfillment costs. Handmade, vintage, craft supply, and digital product sellers commonly price an item based on materials and time, but platform fees can change the amount earned from each order.",
       "This tool separates collected revenue from costs. Revenue includes both the listed item amount and any shipping amount paid by the customer. Expenses include your item cost, the delivery cost you pay, a listing fee, transaction fees, payment processing, and an optional offsite advertising fee. Because fee programs vary, every fee field is editable.",
+      "The single-order view is helpful when deciding whether to publish a handmade listing, adjust a digital download price, charge shipping separately, or model a sale that may be attributed to Offsite Ads. It keeps each fee category visible so a seller does not blend platform charges into one vague deduction.",
     ],
     whoShouldUse:
       "Etsy sellers preparing or revising a listing can use this estimate before choosing a price, shipping charge, or promotion. It supports handmade makers, vintage resellers, craft supply shops, and digital-product sellers who want to understand a representative order without assuming that every sale has identical fees.",
@@ -220,6 +224,7 @@ export const calculators: CalculatorData[] = [
     whyItMatters: [
       "Small marketplace charges have a large effect on low-priced products, especially when a fixed payment charge applies. Checking one representative order helps a seller decide whether to raise a price, adjust shipping, build the fee into a bundle, or avoid a discount that would remove the intended profit.",
       "The calculator is also helpful when comparing Etsy sales with an independent storefront or an in-person channel. Use current Etsy documentation and shop statements to validate actual charges. Treat the result as a pricing estimate, then measure real margins from completed orders to account for advertising attribution and unexpected shipping expense.",
+      "For sellers with both physical and digital listings, the inputs can be used differently. A physical product may need postage, packaging, and replacement allowances, while a digital item may have low delivery cost but still needs processing, listing, advertising, and production-time assumptions reviewed.",
     ],
     howToUse: [
       "Enter the item price, shipping paid by your customer, your item cost, and your actual shipping cost.",
@@ -231,6 +236,7 @@ export const calculators: CalculatorData[] = [
       "Applying percentage fees only to item price when the modeled fee base includes collected shipping.",
       "Adding an offsite ads charge to every scenario, or omitting it from an attributed sale.",
       "Assuming example listing and processing inputs match the seller's country and payment terms.",
+      "Ignoring listing renewals, multi-quantity listing behavior, packaging, or maker time when the order economics are narrow.",
     ],
     expertReview: {
       lastReviewed: "June 2026",
@@ -316,6 +322,7 @@ export const calculators: CalculatorData[] = [
     whatIs: [
       "An Amazon FBA profit calculator estimates whether a Fulfillment by Amazon product leaves a viable profit after the marketplace and fulfillment process are paid. FBA can simplify delivery and customer service, but the selling price must support referral fees, fulfillment charges, inventory acquisition, shipping into Amazon, storage, and promotion.",
       "The calculator models a set of units sold, while most cost entries are averages for one unit. That makes the output useful for product research and for reviewing an existing SKU over a week or month. It reports total profit together with profit per unit, margin, and ROI, because an attractive sales total does not automatically indicate an attractive product.",
+      "This is especially useful for private-label, wholesale, and small catalog sellers who need to compare a product before reordering. A change in package dimensions, size tier, referral category, inbound freight, storage, or Sponsored Products spend can make the same selling price produce a very different result.",
     ],
     whoShouldUse:
       "Amazon FBA sellers can use this model while researching a possible product, choosing a reorder quantity, or reviewing an established SKU after advertising costs change. It is designed for sellers who can provide category, size-tier, landed-cost, storage, and promotion assumptions for the product being evaluated.",
@@ -326,6 +333,7 @@ export const calculators: CalculatorData[] = [
     whyItMatters: [
       "Amazon sellers can encounter a product that appears profitable in sourcing research but underperforms after fulfillment and ad spend are included. Before ordering inventory, test changes in sale price, landed cost, conversion advertising expense, and fee tier. A narrow margin may not provide room for returns, coupons, or storage increases.",
       "For operating products, update the calculator with actual average ad cost and inventory expense rather than relying on a launch estimate. It can support reorder decisions and identify which cost reduction has the greatest value. It remains an educational estimator; reconcile decisions against Seller Central reports and professional tax or accounting guidance where needed.",
+      "A useful scenario is comparing a current SKU against a new packaging or supplier quote. If the new option reduces product cost but increases fulfillment size, storage, or inbound freight, the per-unit profit line helps reveal whether the change is actually beneficial.",
     ],
     howToUse: [
       "Enter a selling price, estimated units, and your product landed costs expressed per unit.",
@@ -337,6 +345,7 @@ export const calculators: CalculatorData[] = [
       "Using a fulfillment amount from the wrong size tier, weight, category, or marketplace.",
       "Omitting inbound freight, storage, advertising, returns, or other unit-level allowances.",
       "Reading revenue after one Amazon fee as final profit before inventory and fulfillment expense.",
+      "Averaging all SKUs together instead of modeling the specific product size, category, unit cost, and ad cost being reviewed.",
     ],
     expertReview: {
       lastReviewed: "June 2026",
@@ -413,6 +422,7 @@ export const calculators: CalculatorData[] = [
     whatIs: [
       "A profit margin calculator shows how efficiently revenue turns into profit after selected costs are deducted. Sellers can calculate margin for one item, one order, a product category, or an entire reporting period, as long as revenue and cost cover the same scope. The result is a percentage of sales rather than only a dollar amount.",
       "Margin is often confused with markup. A margin of 36% means 36 cents of each sales dollar remains as profit under the included costs. A markup percentage instead compares that profit with what the item cost. The distinction matters when using a target percentage to determine price or when comparing results with marketplace dashboards.",
+      "For ecommerce, margin can be checked at several levels: product cost only, product plus fulfillment, product plus marketplace and payment fees, or product plus advertising. The calculator does not choose that scope for you; it makes the relationship between the revenue and cost you enter explicit.",
     ],
     whoShouldUse:
       "Sellers on any channel can use this calculator when comparing products, reviewing a discount, or checking whether a fee or shipping increase has reduced retained profit. It also suits small businesses that need a simple, consistently scoped margin check before moving to a fuller income statement.",
@@ -423,6 +433,7 @@ export const calculators: CalculatorData[] = [
     whyItMatters: [
       "Ecommerce sellers face discounts, marketplace fees, shipping changes, and paid traffic costs that can rapidly reduce margin. Knowing the margin before launching a discount or paid campaign helps protect the profit that supports inventory, support work, and future growth. It is also easier to compare products using a percentage than dollar profit alone.",
       "Small business owners can use margin trends to see where pricing or purchasing needs attention. This simple calculation is not a full income statement and does not decide what a good margin should be; industry, product type, risk, and operating costs all matter. Use actual records and verify important financial decisions with qualified advice.",
+      "A common use case is checking whether a promotional price still works after the seller adds payment fees, packaging, and shipping subsidies to cost. The same item may look healthy on product cost alone and weak after all sale-level costs are included.",
     ],
     howToUse: [
       "Enter revenue or selling price for the product, order, or period you are analyzing.",
@@ -434,6 +445,7 @@ export const calculators: CalculatorData[] = [
       "Confusing margin, which is based on revenue, with markup, which is based on cost.",
       "Comparing products when one cost figure includes fees and ads while another does not.",
       "Treating gross margin as complete business profit when overhead and returns remain excluded.",
+      "Using a target margin from another channel without accounting for different marketplace fees, shipping rules, or acquisition costs.",
     ],
     expertReview: {
       lastReviewed: "June 2026",
@@ -634,6 +646,7 @@ export const calculators: CalculatorData[] = [
     whatIs: [
       "ROAS means return on ad spend. It is a campaign efficiency ratio that divides revenue attributed to advertising by the advertising cost used to produce that revenue. Ecommerce advertisers see it in platforms such as paid social and search, where quick comparisons across ads, audiences, products, and time periods are needed.",
       "A ROAS calculator does not claim the campaign made a net profit. The revenue still needs to cover product costs, delivery, seller fees, payment processing, returns, discounts, overhead, and sometimes agency or creative expense. Attribution settings can also overstate or understate what the ad truly caused. ROAS is one useful lens, not a complete income statement.",
+      "Use it for clearly scoped campaign checks such as a Meta prospecting test, Google Shopping campaign, TikTok Shop promotion, Amazon ads report, or creator landing-page push. Keep the spend and revenue from the same period and attribution rule so the ratio answers one specific question.",
     ],
     whoShouldUse:
       "Ecommerce sellers running paid search, social advertising, marketplace ads, or creator-supported campaigns can use ROAS to compare attributed revenue with spend. It is most useful alongside a known contribution margin, because the revenue ratio must still be high enough to pay for products, delivery, fees, and returns.",
@@ -644,6 +657,7 @@ export const calculators: CalculatorData[] = [
     whyItMatters: [
       "Advertising can grow sales quickly while hiding poor economics. Sellers who monitor revenue without required ROAS may increase spend on products whose margin cannot pay for acquisition. Reviewing ROAS with margin supports decisions about budget, creative tests, landing pages, offers, and which products deserve promotion.",
       "Keep attribution comparisons consistent: platforms, windows, currencies, and inclusion of tax or shipping may differ. A strong reported ROAS can also reflect customers who would have purchased without an ad. Combine the output with store-level profit trends, customer acquisition cost, and repeat-purchase evidence before making large budget changes.",
+      "A practical review is to calculate ROAS for the campaign, then run the same product through a profit calculator with the campaign's average ad cost per order. That second step shows whether the reported revenue ratio survives product cost, fulfillment, and seller fees.",
     ],
     howToUse: [
       "Choose one campaign or reporting period and enter its advertising spend.",
@@ -655,6 +669,7 @@ export const calculators: CalculatorData[] = [
       "Calling a high ROAS profitable without subtracting product, fulfillment, payment, and return costs.",
       "Comparing campaigns that use different attribution windows, currencies, or revenue definitions.",
       "Scaling spend toward the highest revenue ratio without checking break-even margin requirements.",
+      "Mixing organic revenue, email revenue, or returning-customer revenue into the ad-attributed number without documenting the attribution choice.",
     ],
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
@@ -1209,15 +1224,20 @@ export const calculators: CalculatorData[] = [
     ],
     whatIs: [
       "An Etsy profit calculator turns an average listing sale into a period-level earnings estimate. Etsy sellers often know the price shown to a customer but need a clearer picture after product materials or purchase cost, shipping paid by the seller, listing amounts, marketplace transaction fees, processing charges, and optional advertising deductions are considered. By including order count, this tool can model a small product launch, a seasonal batch, or a representative month without entering every sale individually.",
+      "The calculator is built for realistic Etsy seller scenarios: handmade goods with material and packaging costs, vintage or supply listings with purchase cost, digital products with low delivery cost but ongoing listing and processing fees, orders where shipping is charged to the buyer, and orders that may be attributed to Offsite Ads.",
+      "Each fee field is separated so sellers can see what is driving the result. Listing fees represent the modeled listing or renewal amount, transaction fees apply to collected revenue in the estimate, payment processing combines a percentage and fixed charge, and the optional offsite ads field can be used only for attributed sales or a scenario where the seller wants to test that risk.",
     ],
     whoShouldUse:
-      "Etsy shops that sell repeated or similar orders can use this calculator to model a launch batch, seasonal run, or typical month. It is intended for makers and resellers choosing price, delivery, and promotion assumptions when they need profit per order and total estimated profit together.",
+      "Etsy shops that sell repeated or similar orders can use this calculator to model a launch batch, seasonal run, or typical month. It is intended for handmade makers, digital download sellers, vintage resellers, and craft supply shops choosing price, delivery, and promotion assumptions when they need profit per order and total estimated profit together.",
     howToCalculate: [
       "Add item price and any shipping amount charged to the buyer to establish revenue per modeled order, then multiply by order count. Multiply product and delivery expense by that same order count. Fees are modeled separately: listing amount occurs once for each modeled order, transaction and optional advertising percentages apply to collected revenue, and payment processing combines a revenue percentage with a fixed amount for each order.",
       "After adding expenses and fees, subtract total cost from total revenue for net profit. Divide profit by order count to estimate earnings per representative order, and divide profit by revenue for margin. If no orders or revenue are entered, the ratio metrics are not meaningful and appear as N/A. The calculation is suitable for scenario planning; completed-sales reports remain the evidence for actual performance.",
+      "For physical items, include material or purchase cost, packaging, and the postage or label cost you actually pay. For digital products, shipping cost may be zero, but the item cost field can still represent production allocation, file preparation, or another per-order allowance if you want a more conservative estimate.",
     ],
     whyItMatters: [
       "Marketplaces make it easy to focus on order volume, but profitable volume depends on what remains from each order. Fixed fees and delivery expense can matter sharply for low-priced goods, while optional advertising charges may change the outcome of a promoted sale. A multi-order model makes it easier to ask whether a planned discount, shipping offer, or production batch leaves enough room for time and overhead.",
+      "Many Etsy pricing mistakes come from looking only at the item price. A seller also needs to account for payment processing, the listing amount, shipping cost, collected shipping, packaging, returns, and possible Offsite Ads attribution. Reviewing these inputs before publishing a listing can prevent a popular product from becoming a low-margin product.",
+      "Use the estimate as a planning worksheet before changing a bestseller, offering free shipping, renewing a seasonal item, or testing ads. Then compare actual completed orders against shop reports because fee treatment, taxes, currency, and attribution can differ by seller and location.",
     ],
     howToUse: [
       "Enter the average item price, customer shipping charge, product cost, shipping expense, and number of orders.",
@@ -1229,6 +1249,8 @@ export const calculators: CalculatorData[] = [
       "Changing order count without scaling recurring listing, product, delivery, and fixed payment costs correctly.",
       "Applying an offsite ads assumption across all modeled orders without a matching attribution scenario.",
       "Omitting materials, packaging, labor allowance, refunds, or other expenses needed for a realistic profit review.",
+      "Treating customer-paid shipping as pure profit even though Etsy fees and the actual shipping label cost may still reduce the order.",
+      "Using the same cost assumptions for handmade, vintage, and digital products when their production and delivery economics are different.",
     ],
     affiliateMessage:
       "Growing an Etsy shop? Explore tools that support listings, fulfillment, and pricing reviews.",

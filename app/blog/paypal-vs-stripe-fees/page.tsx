@@ -52,11 +52,18 @@ export default function PaypalVsStripeFeesArticle() {
           <a
             className="font-semibold text-brand-600"
             href="https://www.paypal.com/us/webapps/mpp/merchant-fees"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             PayPal merchant fees
           </a>{" "}
           and{" "}
-          <a className="font-semibold text-brand-600" href="https://stripe.com/us/pricing">
+          <a
+            className="font-semibold text-brand-600"
+            href="https://stripe.com/us/pricing"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Stripe pricing
           </a>{" "}
           pages and in the terms for your own account.

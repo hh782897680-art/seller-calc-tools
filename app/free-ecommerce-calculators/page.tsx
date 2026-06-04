@@ -220,7 +220,7 @@ export default function FreeEcommerceCalculatorsPage() {
           </div>
 
           <div className="surface-card relative overflow-hidden p-5 sm:p-7">
-            <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-brand-100/80 blur-3xl" />
+            <div className="pointer-events-none absolute right-0 top-0 h-24 w-24 translate-x-1/4 -translate-y-1/4 rounded-full bg-brand-100/80 blur-3xl sm:-right-12 sm:-top-12 sm:h-32 sm:w-32 sm:translate-x-0 sm:translate-y-0" />
             <div className="relative">
               <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
                 Seller planning snapshot
@@ -435,7 +435,7 @@ export default function FreeEcommerceCalculatorsPage() {
       <section className="border-t border-slate-200 bg-white py-14 sm:py-16">
         <div className="page-container max-w-5xl">
           <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-gradient-to-r from-slate-900 via-ink to-brand-700 p-7 text-white sm:p-8">
-            <div className="absolute -right-14 -top-14 h-36 w-36 rounded-full bg-white/15 blur-2xl" />
+            <div className="pointer-events-none absolute right-0 top-0 h-28 w-28 translate-x-1/4 -translate-y-1/4 rounded-full bg-white/15 blur-2xl sm:-right-14 sm:-top-14 sm:h-36 sm:w-36 sm:translate-x-0 sm:translate-y-0" />
             <div className="relative flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-center">
               <div className="max-w-3xl">
                 <p className="text-sm font-semibold uppercase tracking-widest text-slate-100">

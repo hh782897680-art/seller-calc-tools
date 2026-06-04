@@ -6,16 +6,16 @@ import type { FAQItem } from "@/data/calculators";
 const pageUrl = "https://www.ecomprofittools.com/ai-tools-for-ecommerce-sellers";
 
 export const metadata: Metadata = {
-  title: "Best AI Tools for E-commerce Sellers | Ecom Profit Tools",
+  title: "AI Tools for E-commerce Sellers | Practical Workflow Guide",
   description:
-    "Compare curated AI tools for ecommerce product copy, visuals, SEO, email, and support, then validate fees, margins, and ROAS with free calculators.",
+    "Review practical AI tool categories for ecommerce product copy, visuals, SEO, email, and support, then validate fees, margins, and ROAS with free calculators.",
   alternates: {
     canonical: pageUrl,
   },
   openGraph: {
-    title: "Best AI Tools for E-commerce Sellers | Ecom Profit Tools",
+    title: "AI Tools for E-commerce Sellers | Practical Workflow Guide",
     description:
-      "Compare curated AI tools for ecommerce product copy, visuals, SEO, email, and support, then validate fees, margins, and ROAS with free calculators.",
+      "Review practical AI tool categories for ecommerce product copy, visuals, SEO, email, and support, then validate fees, margins, and ROAS with free calculators.",
     url: pageUrl,
     type: "article",
     siteName: "Ecom Profit Tools",
@@ -39,6 +39,32 @@ const sellerPlatforms = [
     name: "TikTok Shop sellers",
     text: "Can benefit from rapid content concepts, product visuals, promotional copy, and customer response drafts for fast-moving campaigns.",
   },
+];
+
+const selectionCriteria = [
+  {
+    title: "Clear ecommerce use case",
+    text: "A tool belongs on this guide only when it supports a recognizable seller task such as listing copy, image preparation, keyword research, campaign drafting, email, or support.",
+  },
+  {
+    title: "Human review required",
+    text: "The tool should create drafts or analysis that a seller can inspect. It should not encourage publishing unchecked product claims, policy promises, or synthetic images that misrepresent an item.",
+  },
+  {
+    title: "Cost can be compared with margin",
+    text: "A useful workflow has a cost that can be evaluated against profit, ROAS, time saved, or support volume instead of being adopted only because it is new.",
+  },
+  {
+    title: "Works alongside existing records",
+    text: "Seller data, platform reports, product specifications, shipping rules, and current account terms remain the source of truth for final decisions.",
+  },
+];
+
+const workflowSteps = [
+  "Start with a specific bottleneck, such as rewriting 40 product descriptions, preparing ad concepts for one campaign, or drafting support replies for common delivery questions.",
+  "Give the tool accurate inputs from your product specs, policies, customer questions, and channel requirements instead of asking for generic ecommerce copy.",
+  "Review output for facts, claims, intellectual property, marketplace rules, shipping promises, and customer expectations before publishing or sending anything.",
+  "Estimate whether the tool cost, ad spend, discount, or creative work still fits the product's margin, fee structure, and break-even sales target.",
 ];
 
 const toolCategories = [
@@ -270,13 +296,18 @@ export default function AiToolsForEcommerceSellersPage() {
             Ecommerce workflow guide
           </p>
           <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-            Best AI Tools for E-commerce Sellers
+            AI Tools for E-commerce Sellers: Practical Workflow Guide
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
             AI tools can help online sellers prepare product content, marketing
             tests, and customer communications faster. They do not replace the
             core work of checking fees, margins, ad spend, and break-even sales
             before choosing a product or scaling a campaign.
+          </p>
+          <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
+            This page is an educational workflow guide, not an affiliate ranking.
+            The listed links point to provider websites without affiliate
+            tracking at the time of publication.
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
             <Link className="primary-button" href="/free-ecommerce-calculators">
@@ -310,6 +341,33 @@ export default function AiToolsForEcommerceSellersPage() {
         </div>
       </section>
 
+      <section className="border-y border-slate-200 bg-white py-14 sm:py-16">
+        <div className="page-container max-w-5xl">
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <h2 className="section-heading">How tools are selected</h2>
+              <p className="mt-5 text-base leading-8 text-slate-600">
+                The goal is to show common ecommerce workflows where AI can be a
+                useful assistant. A tool is not included because it promises easy
+                sales, guaranteed rankings, or automatic profit. Sellers should
+                still compare features, pricing, terms, and current fit before
+                choosing software.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {selectionCriteria.map((criterion) => (
+                <article className="rounded-lg border border-slate-200 bg-slate-50 p-5" key={criterion.title}>
+                  <h3 className="font-semibold text-ink">{criterion.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                    {criterion.text}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section
         className="border-y border-slate-200 bg-white py-14 sm:py-16"
         id="curated-ai-tools"
@@ -319,9 +377,10 @@ export default function AiToolsForEcommerceSellersPage() {
             <h2 className="section-heading">Curated AI Tools for E-commerce Sellers</h2>
             <p className="mt-5 text-base leading-8 text-slate-600">
               These specific tools cover common content and workflow needs for
-              online sellers. Links go directly to official provider websites
-              and are not affiliate links. Compare current features, terms, and
-              cost before adopting a tool.
+              online sellers. This is not a paid placement list or affiliate
+              ranking; links go directly to official provider websites and are
+              not affiliate links. Compare current features, terms, and cost
+              before adopting a tool.
             </p>
             <p className="mt-4 text-base font-semibold leading-8 text-ink">
               AI tools can save time, but sellers should still validate pricing,
@@ -360,6 +419,33 @@ export default function AiToolsForEcommerceSellersPage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="page-container max-w-5xl py-14 sm:py-16">
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+          <div>
+            <h2 className="section-heading">A practical ecommerce AI workflow</h2>
+            <p className="mt-5 text-base leading-8 text-slate-600">
+              AI works best when it is tied to a narrow seller task and checked
+              against real product, channel, and margin constraints. Use it as a
+              drafting layer before financial review, not as the final authority
+              for what to sell, claim, spend, or promise.
+            </p>
+          </div>
+          <ol className="space-y-4 text-base leading-8 text-slate-600">
+            {workflowSteps.map((step, index) => (
+              <li className="flex gap-3" key={step}>
+                <span
+                  aria-hidden="true"
+                  className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm font-bold text-brand-600"
+                >
+                  {index + 1}
+                </span>
+                <span>{step}</span>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
 

@@ -550,7 +550,7 @@ export default function CalculatorPage({
                       <a
                         className="font-semibold text-brand-700 hover:underline"
                         href={source.href}
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         target="_blank"
                       >
                         {source.label}
