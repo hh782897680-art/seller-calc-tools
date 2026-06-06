@@ -1,3 +1,5 @@
+import { featuredGuides } from "@/data/featured-guides";
+
 export interface BlogPostSummary {
   slug: string;
   title: string;
@@ -9,6 +11,15 @@ export interface BlogPostSummary {
 }
 
 export const blogPosts: BlogPostSummary[] = [
+  ...featuredGuides.map((guide) => ({
+    slug: guide.slug,
+    title: guide.title,
+    seoTitle: guide.seoTitle,
+    category: guide.category,
+    description: guide.description,
+    readTime: guide.readTime,
+    updatedAt: guide.updatedAt,
+  })),
   {
     slug: "ecommerce-profit-formula-explained",
     title: "Ecommerce Profit Formula Explained",

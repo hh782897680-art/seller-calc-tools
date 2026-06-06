@@ -48,6 +48,14 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link
+                className="transition hover:text-brand-700"
+                href="/free-ecommerce-profit-tracker-spreadsheet"
+              >
+                Free Profit Tracker
+              </Link>
+            </li>
+            <li>
               <Link className="transition hover:text-brand-700" href="/contact">
                 Contact
               </Link>

@@ -11,16 +11,16 @@ import {
 } from "@/data/calculators";
 
 export const metadata: Metadata = {
-  title: "Ecommerce Profit Calculator Tools",
+  title: "Free Ecommerce Profit Calculators for Sellers | Ecom Profit Tools",
   description:
-    "Free Shopify, Etsy, Amazon, and eBay seller calculators for estimating ecommerce profit, marketplace fees, margin, ROI, and ROAS.",
+    "Free ecommerce calculators updated for 2026. Estimate Shopify, Etsy, Amazon, eBay, PayPal, Stripe fees, profit margin, ROI, ROAS, and break-even numbers for online sellers.",
   alternates: {
     canonical: "https://www.ecomprofittools.com/",
   },
   openGraph: {
-    title: "Ecommerce Profit Calculator Tools",
+    title: "Free Ecommerce Profit Calculators for Sellers | Ecom Profit Tools",
     description:
-      "Free Shopify, Etsy, Amazon, and eBay seller calculators for estimating ecommerce profit, marketplace fees, margin, ROI, and ROAS.",
+      "Free ecommerce calculators updated for 2026. Estimate Shopify, Etsy, Amazon, eBay, PayPal, Stripe fees, profit margin, ROI, ROAS, and break-even numbers for online sellers.",
     url: "https://www.ecomprofittools.com/",
     type: "website",
     siteName: "Ecom Profit Tools",
@@ -128,9 +128,9 @@ const platformCoverage = [
 ];
 
 const heroStats = [
+  "Updated for 2026",
   "18 free calculators",
   "No signup",
-  "CSV export",
 ];
 
 const howItWorksSteps = [
@@ -399,14 +399,15 @@ export default function HomePage() {
         <div className="page-container relative grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.02fr_0.98fr] lg:py-20">
           <div>
             <p className="eyebrow">
-              Free tools for ecommerce sellers
+              Free to use | No signup required
             </p>
             <h1 className="mt-6 max-w-3xl text-4xl font-bold text-ink sm:text-6xl">
               Free Ecommerce Profit Calculators for Online Sellers
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-              Calculate profit, margin, ROI, ROAS, platform fees, and
-              break-even numbers for Shopify, Etsy, Amazon, eBay, and more.
+              Free ecommerce calculators updated for 2026 to estimate Shopify,
+              Etsy, Amazon, eBay, PayPal, and Stripe fees, plus profit, margin,
+              ROI, ROAS, and break-even numbers.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
               <Link className="primary-button w-full sm:w-auto" href="#calculators">

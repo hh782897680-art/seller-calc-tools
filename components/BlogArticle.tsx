@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import FAQ from "@/components/FAQ";
 import { getCalculator, type CalculatorSlug } from "@/data/calculators";
+import type { FAQItem } from "@/data/calculators";
 
 interface BlogArticleProps {
   category: string;
@@ -9,6 +11,7 @@ interface BlogArticleProps {
   readTime: string;
   updatedAt?: string;
   relatedCalculatorSlugs: CalculatorSlug[];
+  faqs?: FAQItem[];
   children: ReactNode;
 }
 
@@ -35,14 +38,37 @@ export default function BlogArticle({
   readTime,
   updatedAt,
   relatedCalculatorSlugs,
+  faqs,
   children,
 }: BlogArticleProps) {
   const relatedCalculators = relatedCalculatorSlugs.map((slug) =>
     getCalculator(slug),
   );
+  const faqSchema = faqs
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
 
   return (
     <main>
+      {faqSchema && (
+        <script
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
+          }}
+          type="application/ld+json"
+        />
+      )}
       <header className="border-b border-slate-200 bg-[linear-gradient(180deg,#f8fbff_0%,#ffffff_58%,#f6f8fb_100%)]">
         <div className="page-container max-w-4xl py-12 sm:py-16">
           <Link
@@ -66,6 +92,15 @@ export default function BlogArticle({
 
       <article className="page-container mt-12 max-w-4xl space-y-12">
         {children}
+
+        {faqs && (
+          <section>
+            <h2 className="section-heading">Frequently asked questions</h2>
+            <div className="mt-6">
+              <FAQ items={faqs} />
+            </div>
+          </section>
+        )}
 
         <section className="dashboard-card bg-gradient-to-r from-brand-50 via-white to-white p-5 sm:p-7">
           <h2 className="text-xl font-semibold text-ink">Try these calculators</h2>

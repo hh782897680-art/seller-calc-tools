@@ -133,7 +133,7 @@ export const calculators: CalculatorData[] = [
     expertReview: {
       lastReviewed: "June 2026",
       summary:
-        "Use this Shopify calculator as an order-level contribution model. It is best for deciding whether a product, bundle, shipping offer, or ad campaign still leaves enough margin after the major variable costs are entered.",
+        "This Shopify profit calculator is designed for planning and educational use. It helps sellers estimate profit, margin, payment processing impact, shipping, ad costs, and break-even numbers, but Shopify costs can vary by plan, provider, country, currency, apps, tax setup, and fulfillment method. Verify final fees and payouts in your Shopify admin and payment dashboard before making business decisions.",
       includes: [
         "Selling price, order volume, product cost, shipping cost, advertising cost, other per-order costs, payment percentage, and fixed payment charge.",
         "Net profit, margin, ROI, and break-even ROAS from the same set of assumptions.",
@@ -241,7 +241,7 @@ export const calculators: CalculatorData[] = [
     expertReview: {
       lastReviewed: "June 2026",
       summary:
-        "Use this Etsy fee calculator to model one representative order before publishing or discounting a listing. It is most useful when item price, shipping charged, actual shipping expense, and ad attribution are separated instead of combined.",
+        "This Etsy fee calculator is designed for planning and educational use. It estimates listing, transaction, payment, shipping, advertising, profit, and margin effects for one representative order. Etsy charges can vary by shop location, currency, advertising attribution, tax treatment, and payment setup, so verify final deductions in your Etsy Payment account before making pricing decisions.",
       includes: [
         "Item price, shipping charged to the buyer, item cost, actual shipping cost, listing fee, transaction fee, payment processing, and optional offsite ads.",
         "Net profit and profit margin after the entered marketplace fees and fulfillment costs.",
@@ -350,7 +350,7 @@ export const calculators: CalculatorData[] = [
     expertReview: {
       lastReviewed: "June 2026",
       summary:
-        "Use this Amazon FBA calculator as a SKU-level contribution model. It is designed to show whether a product can survive referral fees, fulfillment fees, landed cost, storage, inbound shipping, and advertising before committing inventory or increasing PPC spend.",
+        "This Amazon FBA profit calculator is designed for planning and educational use. It estimates referral fees, fulfillment, storage, inbound shipping, PPC impact, profit, margin, ROI, and break-even considerations for a SKU. Actual charges vary by category, dimensions, weight, marketplace, inventory age, and program, so verify final fees in Seller Central before inventory or pricing decisions.",
       includes: [
         "Selling price, units sold, referral fee percentage, fulfillment fee per unit, product cost, storage, inbound shipping, ad cost, and other unit allowances.",
         "Total net profit, per-unit profit, margin, and ROI for the modeled quantity.",
@@ -806,7 +806,7 @@ export const calculators: CalculatorData[] = [
     expertReview: {
       lastReviewed: "June 2026",
       summary:
-        "Use this PayPal calculator as a payment-retention check, not a full product profit statement. It is designed to show how percentage and fixed payment charges change the amount left from one transaction.",
+        "This PayPal fee calculator is designed for planning and educational use. It estimates the payment fee, net amount, and effective rate for one transaction, while full seller profit still depends on product, shipping, marketplace, advertising, refund, and operating costs. PayPal pricing varies by product, country, currency, payment method, and account terms, so verify final fees in your PayPal activity and account agreement.",
       includes: [
         "Gross payment amount, editable percentage fee, editable fixed fee, estimated payment fee, net amount, and effective fee rate.",
         "Visibility into the fixed-fee effect on low-priced orders and split payments.",
@@ -900,6 +900,37 @@ export const calculators: CalculatorData[] = [
       "Ignoring how a fixed processing fee affects smaller orders or split payments.",
       "Calling net payment product profit before fulfillment, marketing, refund, and overhead costs.",
     ],
+    expertReview: {
+      lastReviewed: "June 2026",
+      summary:
+        "This Stripe fee calculator is designed for planning and educational use. It estimates processing cost, net payment, and effective fee rate for one transaction, while full profit still depends on product, shipping, platform, advertising, refund, dispute, and overhead costs. Stripe pricing can vary by country, payment method, currency, card origin, product, and custom agreement, so verify final fees in your Stripe Dashboard.",
+      includes: [
+        "Gross payment amount, editable percentage fee, editable fixed fee, estimated Stripe fee, net amount, and effective fee rate.",
+        "A simple way to compare how fixed processing charges affect small and large order values.",
+        "Editable assumptions for card, wallet, invoice, payment link, or other checkout scenarios.",
+      ],
+      excludes: [
+        "Automatic payment-method, international card, currency conversion, manually entered card, dispute, refund, Billing, Tax, Connect, or Instant Payout pricing.",
+        "Product cost, shipping, marketplace fees, advertising, returns, tax, fraud loss, or general business overhead.",
+        "Custom volume pricing, account credits, reserves, payout timing, or negotiated terms.",
+      ],
+      scenarioChecks: [
+        "Compare the effective fee rate for a low-value order and a higher-value order using the same fee inputs.",
+        "Run separate assumptions for domestic and international payments when both are material.",
+        "Carry the estimated net payment into a full product profit model before setting prices or discounts.",
+      ],
+      updateChecklist: [
+        "Update inputs when payment method, card origin, currency, country, or Stripe product changes.",
+        "Compare estimates with Stripe balance transactions and payout reports each month.",
+        "Refresh assumptions when moving to custom pricing or adding Billing, Connect, Tax, or instant payouts.",
+      ],
+      sourceLinks: [
+        {
+          label: "Stripe pricing",
+          href: "https://stripe.com/pricing",
+        },
+      ],
+    },
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
   },
@@ -969,6 +1000,37 @@ export const calculators: CalculatorData[] = [
       "Using a rate from another category, selling program, store plan, or country.",
       "Including promoted listing fees inconsistently when comparing promoted and unpromoted orders.",
     ],
+    expertReview: {
+      lastReviewed: "June 2026",
+      summary:
+        "This eBay fee calculator is designed for planning and educational use. It helps sellers estimate final value fees, promoted listing impact, shipping, item cost, profit, and margin for one order. eBay charges can vary by category, Store subscription, seller status, country, order value, listing options, and advertising program, so verify final charges in Seller Hub before making pricing decisions.",
+      includes: [
+        "Sale price, shipping charged, item cost, shipping expense, editable final value percentage, fixed order fee, and optional promoted listing rate.",
+        "Estimated marketplace fees, advertising fee, total cost, net profit, and profit margin.",
+        "Separate promoted and unpromoted scenarios using editable assumptions.",
+      ],
+      excludes: [
+        "Automatic category, Store plan, seller-performance, international, regulatory, optional upgrade, or high-value tier lookup.",
+        "Returns, refunds, disputes, shipping-label adjustments, taxes, packaging, labor, and business overhead unless entered in cost.",
+        "Promoted Listings attribution rules, campaign caps, or account-specific credits and fee discounts.",
+      ],
+      scenarioChecks: [
+        "Compare an unpromoted listing with the promoted ad rate that applies to the campaign.",
+        "Test buyer-paid shipping against free shipping while keeping the actual delivery cost visible.",
+        "Model an accepted offer or discount before sending it to confirm that the remaining margin is workable.",
+      ],
+      updateChecklist: [
+        "Update the final value rate after checking the listing category, Store plan, seller status, and current eBay fee table.",
+        "Refresh promoted listing assumptions when campaign type, ad rate, or attribution changes.",
+        "Compare estimated charges with recent order details and Seller Hub fee reports.",
+      ],
+      sourceLinks: [
+        {
+          label: "eBay selling fees",
+          href: "https://www.ebay.com/help/selling/fees/selling-fees?id=4822",
+        },
+      ],
+    },
     affiliateMessage:
       "Need better tools for your business? Explore recommended seller tools.",
   },

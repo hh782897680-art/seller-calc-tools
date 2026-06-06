@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     "",
     "/free-ecommerce-calculators",
+    "/free-ecommerce-profit-tracker-spreadsheet",
     "/ai-tools-for-ecommerce-sellers",
     "/blog",
     "/about",

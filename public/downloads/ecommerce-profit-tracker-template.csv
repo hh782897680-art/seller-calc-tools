@@ -1,0 +1,5 @@
+Date,Platform,Product Name,SKU,Units Sold,Selling Price,Gross Revenue,Product Cost,Shipping Cost,Marketplace Fees,Payment Fees,Ad Spend,Refunds,Other Costs,Net Profit,Profit Margin,Notes
+2026-06-01,Shopify,Example Product,SKU-001,10,35,=E2*F2,120,40,0,10.45,60,0,15,=G2-SUM(H2:N2),"=IF(G2=0,0,O2/G2)",Example row - replace with your data
+,,,,0,0,=E3*F3,0,0,0,0,0,0,0,=G3-SUM(H3:N3),"=IF(G3=0,0,O3/G3)",
+,,,,0,0,=E4*F4,0,0,0,0,0,0,0,=G4-SUM(H4:N4),"=IF(G4=0,0,O4/G4)",
+,,,,0,0,=E5*F5,0,0,0,0,0,0,0,=G5-SUM(H5:N5),"=IF(G5=0,0,O5/G5)",

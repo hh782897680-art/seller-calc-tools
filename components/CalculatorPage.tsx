@@ -341,10 +341,12 @@ export default function CalculatorPage({
               </div>
               {showFeeReviewNotice && (
                 <aside className="mt-6 max-w-3xl rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm leading-6 text-slate-600 shadow-sm">
-                  <p className="font-medium text-slate-700">Last reviewed: May 2026</p>
+                  <p className="font-medium text-slate-700">Last reviewed: June 2026</p>
                   <p className="mt-1">
-                    Fees may vary by country, currency, account type, category, and
-                    platform policy. Always verify the latest official fee schedule.
+                    This calculator is for planning and educational use. Fees may
+                    vary by country, currency, account type, category, payment
+                    method, and platform policy, so verify final charges in your
+                    own dashboard.
                   </p>
                 </aside>
               )}
@@ -485,10 +487,10 @@ export default function CalculatorPage({
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase text-brand-700">
-                  Expert review notes
+                  Updated for 2026
                 </p>
                 <h2 className="mt-3 text-2xl font-semibold text-ink">
-                  What this calculator is designed to check
+                  Planning scope and fee assumptions
                 </h2>
               </div>
               <p className="text-sm font-medium text-slate-500">
