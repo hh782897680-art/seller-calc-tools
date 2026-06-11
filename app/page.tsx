@@ -148,6 +148,40 @@ const howItWorksSteps = [
   },
 ];
 
+const platformProfitExamples = [
+  {
+    title: "Shopify product check",
+    text: "A store sells an item for $48. Product, shipping, packaging, payment, and advertising costs total $34 per order, leaving $14 before monthly overhead. The useful next step is to test a discount or higher acquisition cost in the Shopify Profit Calculator instead of assuming the $48 sale is profit.",
+    href: "/shopify-profit-calculator",
+  },
+  {
+    title: "Etsy listing check",
+    text: "An Etsy seller collects $42 for an item and shipping. Materials, postage, listing, transaction, and payment costs total $24. If an Offsite Ads fee applies, the remaining profit changes again. Compare attributed and ordinary orders before deciding whether the listing price works.",
+    href: "/etsy-fee-calculator",
+  },
+  {
+    title: "Amazon FBA SKU check",
+    text: "An FBA product sells for $35, but referral, fulfillment, landed inventory, inbound freight, storage, and PPC total $25 per unit. The $10 estimate should be stress-tested with a lower selling price and higher ad cost before a reorder is approved.",
+    href: "/amazon-fba-profit-calculator",
+  },
+];
+
+const pricingWorkflow = [
+  "Define one product, channel, and measurement period.",
+  "Collect net selling price and every cost that belongs to the same scope.",
+  "Calculate profit, margin, and any channel-specific fees.",
+  "Run a downside case with higher ads, shipping, returns, or discounts.",
+  "Compare the estimate with actual payouts and update the assumptions.",
+];
+
+const calculationMistakes = [
+  "Treating revenue, payout, or ad-attributed sales as profit.",
+  "Mixing per-unit costs with monthly or campaign totals.",
+  "Leaving out payment fees, returns, packaging, or shipping subsidies.",
+  "Using a generic fee rate without checking the seller's account and market.",
+  "Scaling a campaign from ROAS alone without checking contribution margin.",
+];
+
 const dashboardMetrics = [
   {
     label: "Net Profit",
@@ -629,6 +663,90 @@ export default function HomePage() {
                 <p className="mt-3 text-sm leading-7 text-slate-600">{step.text}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-b border-slate-200 bg-white py-16">
+        <div className="page-container">
+          <div className="max-w-3xl">
+            <p className="eyebrow">Seller decision guide</p>
+            <h2 className="mt-5 section-heading">
+              How ecommerce sellers should use these calculators
+            </h2>
+            <p className="mt-5 text-base leading-8 text-slate-600">
+              Ecom Profit Tools is for independent store owners, marketplace
+              sellers, product researchers, and marketers who need a fast
+              planning estimate before changing a price, launching a promotion,
+              ordering inventory, or increasing ad spend. Start with one
+              clearly defined scenario. Use numbers from current supplier
+              quotes, shipping invoices, payout reports, and advertising
+              dashboards rather than relying on a generic benchmark.
+            </p>
+            <p className="mt-4 text-base leading-8 text-slate-600">
+              A calculator result is most useful when it leads to a comparison.
+              Run a base case using recent actual costs, then change one
+              assumption at a time. Test a lower price, a higher return
+              allowance, a more expensive shipping zone, or a weaker campaign.
+              The difference between those cases shows where the business is
+              sensitive and which input deserves attention.
+            </p>
+          </div>
+
+          <div className="mt-9 grid gap-5 lg:grid-cols-3">
+            {platformProfitExamples.map((example) => (
+              <article className="dashboard-card flex flex-col p-6" key={example.title}>
+                <h3 className="text-lg font-semibold text-ink">{example.title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-7 text-slate-600">
+                  {example.text}
+                </p>
+                <Link
+                  className="mt-5 text-sm font-semibold text-brand-700 hover:underline"
+                  href={example.href}
+                >
+                  Test this type of scenario <span aria-hidden="true">&rarr;</span>
+                </Link>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-9 grid gap-6 lg:grid-cols-2">
+            <section className="dashboard-card p-6">
+              <h3 className="text-xl font-semibold text-ink">
+                Pricing and margin decision workflow
+              </h3>
+              <ol className="mt-5 space-y-4">
+                {pricingWorkflow.map((step, index) => (
+                  <li className="flex gap-3 text-sm leading-7 text-slate-600" key={step}>
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-50 font-bold text-brand-700">
+                      {index + 1}
+                    </span>
+                    <span>{step}</span>
+                  </li>
+                ))}
+              </ol>
+            </section>
+
+            <section className="dashboard-card p-6">
+              <h3 className="text-xl font-semibold text-ink">
+                Common profit calculation mistakes
+              </h3>
+              <ul className="mt-5 space-y-4 text-sm leading-7 text-slate-600">
+                {calculationMistakes.map((mistake) => (
+                  <li className="border-l-2 border-amber-300 pl-4" key={mistake}>
+                    {mistake}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-sm leading-7 text-slate-600">
+                Review the{" "}
+                <Link className="font-semibold text-brand-700 hover:underline" href="/methodology">
+                  calculator methodology
+                </Link>{" "}
+                for formula scope, source checks, update practices, and
+                limitations.
+              </p>
+            </section>
           </div>
         </div>
       </section>

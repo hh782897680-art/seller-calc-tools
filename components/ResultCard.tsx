@@ -25,6 +25,9 @@ export default function ResultCard({
   const highlightedMetrics = metrics.filter(
     (metric) => metric.highlight && metric.label !== primaryMetric?.label,
   );
+  const secondaryMetrics = metrics.filter(
+    (metric) => metric.label !== primaryMetric?.label,
+  );
 
   return (
     <section
@@ -76,18 +79,20 @@ export default function ResultCard({
         </dl>
       )}
 
-      <dl className="border-t border-slate-200 px-5 py-3 sm:px-6">
-        {metrics.map((metric) => (
-          <div className="flex items-center justify-between gap-4 py-3 text-sm" key={metric.label}>
-            <dt className={metric.highlight ? "font-semibold text-ink" : "text-slate-600"}>
-              {metric.label}
-            </dt>
-            <dd className={metric.highlight ? "font-bold text-brand-700" : "font-semibold text-slate-900"}>
-              {metric.value}
-            </dd>
-          </div>
-        ))}
-      </dl>
+      {secondaryMetrics.length > 0 && (
+        <dl className="border-t border-slate-200 px-5 py-3 sm:px-6">
+          {secondaryMetrics.map((metric) => (
+            <div className="flex items-center justify-between gap-4 py-3 text-sm" key={metric.label}>
+              <dt className={metric.highlight ? "font-semibold text-ink" : "text-slate-600"}>
+                {metric.label}
+              </dt>
+              <dd className={metric.highlight ? "font-bold text-brand-700" : "font-semibold text-slate-900"}>
+                {metric.value}
+              </dd>
+            </div>
+          ))}
+        </dl>
+      )}
       {warning && (
         <p className="mx-5 mb-5 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-800 sm:mx-6">
           {warning}

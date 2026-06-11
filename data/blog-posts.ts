@@ -1,4 +1,5 @@
 import { featuredGuides } from "@/data/featured-guides";
+import { profitGuides } from "@/data/profit-guides";
 
 export interface BlogPostSummary {
   slug: string;
@@ -11,6 +12,15 @@ export interface BlogPostSummary {
 }
 
 export const blogPosts: BlogPostSummary[] = [
+  ...profitGuides.map((guide) => ({
+    slug: guide.slug,
+    title: guide.title,
+    seoTitle: guide.seoTitle,
+    category: guide.category,
+    description: guide.description,
+    readTime: guide.readTime,
+    updatedAt: guide.updatedAt,
+  })),
   ...featuredGuides.map((guide) => ({
     slug: guide.slug,
     title: guide.title,

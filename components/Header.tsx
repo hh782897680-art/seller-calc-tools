@@ -3,6 +3,7 @@ import Link from "next/link";
 const navigation = [
   { label: "Calculators", href: "/#calculators" },
   { label: "Blog", href: "/blog" },
+  { label: "Methodology", href: "/methodology" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

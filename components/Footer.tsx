@@ -66,6 +66,11 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <Link className="transition hover:text-brand-700" href="/methodology">
+                Methodology
+              </Link>
+            </li>
+            <li>
               <Link className="transition hover:text-brand-700" href="/privacy-policy">
                 Privacy Policy
               </Link>

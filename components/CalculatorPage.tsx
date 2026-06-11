@@ -6,6 +6,7 @@ import FormulaBox from "@/components/FormulaBox";
 import RelatedCalculators from "@/components/RelatedCalculators";
 import ShareCalculator from "@/components/ShareCalculator";
 import type { CalculatorData } from "@/data/calculators";
+import { coreCalculatorContent } from "@/data/core-calculator-content";
 
 const reviewedFeeCalculatorSlugs = new Set<CalculatorData["slug"]>([
   "shopify-fee-calculator",
@@ -59,6 +60,7 @@ export default function CalculatorPage({
   const isFeaturedCalculatorPage = isShopifyProfitPage || isAmazonFbaProfitPage;
   const showFeeReviewNotice = reviewedFeeCalculatorSlugs.has(calculator.slug);
   const expertReview = calculator.expertReview;
+  const coreContent = coreCalculatorContent[calculator.slug];
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -429,6 +431,29 @@ export default function CalculatorPage({
       </section>
 
       <article className={`calculator-content page-container py-14 ${isFeaturedCalculatorPage ? "max-w-5xl space-y-8" : "max-w-4xl space-y-8"}`}>
+        {coreContent && (
+          <section className="bg-brand-50/60">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold uppercase text-brand-700">
+                  Calculator content review
+                </p>
+                <h2 className="mt-3 text-2xl font-semibold text-ink">
+                  Current scope and review date
+                </h2>
+              </div>
+              <p className="text-sm font-medium text-slate-500">
+                Last updated: {coreContent.lastUpdated}
+              </p>
+            </div>
+            <p className="mt-5 text-sm leading-7 text-slate-600">
+              Inputs, explanations, and examples are reviewed for seller planning.
+              Platform-specific charges remain editable because actual terms vary
+              by account, country, currency, category, and transaction.
+            </p>
+          </section>
+        )}
+
         <section>
           <h2 className="section-heading">What is this calculator?</h2>
           <div className="mt-5 space-y-4 text-base leading-8 text-slate-600">
@@ -444,6 +469,43 @@ export default function CalculatorPage({
             {calculator.whoShouldUse}
           </p>
         </section>
+
+        {coreContent && (
+          <section>
+            <h2 className="section-heading">
+              What decisions does this calculator support?
+            </h2>
+            <ul className="mt-5 space-y-3 text-base leading-8 text-slate-600">
+              {coreContent.decisions.map((decision) => (
+                <li
+                  className="rounded-lg border border-slate-200 bg-slate-50 px-5 py-3"
+                  key={decision}
+                >
+                  {decision}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {coreContent && (
+          <section>
+            <h2 className="section-heading">Input field guide</h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {coreContent.inputGuide.map((item) => (
+                <div
+                  className="rounded-lg border border-slate-200 bg-slate-50 p-5"
+                  key={item.label}
+                >
+                  <h3 className="font-semibold text-ink">{item.label}</h3>
+                  <p className="mt-2 text-sm leading-7 text-slate-600">
+                    {item.explanation}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section>
           <h2 className="section-heading">How to calculate it</h2>
@@ -572,6 +634,25 @@ export default function CalculatorPage({
           </p>
         </section>
 
+        {coreContent && (
+          <section>
+            <h2 className="section-heading">How to interpret the results</h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {coreContent.resultGuide.map((item) => (
+                <div
+                  className="rounded-lg border border-slate-200 bg-slate-50 p-5"
+                  key={item.label}
+                >
+                  <h3 className="font-semibold text-ink">{item.label}</h3>
+                  <p className="mt-2 text-sm leading-7 text-slate-600">
+                    {item.explanation}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
         <section>
           <h2 className="section-heading">Why the result matters</h2>
           <div className="mt-5 space-y-4 text-base leading-8 text-slate-600">
@@ -697,6 +778,22 @@ export default function CalculatorPage({
             <RelatedCalculators slugs={calculator.relatedSlugs} />
           </div>
         </section>
+
+        {coreContent && (
+          <section className="border-amber-200 bg-amber-50/60">
+            <h2 className="section-heading">Disclaimer</h2>
+            <p className="mt-5 text-sm leading-7 text-slate-600">
+              {coreContent.disclaimer}
+            </p>
+            <p className="mt-3 text-sm leading-7 text-slate-600">
+              Read the site-wide{" "}
+              <Link className="font-semibold text-brand-700 hover:underline" href="/methodology">
+                calculator methodology
+              </Link>{" "}
+              for formula, source, review, and limitation details.
+            </p>
+          </section>
+        )}
 
         <ShareCalculator
           fallbackUrl={`https://www.ecomprofittools.com/${calculator.slug}`}
