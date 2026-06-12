@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
-import AdSenseScript from "@/components/AdSenseScript";
 import type { ReactNode } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -25,10 +24,16 @@ export default function RootLayout({
 }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5827463097117050"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="min-h-screen">
         <Header />
         <GoogleAnalytics />
-        <AdSenseScript />
         {children}
         <Footer />
       </body>
